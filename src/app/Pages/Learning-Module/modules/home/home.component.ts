@@ -80,6 +80,7 @@ export class HomeComponent implements OnInit {
     this.typingInitiating(this._writerIndex);
     this.getAllCoursesData();
     this.getSingleCourseData();
+    
     // let id = this.route.snapshot.paramMap.get('id');
 
     // this.courseServices.sharedData$
@@ -145,34 +146,9 @@ export class HomeComponent implements OnInit {
     this.slidetogglers[position] = active;
   }
 
-  // customOptions: OwlOptions = {
-  //   loop: true,
-  //   mouseDrag: false,
-  //   touchDrag: false,
-  //   pullDrag: false,
-  //   dots: false,
-  //   navSpeed: 700,
-  //   navText: ['', ''],
-  //   responsive: {
-  //     0: {
-  //       items: 1
-  //     },
-  //     400: {
-  //       items: 2
-  //     },
-  //     740: {
-  //       items: 3
-  //     },
-  //     940: {
-  //       items: 4
-  //     }
-  //   },
-  //   nav: true
-  // }
-
   getAllCoursesData(){
     this.courseServices.getAllCourses().subscribe((res:any)=>{
-      console.log("courses res",res)
+      console.log("courses res",res);
       this.coursesData=res?.data;
     },(err:any)=>{
       console.log("courses err",err)
@@ -193,6 +169,7 @@ export class HomeComponent implements OnInit {
 
   addToCart(id:any){
     // console.log("id***********",id)
+    
     this.courseId=id._id
 
   if (!this.data){
@@ -223,6 +200,7 @@ export class HomeComponent implements OnInit {
          // this.cartLength=this.cartLength++
             console.log("this.cartLength",this.cartLength);
             this.courseServices.isCartCount.next(this.cartLength);
+          
             // this.courseServices.sharedData.next(this.cartLength);
             // this.courseServices.sharedData.next(this.product);
             // this.courseServices.cartData.next(this.cartLength);

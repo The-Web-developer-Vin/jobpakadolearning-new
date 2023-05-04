@@ -123,6 +123,10 @@ font-variation-settings:
 'opsz' 48
 }
 
+.toast-success.ngx-toastr{
+  top: 10px !important;
+}
+
 // .save-mark:hover .material-symbols-outlined {
 // font-variation-settings:
 // 'FILL' 1,

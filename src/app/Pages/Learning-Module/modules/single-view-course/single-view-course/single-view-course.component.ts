@@ -54,6 +54,8 @@ export class SingleViewCourseComponent implements OnInit {
   singleCoursetitle: any;
   courseData: any;
   index: any;
+  actualPrice: any;
+  offerPrice: any;
   constructor(
     private route: ActivatedRoute,
     private courseService: courseService,
@@ -127,16 +129,6 @@ export class SingleViewCourseComponent implements OnInit {
     }
   }
 
-  // SlideDown(): void {
-  //   if (!this.clicked) {
-  //     this.clicked = true
-  //   }
-  //   else {
-  //     this.clicked = false
-  //   }
-  // }
-  // }
-
   report() {
     this.reportBlock = !this.reportBlock;
   }
@@ -147,28 +139,23 @@ export class SingleViewCourseComponent implements OnInit {
   gatAllCorsesData() {
     this.courseService.getAllSingleViewCourse(this.id).subscribe(
       (res: any) => {
-        console.log('singleCourse res ===>', res);
+        // console.log('singleCourse res ===>*****', res);
         this.webDevolpmentData = res.data.course;
         this.rating = res.data.webDevolpmentData;
         this.youWillLearnData = res.data.course.whatUwillLearn;
         this.courseData = res.data.course;
-        // res.data.course.whatUwillLearn.forEach((element:any) => {
-        //   console.log("element",element)
-        // });
+        res.data?.course.forEach((element:any) => {
+          this.actualPrice=element.actualPrice,
+          this.offerPrice=element.offerPrice
+        });
 
         this.courseIncludesData = res.data.course.courseIncludes;
-        // res.data.course.courseIncludes.forEach((element: any) => {
-        //   this.courseDesrciption = element.description;
-        // });
         this.courseContent = res.data.course.courseContent;
         res.data.course.courseContent.forEach((element: any) => {
           this.lecture = element.section.lecture;
           this.lectureTitleData.push(element);
         });
         this.requerementsData=res.data.course.requirements;
-        // res.data.course.requirements.forEach((element: any) => {
-        //   this.requerementsData = element.description;
-        // });
         this.descriptionData = res.data.course.description;
       },
       (err: any) => {

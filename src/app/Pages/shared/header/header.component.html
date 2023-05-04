@@ -44,53 +44,65 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                 </svg></button></a>
               </div>
-              <div class="absolute bg-white w-2/5  hidden group-hover:block right-10  top-20">
-                <div class="main-imgae-blk flex gap-4 border p-4" *ngFor="let data of cartDatas; let i=index">
-                  <div class="img-blk w-1/5">
-                    <img src="http://localhost:8080/{{data.image ? data.image  : data.courseId?.image}}" alt="" class="w-full object-cover h-full rounded-lg">
-                  </div>
-               
-                   <div class="heading-outer-blk w-full">
-                      <div class="heading-blk text-left">
-                        <h1 class="font-Lexend text-lg font-medium"
-                        >
-                        {{data.title ? data.title : data.courseId?.title}}</h1>
-                      </div>
-                     <div class="main-name-blk flex items-center justify-between">
-                      <div class="name-blk">
-                        <p class="font-light text-sm font-Lexend">{{data.courseId?.instructor?.name_as_per_bank}}</p>
-                      </div>
-                      <div class="flex items-center gap-2">
-                        <div class="number-inner">
-                          <p class="font-Lexend text-lg font-medium">
-                            ₹{{data.offerPrice ? data.offerPrice : data.courseId?.offerPrice}}
+              <div class="absolute bg-white w-2/6 hidden group-hover:block right-10 top-20 pb-5">
+                <div class="main-outer-for-tabs  h-full max-h-[400px] overflow-y-auto overflow-hidden">
+                  <div class="main-imgae-blk flex gap-4 border p-4" *ngFor="let data of cartDatas; let i=index">
+                    <div class="img-blk w-2/6">
+                      <img src="http://localhost:8080/{{data.image ? data.image  : data.courseId?.image}}" alt="" class="w-full object-cover h-full rounded-lg">
+                    </div>               
+                     <div class="heading-outer-blk w-4/6">
+                        <div class="heading-blk text-left">
+                          <h1 class="font-Lexend text-sm font-medium"
+                          >
+                          {{data.title ? data.title : data.courseId?.title}}</h1>
+                        </div>
+                       <div class="main-name-blk">
+                        <div class="name-blk">
+                          <p class="font-light text-xs font-Lexend text-left">
+                            {{data.courseId?.instructor?.name_as_per_bank}}
                           </p>
                         </div>
-                        <div class="number-inner mt-2">
-                          <p class="font-Lexend text-sm font-medium line-through text-gray-400">
-                            <!-- ₹{{offerPrice}} -->₹{{data.actualPrice ? data.actualPrice: data.courseId?.actualPrice}}
-                          </p>
-                        </div>
+                        <div class="flex items-center gap-2">
+                          <div class="number-inner">
+                            <p class="font-Lexend text-sm font-medium">
+                              ₹{{data.offerPrice ? data.offerPrice : data.courseId?.offerPrice}}
+                            </p>
+                          </div>
+                          <div class="number-inner mt-2">
+                            <p class="font-Lexend text-sm font-medium line-through text-gray-400">
+                              <!-- ₹{{offerPrice}} -->₹{{data.actualPrice ? data.actualPrice: data.courseId?.actualPrice}}
+                            </p>
+                          </div>
+                         </div>
                        </div>
-                     </div>
-                
-                       <div class="remove-button">
-                      <button (click)="deleteCartData(data,i)"
-                        class="rounded-lg ml-auto flex items-center gap-4 px-3 py-2 font-Lexend text-sm text-white bg-greenog group"
-                      >
-                        <p
-                          class="translate-x-4 duration-300 group-hover:translate-x-0"
+                  
+                         <!-- <div class="remove-button">
+                        <button (click)="deleteCartData(data,i)"
+                          class="rounded-lg ml-auto flex items-center gap-4 px-3 py-2 font-Lexend text-sm text-white bg-greenog group"
                         >
-                          Remove
-                        </p>
-                        <i
-                          class="fa-solid fa-xmark text-white duration-300 group-hover:translate-y-0 translate-y-7"
-                        ></i>
-                      </button>
-                    </div>
+                          <p
+                            class="translate-x-4 duration-300 group-hover:translate-x-0"
+                          >
+                            Remove
+                          </p>
+                          <i
+                            class="fa-solid fa-xmark text-white duration-300 group-hover:translate-y-0 translate-y-7"
+                          ></i>
+                        </button>
+                      </div> -->
+  
                      
-                   </div>
-            </div>
+                       
+                     </div> 
+                  </div>
+                </div>
+                <div class="aad-to-cart text-center mt-5">
+                  <a [routerLink]="['/cart']">
+                    <button class="bg-secondary text-white py-2 w-1/2 hover:bg-greenog hover:text-white duration-500 font-Lexend font-normal text-base rounded-lg">
+                     Go To Cart
+                    </button>
+                  </a>
+              </div>
             </div>
 
 
@@ -550,7 +562,7 @@
         </div>
       </div>
 
-      <div class="hover-cart">
+      <!-- <div class="hover-cart">
         <div class="hover-cart-inner w-24 bg-white shadow-custom">
           <div *ngFor="let data of cartAllData">
             <div class="cart-section-inner bg-white shadow-custom rounded-xl flex 2xl:flex xl:flex lg:flex lgb:flex md:flex sm:flex smg:flex xs:flex xsg:block pl-3 py-3 pr-5 gap-4 mb-5"
@@ -572,30 +584,30 @@
                     <h6
                       class="font-Lexend text-lg font-medium 2xl:text-lg xl:text-lg lg:text-lg lgb:text-lg md:text-lg sm:text-lg smg:text-sm xs:text-sm xsg:text-xl"
                     >
-                     <!-- {{cartTitle}} -->
+                     {{cartTitle}}
                     </h6>
                   </div>
                 </div>
                 <div class="second-section flex items-center justify-between">
                   <div class="img-number-blk">
                     <p class="font-light text-sm font-Lexend">
-                      <!-- {{cartName}} -->
+                      {{cartName}}
                     </p>
                   </div>
                  <div class="flex items-center gap-2">
                   <div class="number-inner">
                     <p class="font-Lexend text-lg font-medium">
-                      <!-- ₹{{priceData}} -->
+                      ₹{{priceData}}
                     </p>
                   </div>
                   <div class="number-inner mt-2">
                     <p class="font-Lexend text-sm font-medium line-through text-gray-400">
-                      <!-- ₹{{offerPrice}} -->
+                      ₹{{offerPrice}}
                     </p>
                   </div>
                  </div>
                 </div>
-                <!-- <div class="remove-button">
+                <div class="remove-button">
                   <button (click)="deleteCartData(data)"
                     class="rounded-lg ml-auto flex items-center gap-4 px-3 py-2 font-Lexend text-sm text-white bg-greenog group"
                   >
@@ -608,12 +620,12 @@
                       class="fa-solid fa-xmark text-white duration-300 group-hover:translate-y-0 translate-y-7"
                     ></i>
                   </button>
-                </div> -->
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

@@ -172,29 +172,12 @@
               <div class="left-image-seciton col-span-4">
                 <img
                   class="rounded-t-xl"
-                  src="../../../../../assets/images/right-image-991.webp"
+                  src="https://learningbackend.jobpakado.com/{{ webDevolpmentData?.image }}"
                   alt=""
                 />
               </div>
               <div class="right-tabs-section col-span-8">
                 <div class="pt-4 pb-7 px-6">
-                  <!-- <div class="tabs w-full">
-                  
-                    <ul class="flex justify-start w-full">
-                      <li class="w-1/2">
-                        <button type="button" [ngClass]="{ active: tabs.Personal }" (click)="menuTabs('personals')"
-                          class="liquid duration-300 w-full">
-                          Personal
-                        </button>
-                      </li>
-                      <li class="w-1/2">
-                        <button type="button" [ngClass]="{ active: tabs.Teams }" (click)="menuTabs('teams')"
-                          class="liquid duration-300 w-full">
-                          Teams
-                        </button>
-                      </li>
-                    </ul>
-                  </div> -->
                   <div class="" [hidden]="!tabs.Personal">
                     <div class="flex justify-between items-center">
                       <div class="discount-block">
@@ -202,9 +185,10 @@
                           <p class="text-xl font-Lexend">
                             <span class="font-bold"
                               ><span class="font-Lexend text-greenog">₹</span>
-                              649
+                              {{offerPrice}}                          
                             </span>
-                            <span class="line-through"> ₹3,699</span> 82% off
+                            <span class="line-through"> ₹{{actualPrice}}</span> 
+                            <!-- 82% off -->
                           </p>
                         </div>
                         <div class="clock-blk mt-2">
@@ -256,7 +240,7 @@
                       </div>
                     </div>
 
-                    <div class="or-block flex items-center mt-5">
+                    <!-- <div class="or-block flex items-center mt-5">
                       <div class="border w-1/2"></div>
                       <p class="px-2 font-Lexend">or</p>
                       <div class="border w-1/2"></div>
@@ -297,7 +281,7 @@
                           ₹829.00 per month. Cancel anytime.
                         </p>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="team-main-blk" [hidden]="!tabs.Teams">
                     <div class="team-heding-blk mt-5">
@@ -360,31 +344,15 @@
                     />
                   </div>
                   <div class="pt-4 pb-7 px-6">
-                    <!-- <div class="tabs w-full">
-                  
-                      <ul class="flex justify-start w-full">
-                        <li class="w-1/2">
-                          <button type="button" [ngClass]="{ active: tabs.Personal }" (click)="menuTabs('personals')"
-                            class="liquid duration-300 w-full">
-                            Personal
-                          </button>
-                        </li>
-                        <li class="w-1/2">
-                          <button type="button" [ngClass]="{ active: tabs.Teams }" (click)="menuTabs('teams')"
-                            class="liquid duration-300 w-full">
-                            Teams
-                          </button>
-                        </li>
-
-                      </ul>
-                    </div> -->
                     <div class="">
                       <div class="side-image-content mt-3">
                         <p class="text-xl font-Lexend">
                           <span class="font-bold"
-                            ><span class="font-Lexend text-greenog">₹</span> 649
+                            ><span class="font-Lexend text-greenog">₹</span>
+                            {{offerPrice}}                          
                           </span>
-                          <span class="line-through"> ₹3,699</span> 82% off
+                          <span class="line-through"> ₹{{actualPrice}}</span> 
+                          <!-- 82% off -->
                         </p>
                       </div>
                       <div class="clock-blk mt-2">
@@ -2428,9 +2396,9 @@
                     <div class="side-image-content mt-3">
                       <p class="text-xl font-Lexend">
                         <span class="font-bold"
-                          ><span class="font-Lexend text-greenog">₹</span> 649
+                          ><span class="font-Lexend text-greenog">₹</span> {{webDevolpmentData.actualPrice}}
                         </span>
-                        <span class="line-through"> ₹3,699</span> 82% off
+                        <span class="font-Lexend font-normal line-through text-gray-400 text-sm"> ₹{{webDevolpmentData.offerPrice}}</span> 
                       </p>
                     </div>
                     <div class="clock-blk mt-2">
@@ -2442,11 +2410,11 @@
                       </p>
                     </div>
                     <div class="buy-blk px-3 mt-3">
-                      <button
+                      <a [routerLink]="['/check-out']"><button
                         class="font-medium font-Lexend leading-leading-10p text-lg w-full py-5 bg-secondary rounded-lg duration-300 text-white hover:bg-greenog"
                       >
                         Buy This Course
-                      </button>
+                      </button></a>
                     </div>
                     <div class="guarantee-blk text-center mt-3">
                       <p class="font-Lexend text-sm">
@@ -2469,7 +2437,7 @@
                           Course
                         </p>
                       </a> -->
-                      <a href="">
+                      <a [routerLink]="['/cart']">
                         <p
                           class="font-Lexend text-sm font-bold underline underline-offset-4 text-greenog"
                         >
@@ -2477,7 +2445,7 @@
                         </p>
                       </a>
                     </div>
-                    <div class="or-block flex items-center mt-5">
+                    <!-- <div class="or-block flex items-center mt-5">
                       <div class="border w-1/2"></div>
                       <p class="px-2">or</p>
                       <div class="border w-1/2"></div>
@@ -2517,9 +2485,9 @@
                       <p class="text-sm font-Lexend text-gray-500">
                         ₹829.00 per month. Cancel anytime.
                       </p>
-                    </div>
+                    </div> -->
                   </div>
-                  <div class="team-main-blk" [hidden]="!tabs.Teams">
+                  <!-- <div class="team-main-blk" [hidden]="!tabs.Teams">
                     <div class="team-heding-blk mt-5">
                       <h2 class="text-xl font-Lexend font-bold">
                         Jobpakado
@@ -2562,7 +2530,7 @@
                         </div>
                       </ul>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
