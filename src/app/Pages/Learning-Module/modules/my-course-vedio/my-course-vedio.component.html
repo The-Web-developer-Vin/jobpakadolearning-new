@@ -1,11 +1,11 @@
 <app-header></app-header>
 <div class="my-course-video-page">
-  <div class="my-course-video-inner">
+  <div class="my-course-video-inner px-0 lg:p-5">
     <div class="grid grid-cols-6">
-      <div class="" [ngClass]="{'col-span-6': sideBar, 'col-span-4': !sideBar}">
+      <div class="lg:col-span-6" [ngClass]="{'col-span-6': sideBar, 'col-span-4': !sideBar}">
         <div class="video-section relative">
           <div class="video-inner-section">
-            <video loop autoplay width="100%" height="100%" controls="true" class="h-550h object-cover">
+            <video loop autoplay width="100%" height="100%" controls="true" class="h-550h object-cover lg:h-full">
               <source src="https://cdn.hasselblad.com/f/77891/x/4ab3d4d680/cfv-907x-intro.mp4" type="video/mp4">
             </video>
           </div>
@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-      <div class="" [ngClass]="{'hidden': sideBar, 'col-span-2': !sideBar}">
+      <div class="lg:col-span-6 mt-0 lg:mt-5" [ngClass]="{'hidden': sideBar, 'col-span-2': !sideBar}">
         <div class="side-bar-section">
           <div class="side-bar-section-inner">
             <div class="content-area-section">
@@ -29,7 +29,7 @@
                 <div class="content-head">
                   <h2 class="font-Lexend font-semibold text-2xl">Content Section</h2>
                 </div>
-                <div class="close-section">
+                <div class="close-section block lg:hidden">
                   <button (click)="sideBarClose()" class="group">
                     <!-- <i class="fa-solid fa-bars text-xl"></i> -->
                     <i class="fa-solid fa-xmark text-2xl group-hover:text-greenog group-hover:rotate-180 duration-300"></i>
@@ -57,7 +57,7 @@
                       </button>
                     </h2>
                     <div id="{{'accordion-collapse-body-1'}}" class="hidden" aria-labelledby="accordion-collapse-heading-1">
-                      <div class="p-5 border border-b-0 border-gray-400 bg-white">
+                      <div class="p-5 border border-b-0 bg-white">
                        <div class="content-section-content flex flex-col gap-4">
                         <div class="available-resources pb-4 border-b border-grayShade flex items-end justify-between">
                           <div class="flex gap-5">
