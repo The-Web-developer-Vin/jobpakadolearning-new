@@ -66,6 +66,7 @@ export class HeaderComponent implements OnInit {
   deletyeLength: any;
   totalPrice: any;
   deleteCartId: any;
+  wishlistData:any=0
   constructor(
     private fb: FormBuilder,
     private courseservice: courseService,
@@ -166,6 +167,14 @@ this.cartGetById()
     // this.courseservice.cartData$.subscribe((res:any)=>{
     //   console.log("res====>",res)
     // })
+    if (this.userId) {
+      this.getWishlist(this.userId)
+    }
+    this.courseService.wishListCount$.subscribe((res:any)=>{
+      if(res){
+        this.getWishlist(this.userId)
+      }
+    })
   }
   cartGetById(){
   if (this.userId) {
@@ -482,5 +491,18 @@ this.cartGetById()
 //     console.log("cratById err",err)
 //   })
 // }
+
+getWishlist(id: any) {
+  this.courseService.getAllWishlist(id).subscribe(
+    (res: any) => {
+      this.wishlistData = res?.data?.total;
+      console.log("wishlistData", this.wishlistData)
+    },
+    (err) => {
+      console.log(err);
+    }
+  );
+}
+
   
 }

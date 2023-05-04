@@ -17,6 +17,9 @@ export class courseService {
   isCartCount$: Observable<any> = this.isCartCount.asObservable();
   private messageSource = new BehaviorSubject('default message');
   currentMessage = this.messageSource.asObservable();
+  wishListCount: Subject<any> = new Subject<any>();
+  wishListCount$: Observable<any> = this.wishListCount.asObservable();
+
   constructor(private http: HttpClient,private _httpClient: HttpClient,) {
     let data = JSON.parse(localStorage.getItem('USERTOKEN')!);
     this.token = data;
@@ -59,14 +62,14 @@ export class courseService {
   }
     return this.http.get(applicationUrls.coursesData,options)
   }
-  getAllCoursesData(){
+  getAllCoursesData(params: any){
     let options={
       headers: new HttpHeaders({
       Authorization: "Bearer " + this.token,
       accept:"application/json",
     }),
   }
-    return this.http.get(applicationUrls.courses,options)
+    return this.http.get(applicationUrls.courses + params,options)
   }
   getAllSingleViewCourse(body:any){
     let options={
@@ -154,4 +157,19 @@ getCouponData(body:any){
 }
   return this.http.post(applicationUrls.couponData,body,options)
 }
+creatWishlist(body: any) {
+  return this.http.post(
+    applicationUrls.wishList + 'create_update_wishlist',
+    body
+  );
+}
+getAllWishlist(id: any) {
+  return this.http.get(applicationUrls.wishList + 'get_wishlist_by_id/' + id);
+}
+removeWishlist(id: any) {
+  return this.http.delete(
+    applicationUrls.wishList + 'delete_wishlist_by_id/' + id
+  );
+}
+
 }

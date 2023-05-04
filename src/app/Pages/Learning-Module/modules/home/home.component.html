@@ -290,9 +290,15 @@
                           {{data.categoryName}}
                           </h6>
                         </div>
-                        <div class="save-mark group cursor-pointer">
+                        <div *ngIf="!data.wishList" class="save-mark group cursor-pointer" (click)="wishlist(data)">
                           <i class="fa-regular fa-bookmark group-hover:text-greenog duration-300"></i>
                         </div>
+                        <div *ngIf="data.wishList" class="save-mark group cursor-pointer" (click)="removeWishlist(data._id)">
+                          <i class="fa-solid fa-bookmark text-greenog"></i>
+                     
+                        </div>
+
+                        
                       </div>
                       <div class="rating-section my-2">
                         <div class="flex items-center gap-2">
