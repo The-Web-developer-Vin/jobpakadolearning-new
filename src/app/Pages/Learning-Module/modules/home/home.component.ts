@@ -11,28 +11,6 @@ import { courseService } from 'src/app/Pages/shared/services/courses/courses.ser
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  // carouselOptions: OwlOptions = {
-  //   loop: true,
-  //   mouseDrag: true,
-  //   touchDrag: true,
-  //   pullDrag: true,
-  //   dots: false,
-  //   navSpeed: 400,
-  //   nav: true,
-  //   navText: ['', ''],
-  //   center: false,
-  //   startPosition: 0,
-  //   items: 2.25,
-  // };
-  // products: any[] = [
-  //   { class: 'red' },
-  //   { class: 'green' },
-  //   { class: 'blue' },
-  //   { class: 'pink' },
-  //   { class: 'gray' },
-  //   { class: 'violet' },
-  //   { class: 'brown' },
-  // ];
   product=0;
   sharedData: any;
   public typewriter_display: string = '';
