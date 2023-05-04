@@ -48,6 +48,9 @@ import { environment } from "src/environments/environment";
      get couponData(){
       return this.url + '/coupon/applyCoupon'
      }
+     get wishList(){
+      return this.url + '/wishList/'
+     }
   }
 
   export const applicationUrls = new jobpakadoUrl();

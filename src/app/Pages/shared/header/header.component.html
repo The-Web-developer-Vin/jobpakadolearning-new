@@ -31,7 +31,17 @@
           </div>
         </div>
         <div class="col-span-2 md:order-2 order-3 md:col-span-2 text-right flex items-center gap-5">
-          <div class="login-button-header flex items-center gap-10">
+          <div class="login-button-header flex items-center gap-5">
+                       <div class="whishList-blk w-12 h-12 grid place-items-center relative">
+              <a [routerLink]="['/wishlist']">
+                <button class="hover:text-greenog duration-500"><i class="fa-regular fa-heart text-2xl mt-1"></i></button>
+              </a>
+              <div class="absolute top-0 right-0">
+                <p class="bg-red-500 text-white font-Lexend rounded-full w-6 h-6 grid place-items-center text-xs">{{wishlistData}}</p>
+              </div>
+              
+            </div>
+
             <div class="cart-blk group">
               <div class="relative py-2">
                 <div class="t-0 absolute left-3">
@@ -107,7 +117,7 @@
 
 
             </div>
-            <div class="login-button">
+            <div class="login-button ml-3">
               <button *ngIf="!logins"
                 type="button"
                 data-modal-target="defaultModal"

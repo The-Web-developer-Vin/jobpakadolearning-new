@@ -27,14 +27,14 @@ import { DayAgoPipe } from './Pages/shared/day-ago-pipe';
 import {RatingModule} from "ngx-rating";
 import { CartComponent } from './Pages/Learning-Module/modules/cart/cart.component';
 import { CheckOutComponent } from './Pages/Learning-Module/modules/check-out/check-out.component';
-import { WhishListComponent } from './Pages/Learning-Module/modules/whish-list/whish-list.component';
+
 import { MyCourseVedioComponent } from './Pages/Learning-Module/modules/my-course-vedio/my-course-vedio.component';
 
 @NgModule({
   declarations: [
     // CommonModule,
     AppComponent,
-    WhishListComponent,
+    
     // MyCourseVedioComponent,
   ],
   imports: [

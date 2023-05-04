@@ -38,6 +38,10 @@ const routes: Routes = [
     path: 'myCourse-video/:id',
     loadChildren: () => import('../app/Pages/Learning-Module/modules/my-course-vedio/my-course-vedio.module').then(m => m.MyCourseVedioModule)
   },
+  {
+    path: 'wishlist',
+    loadChildren: () => import('../app/Pages/Learning-Module/modules/whish-list/whish-list.module').then(m => m.WhishListModule)
+  },
 
 ];
 

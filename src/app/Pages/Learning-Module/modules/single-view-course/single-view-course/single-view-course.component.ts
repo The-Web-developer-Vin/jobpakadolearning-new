@@ -56,6 +56,7 @@ export class SingleViewCourseComponent implements OnInit {
   index: any;
   actualPrice: any;
   offerPrice: any;
+  userId:any
   constructor(
     private route: ActivatedRoute,
     private courseService: courseService,
@@ -71,6 +72,9 @@ export class SingleViewCourseComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let userDetails:any = JSON.parse(localStorage.getItem("USERDATA") || '{}');
+    this.userId=userDetails._id
+
     this.clickedIndex = false;
     this.clicked = false;
     this.route.paramMap.subscribe((data: any) => (this.id = data.params.id));
@@ -204,7 +208,8 @@ export class SingleViewCourseComponent implements OnInit {
     this.videorl = video?.lecture;
   }
   getSingleCourseData() {
-    this.courseService.getAllCoursesData().subscribe(
+    let params = this.userId ? `?userId=${this.userId}` : ''
+    this.courseService.getAllCoursesData(params).subscribe(
       (res: any) => {
         console.log('single Course res************', res);
         this.singleCourseData = res.data.course;

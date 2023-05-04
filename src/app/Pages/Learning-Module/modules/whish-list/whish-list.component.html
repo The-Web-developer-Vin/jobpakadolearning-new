@@ -1,1 +1,67 @@
-<p>whish-list works!</p>
+<app-header></app-header>
+<div class="main">
+  <!-- <div class="bg-secondary1 p-12">
+        <div class="container mx-auto text-center">
+        <h1 class="text-3xl font-bold font-Lexend text-white1">My Wishlist</h1>
+    </div>
+    </div> -->
+  <div class="container mx-auto">
+    <div class="p-14">
+      <div class="text-center mb-7">
+        <h1 class="text-3xl font-bold font-Lexend text-white1">My Wishlist</h1>
+      </div>
+      <div *ngIf="!wishlistData?.length" class="font-Lexend text-center border p-10 rounded-md">
+        <h1 class="text-5xl font-bold font-Lexend text-white1 mb-4">Oops...!</h1>
+        <p class="mb-6 text-md text-gray-500">Your Wishlist is empty</p>
+        <button [routerLink]="['/']"
+        class="rounded-lg px-6 py-2.5 font-Lexend text-sm text-white bg-greenog group whitespace-nowrap"
+      >
+       Create New Wish
+      </button>
+      </div>
+      <div class="relative overflow-x-auto font-Lexend" *ngIf="wishlistData?.length">
+        <table class="w-full text-left border">
+          <thead class="text-sm uppercase bg-gray-100 border-b">
+            <tr>
+              <th scope="col" class="px-4 py-3.5 border-r w-4">S.No</th>
+              <th scope="col" class="px-4 py-3.5 border-r">Course</th>
+              <th scope="col" class="px-6 py-3.5 border-r">Name</th>
+              <th scope="col" class="px-6 py-3.5 border-r">Price</th>
+             
+              <th scope="col" class="px-6 py-3.5 border-r">Shopping</th>
+              <th scope="col" class="px-4 py-3.5">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let list of wishlistData; let i = index"
+              class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+            >
+              <td class="px-4 py-2 border-r text-center">{{ i + 1 }}</td>
+              <td class="px-4 py-2 border-r text-center"><img src="https://learningbackend.jobpakado.com/{{ list?.courseId?.image}}" class="h-14 object-cover rounded-md" alt=""></td>
+              <td class="px-6 py-2 border-r">{{ list?.courseId?.title }}</td>
+              <td class="px-6 py-2 border-r font-bold">{{ list?.courseId?.offerPrice | currency:'INR'}}<span class="line-through text-sm text-gray-400 font-light ml-3">{{ list?.courseId?.actualPrice | currency:'INR'}}</span></td>
+            
+              <td class="px-6 py-2 border-r">
+                <button (click)="addTocart(list)"
+                  class="rounded-lg px-6 py-2 font-Lexend text-sm text-white bg-greenog group whitespace-nowrap"
+                >
+                  Add To Cart
+                </button>
+              </td>
+              <td class="px-4 py-3 text-center">
+                <button (click)="remove(list._id)" class="text-red-500 rounded-full">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr *ngIf="!wishlistData?.length">
+                <td colspan="6" class="text-center py-4 px-6 text-gray-600 text-base">No data found...!</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { courseService } from 'src/app/Pages/shared/services/courses/courses.service';
 import { ToastrService } from 'ngx-toastr';
+import { courseService } from 'src/app/Pages/shared/services/courses/courses.service';
 // import { OwlOptions } from 'ngx-owl-carousel-o';
 // import { OwlOptions } from 'ngx-owl-carousel-o';
 @Component({
@@ -11,28 +11,6 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  // carouselOptions: OwlOptions = {
-  //   loop: true,
-  //   mouseDrag: true,
-  //   touchDrag: true,
-  //   pullDrag: true,
-  //   dots: false,
-  //   navSpeed: 400,
-  //   nav: true,
-  //   navText: ['', ''],
-  //   center: false,
-  //   startPosition: 0,
-  //   items: 2.25,
-  // };
-  // products: any[] = [
-  //   { class: 'red' },
-  //   { class: 'green' },
-  //   { class: 'blue' },
-  //   { class: 'pink' },
-  //   { class: 'gray' },
-  //   { class: 'violet' },
-  //   { class: 'brown' },
-  // ];
   product=0;
   sharedData: any;
   public typewriter_display: string = '';
@@ -78,19 +56,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
     this.typingInitiating(this._writerIndex);
-    this.getAllCoursesData();
-    this.getSingleCourseData();
-    
-    // let id = this.route.snapshot.paramMap.get('id');
-
-    // this.courseServices.sharedData$
-    // .subscribe(sharedData => this.sharedData = sharedData);
-    // this.addToCart();
 
     let userDetails:any = JSON.parse(localStorage.getItem("USERDATA") || '{}');
  
     this.userId=userDetails._id
     console.log("userDetails===>",this.userId)
+    this.getAllCoursesData();
+    this.getSingleCourseData();
   }
   public onButtonClick(): void {
     this._canType = !this._canType;
@@ -156,7 +128,8 @@ export class HomeComponent implements OnInit {
   }
 
   getSingleCourseData(){
-    this.courseServices.getAllCoursesData().subscribe((res:any)=>{
+    let params = this.userId ? `?userId=${this.userId}` : ''
+    this.courseServices.getAllCoursesData(params).subscribe((res:any)=>{
       console.log("single Course res",res)
       this.singleCourseData=res.data.course;
     //     res.data.course.forEach((element:any,index:any) => {
@@ -213,9 +186,41 @@ export class HomeComponent implements OnInit {
           console.log("cart err",err)
         });
       }
-
-
-
-
+}
+wishlist(data: any) {
+  if (this.userId) {
+    let obj = {
+      userId:this.userId,
+      courseId :data?._id
+    }
+    this.courseServices.creatWishlist(obj).subscribe((res:any)=>{
+      this.courseServices.wishListCount.next(1)
+      this.toastr.success(res.message)
+      this.getSingleCourseData()
+     
+    },(err)=>{
+      console.log(err)
+    })
+    return;
+  }
+  // this.loginModal = true;
+  // this.courseServices.loginModal.next(this.loginModal);
+  this.toastr.error("Please login to continue...")
+}
+removeWishlist(id: any){
+  console.log("dgr", id)
+  // this.courseServices.removeWishlist(id).subscribe(
+  //   (res: any) => {
+  //     console.log(res);
+  //     if (res) {
+  //       this.courseServices.wishListCount.next(1)
+  //       this.getSingleCourseData()
+  //       this.toastr.success(res.message)
+  //     }
+  //   },
+  //   (err) => {
+  //     console.log(err);
+  //   }
+  // );
 }
 }
