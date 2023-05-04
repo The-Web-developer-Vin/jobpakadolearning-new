@@ -1,0 +1,512 @@
+<app-header></app-header>
+<div class="main-blk pb-10">
+  <div class="container mx-auto">
+    <div class="content-outer-blk py-10">
+      <div class="content-blk relative">
+        <div class="sidebar-blk absolute top-16">
+          <div
+            class="sidebar-inner-blk border px-12 py-10 border-greenog rounded-xl"
+          >
+            <div class="wellcome-blk">
+              <p class="font-Lexend text-lg font-light text-gray-400">
+                Welcome, Jone Due
+              </p>
+              <div class="dashboard-blk py-6">
+                <ul class="flex flex-col gap-8">
+                  <li
+                    class="font-Lexend text-lg text-start font-light cursor-pointer duration-300 text-secondary hover:text-greenog flex items-center gap-2"
+                  >
+                    <button
+                      type="button"
+                      [ngClass]="{ active: tabs.Publish }"
+                      (click)="menuTabs('publish')"
+                      class="liquid duration-300 w-full text-secondary"
+                    >
+                      <p class="flex items-center gap-2">
+                        <span class="material-symbols-outlined">
+                          desktop_windows
+                        </span>
+                        My Courses
+                      </p>
+                    </button>
+                  </li>
+                  <li
+                    class="font-Lexend text-lg font-light cursor-pointer duration-300 text-secondary hover:text-greenog flex items-center gap-2"
+                  >
+                    <button
+                      type="button"
+                      [ngClass]="{ active: tabs.Pending }"
+                      (click)="menuTabs('pending')"
+                      class="liquid duration-300 w-full"
+                    >
+                      <p class="flex items-center gap-2">
+                        <span class="material-symbols-outlined"> person </span>
+                        My Profile
+                      </p>
+                    </button>
+                  </li>
+                  <!-- <li class="font-Lexend text-lg font-light cursor-pointer duration-300 text-secondary hover:text-greenog flex items-center gap-2">
+                             <span class="material-symbols-outlined">
+                                home
+                                </span>
+                               <p> Enrolled Courses</p>
+                            </li> -->
+                  <li
+                    class="font-Lexend text-lg font-light cursor-pointer duration-300 text-secondary hover:text-greenog flex items-center gap-2"
+                  >
+                    <span class="material-symbols-outlined">
+                      restore_from_trash
+                    </span>
+                    <p>Order History</p>
+                  </li>
+                </ul>
+              </div>
+
+             
+
+              <div class="instruction-main-blk pt-5">
+                <div class="instructor-blk">
+                  <p class="font-Lexend text-lg font-light text-gray-400">
+                    USER
+                  </p>
+                </div>
+                <div class="dashboard-blk py-8">
+                  <ul class="flex flex-col gap-6">
+                    <li
+                      class="font-Lexend text-lg font-light cursor-pointer duration-300 text-secondary hover:text-greenog flex items-center gap-2"
+                    >
+                      <span class="material-symbols-outlined"> settings </span>
+                      <p>Settings</p>
+                    </li>
+                    <li
+                      class="font-Lexend text-lg font-light cursor-pointer duration-300 text-secondary hover:text-greenog flex items-center gap-2"
+                    >
+                      <span class="material-symbols-outlined"> logout </span>
+                      <p>Logout</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right-blk pl-80 py-16 h-675h" [hidden]="!tabs.Publish">
+          <div class="right-inner-blk">
+            <div class="myCourses-heading-blk">
+              <h1 class="font-Lexend text-3xl font-bold">My Courses</h1>
+            </div>
+            <!-- <div class="tabs w-full mt-10">
+                        <ul class="flex justify-start w-full">
+                          <li class="w-3/12">
+                            <button type="button" [ngClass]="{ active: tabs.Publish }" (click)="menuTabs('publish')"
+                              class="liquid duration-300 w-3/12">
+                              Publish
+                            </button>
+                          </li>
+                          <li class="w-3/12">
+                            <button type="button" [ngClass]="{ active: tabs.Pending }" (click)="menuTabs('pending')"
+                              class="liquid duration-300 w-3/12">
+                              Pending
+                            </button>
+                          </li>
+                          <li class="w-3/12">
+                            <button type="button" [ngClass]="{ active: tabs.Draft }" (click)="menuTabs('draft')"
+                              class="liquid duration-300 w-3/12">
+                              Draft
+                            </button>
+                          </li>
+    
+                        </ul>
+                      </div> -->
+
+            <!-- <div class="tabs-content-blk mt-5">
+              <div class="content-inner-blk grid grid-cols-3 gap-8"> -->
+
+                <div class="business-images-blk py-5">
+                  <div class="grid grid-cols-12 gap-10">
+                    <ng-container  *ngFor="let data of myCourseData">
+                    <div class="col-span-4 hover:scale-105 duration-500 ">
+                      <div class="business-images-inner p-5 bg-white rounded-xl shadow-custom2">
+                        <div class="image-blk w-full">
+                         <a [routerLink]="['/myCourse-video',data._id]">
+                          <img src="https://learningbackend.jobpakado.com/{{data.image}}" class="w-250w h-150h object-cover mx-auto rounded-xl  duration-300"
+                          alt="" />
+                         </a>
+                        </div>
+                        <div class="image-contant-blk py-3">
+                          <div class="flex items-center justify-between">
+                            <div class="business-blk mb-2">
+                              <h6 class="font-Lexend font-normal text-sm">
+                              {{data.categoryName}}
+                              </h6>
+                            </div>
+                            <!-- <div class="save-mark group cursor-pointer">
+                              <i class="fa-regular fa-bookmark group-hover:text-greenog duration-300"></i>
+                            </div> -->
+                          </div>
+                          <div class="rating-section my-1">
+                            <div class="flex items-center gap-2">
+                              <div class="flex items-center">
+                                <div class="star-1"><span class="material-symbols-outlined text-gold text-lg lg:text-base md:text-lg">star</span></div>
+                                <div class="star-2"><span class="material-symbols-outlined text-gold text-lg lg:text-base md:text-lg">star</span></div>
+                                <div class="star-3"><span class="material-symbols-outlined text-gold text-lg lg:text-base md:text-lg">star</span></div>
+                                <div class="star-4"><span class="material-symbols-outlined text-gold text-lg lg:text-base md:text-lg">star</span></div>
+                                <div class="star-5"><span class="material-symbols-outlined text-gold text-lg lg:text-base md:text-lg">star</span></div>
+                              </div>
+                              <div class="reviews-section">
+                                <p class="font-Lexend text-base text-secondary ">( <span
+                                    class="text-greenog">{{data.courseReviews}} Reviews</span> )</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="business-analytic-blk mb-2">
+                            <h2 class="font-Lexend font-semibold text-base lg:text-base">
+                             {{data.title}}
+                            </h2>
+                            <div class="para-description my-1">
+                              <p class="text-xs font-Lexend lg:text-sm">{{data.titleDescription}}</p>
+                            </div>
+                          </div>
+                          <div class="flex flex-col gap-1 my-1">
+                            <div class="jobs-blk flex items-center justify-between gap-4 pb-1">
+                              <div class="bag-img-blk">
+                              
+                                <p class="font-Lexend font-medium text-lg text-greenog"> {{data.offerPrice | currency:'INR'}}<span class="line-through text-xs text-gray-400 font-light"> {{data.actualPrice | currency:'INR'}}</span> </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="view-course-blk w-full">
+                            <a [routerLink]="['/single-viewCourse',data._id]">
+                              <button
+                                class="font-Lexend text-base px-10 leading-leading-10p py-4 w-full border border-secondary text-secondary duration-300 font-medium  rounded-lg hover:bg-greenog hover:border-greenog hover:text-white">
+                                Start Learning
+                              </button>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-container>
+                  </div>
+                </div>
+              
+                <!-- <div
+                class="col-span-1 bg-white shadow-xl p-6 hover:scale-105 duration-500"
+              >
+                <div class="ontent-img-blk">
+                  <img
+                    src="../../../../../assets/images/php.png"
+                    class="w-full rounded-xl"
+                    alt=""
+                  />
+                </div>
+                <div
+                  class="ratins-main-blk flex items-center justify-between"
+                >
+                  <div class="ratings-blk mt-5">
+                    <div class="ratins-inner-blk flex items-center gap-1">
+                      <div class="star-1">
+                        <span
+                          class="material-symbols-outlined text-gold lg:text-base md:text-lg"
+                          >star</span
+                        >
+                      </div>
+                      <div class="star-2">
+                        <span
+                          class="material-symbols-outlined text-gold lg:text-base md:text-lg"
+                          >star</span
+                        >
+                      </div>
+                      <div class="star-3">
+                        <span
+                          class="material-symbols-outlined text-gold lg:text-base md:text-lg"
+                          >star</span
+                        >
+                      </div>
+                      <div class="star-4">
+                        <span
+                          class="material-symbols-outlined text-gold lg:text-base md:text-lg"
+                          >star</span
+                        >
+                      </div>
+                      <div class="star-5">
+                        <span
+                          class="material-symbols-outlined text-gold lg:text-base md:text-lg"
+                          >star</span
+                        >
+                      </div>
+                    </div>
+                    <div class="reviews-blk mt-1">
+                      <p class="font-Lexend text-sm font-light">
+                        (15 Reviews)
+                      </p>
+                    </div>
+                  </div>
+                  <div class="save-blk">
+                    <span class="material-symbols-outlined hover:text-greenog duration-300"> bookmark </span>
+                  </div>
+                </div>
+                <div class="haeding-blk my-4">
+                  <h2 class="font-Lexend font-medium text-lg hover:text-greenog duration-300 h-12">
+                    PHP Beginner + Advanced
+                  </h2>
+                </div>
+                <div class="lessons-blk">
+                  <div class="flex items-center gap-3">
+                      <div class="iconer">
+                          <i class="fa-solid fa-book text-greenog w-5"></i>
+                      </div>
+                      <div class="para-tag">
+                          <p class="font-Lexend font-light text-sm"> 20 Lessons</p>
+                      </div>
+                  </div>
+                </div>
+                <div class="lessons-blk pt-2">
+                  <div class="flex items-center gap-3">
+                      <div class="iconer">
+                          <i class="fa-solid fa-user-group text-greenog w-5"></i>
+                      </div>
+                      <div class="para-tag">
+                          <p class="font-Lexend font-light text-sm"> 40 Students</p>
+                      </div>
+                  </div>                    
+                </div>
+                <div class="price-blk flex justify-between items-center mt-5">
+                  <div class="price-inner-blk">
+                    <div class=" flex items-end gap-2">
+                      <p class="font-Lexend font-medium text-2xl leading-tight text-secondary">$20</p>
+                      <p class="text-sm line-through leading-tight text-gray-500 mb-1 "
+                        >$40</p >
+                    </div>
+                  </div>
+                  <div class="edit-blk">
+                    <div class=" flex items-center gap-2 group"
+                    >
+                      <span
+                        class="material-symbols-outlined text-lg group-hover:text-greenog duration-300"
+                      >
+                        edit_square
+                      </span>
+                     <p class="font-Lexend font-light text-sm group-hover:text-greenog duration-300"> Edit</p>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- <div
+              class="col-span-1 bg-white shadow-xl p-6 hover:scale-105 duration-500"
+            >
+              <div class="ontent-img-blk">
+                <img
+                  src="../../../../../assets/images/angualr.png"
+                  class="w-full rounded-xl"
+                  alt=""
+                />
+              </div>
+              <div
+                class="ratins-main-blk flex items-center justify-between"
+              >
+                <div class="ratings-blk mt-5">
+                  <div class="ratins-inner-blk flex items-center gap-1">
+                    <div class="star-1">
+                      <span
+                        class="material-symbols-outlined text-gold lg:text-base md:text-lg"
+                        >star</span
+                      >
+                    </div>
+                    <div class="star-2">
+                      <span
+                        class="material-symbols-outlined text-gold lg:text-base md:text-lg"
+                        >star</span
+                      >
+                    </div>
+                    <div class="star-3">
+                      <span
+                        class="material-symbols-outlined text-gold lg:text-base md:text-lg"
+                        >star</span
+                      >
+                    </div>
+                    <div class="star-4">
+                      <span
+                        class="material-symbols-outlined text-gold lg:text-base md:text-lg"
+                        >star</span
+                      >
+                    </div>
+                    <div class="star-5">
+                      <span
+                        class="material-symbols-outlined text-gold lg:text-base md:text-lg"
+                        >star</span
+                      >
+                    </div>
+                  </div>
+                  <div class="reviews-blk mt-1">
+                    <p class="font-Lexend text-sm font-light">
+                      (15 Reviews)
+                    </p>
+                  </div>
+                </div>
+                <div class="save-blk">
+                  <span class="material-symbols-outlined hover:text-greenog duration-300"> bookmark </span>
+                </div>
+              </div>
+              <div class="haeding-blk my-4">
+                <h2 class="font-Lexend font-medium text-lg hover:text-greenog duration-300 h-12">
+                    Angular Zero to Mastery
+                </h2>
+              </div>
+              <div class="lessons-blk">
+                <div class="flex items-center gap-3">
+                    <div class="iconer">
+                        <i class="fa-solid fa-book text-greenog w-5"></i>
+                    </div>
+                    <div class="para-tag">
+                        <p class="font-Lexend font-light text-sm"> 14 Lessons</p>
+                    </div>
+                </div>
+              </div>
+              <div class="lessons-blk pt-2">
+                <div class="flex items-center gap-3">
+                    <div class="iconer">
+                        <i class="fa-solid fa-user-group text-greenog w-5"></i>
+                    </div>
+                    <div class="para-tag">
+                        <p class="font-Lexend font-light text-sm"> 26 Students</p>
+                    </div>
+                </div>                    
+              </div>
+              <div class="price-blk flex justify-between items-center mt-5">
+                <div class="price-inner-blk">
+                  <div class=" flex items-end gap-2">
+                    <p class="font-Lexend font-medium text-2xl leading-tight text-secondary">$23</p>
+                    <p class="text-sm line-through leading-tight text-gray-500 mb-1 "
+                      >$45</p >
+                  </div>
+                </div>
+                <div class="edit-blk">
+                  <div class=" flex items-center gap-2 group"
+                  >
+                    <span
+                      class="material-symbols-outlined text-lg group-hover:text-greenog duration-300"
+                    >
+                      edit_square
+                    </span>
+                   <p class="font-Lexend font-light text-sm group-hover:text-greenog duration-300"> Edit</p>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+              <!-- </div>
+            </div> -->
+          </div>
+        </div>
+        <div class="right-blk pl-80 py-16 h-675h" [hidden]="!tabs.Pending">
+            <div class="jhaeding-blk">
+                <h1 class="font-Lexend text-2xl font-semibold">My Profile</h1>
+            </div>
+          <div class="right-inner-blk flex justify-between mt-10">
+            <div class="image-blk">
+                <div class="image-blk text-center mt-5 relative overflow-hidden rounded-full">
+                    <img src="../../../../../assets/images/avatar-nv.webp" alt="" class="w-40 rounded-full">
+                    <!-- <input type="file" class=""> -->
+                    <div class="blackmask-section w-full">
+                      <div class="blackmask-section-inner absolute top-20 bg-photo-bg w-full h-24 grid place-items-center">
+                        <div class="cam-icon">
+                          <span class="material-symbols-outlined text-white text-4xl"> add_a_photo </span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+               <div class="main-blk mt-3">
+                <div class="email-blk text-center">
+                    <p class="font-Lexend text-base font-medium"> ron@gmail.com</p>
+                 </div>
+                 <div class="name-blk text-center">
+                     <p class="font-Lexend text-base font-light">Ron</p>
+                 </div>
+               </div>
+
+            </div>
+          <div class="name-outer-blk flex flex-col gap-5">
+            <div class="main-name-blk flex items-start gap-4">
+                <div class="name-blk">
+                    <div class="label-blk">
+                     <label for="name" class="font-Lexend text-base font-light">Name</label>
+                    </div>
+                    <div class="name-input-blk">
+                       <input type="text" name="name" id="name" placeholder="Name" class="border-gray-400 w-full py-2 font-Lexend text-base font-light rounded-lg">
+                    </div>
+                </div>
+                <div class="number-blk">
+                   <div class="label-blk">
+                      <label for="mobileNumber" class="font-Lexend text-base font-light">Mobile Number</label>
+                   </div>
+                   <div class="number-input-blk">
+                      <input type="text" name="mobileNumber" id="mobileNumber" placeholder="Mobile Number" class="border-gray-400 w-full py-2 font-Lexend text-base font-light rounded-lg">
+                   </div>
+                </div>
+               </div>
+              <div class="email-inner-blk">
+                <div class="email-blk">
+                    <label for="email" class="font-Lexend text-base font-light">Email</label>
+                   </div>
+                   <div class="email-input-blk">
+                      <input type="email" name="email" id="email" placeholder="Email" class="border-gray-400 w-full py-2 font-Lexend text-base font-light rounded-lg">
+                   </div>
+              </div>
+              <div class="main-name-blk flex items-start gap-4">
+                <div class="name-blk">
+                    <div class="label-blk">
+                     <label for="city" class="font-Lexend text-base font-light">City</label>
+                    </div>
+                    <div class="name-input-blk">
+                       <input type="text" name="city" id="city" placeholder="City" class="border-gray-400 w-full py-2 font-Lexend text-base font-light rounded-lg">
+                    </div>
+                </div>
+                <div class="number-blk">
+                   <div class="label-blk" >
+                      <label for="state" class="font-Lexend text-base font-light">State</label>
+                   </div>
+                   <div class="number-input-blk">
+                      <input type="text" name="state" id="state" placeholder="State" class="border-gray-400 w-full py-2 font-Lexend text-base font-light rounded-lg">
+                   </div>
+                </div>
+               </div>
+               <!-- <div class="email-inner-blk">
+                <div class="email-blk">
+                    <label for="profilePhoto" class="font-Lexend text-base font-light">Profile Photo</label>
+                   </div>
+                   <div class="email-input-blk border w-full">
+                      <input type="file" name="profilePhoto" id="profilePhoto" class="border-gray-400 w-full text-end font-Lexend text-base font-light rounded-lg">
+                   </div>
+              </div> -->
+              <div class="main-name-blk flex items-start gap-4">
+                <div class="name-blk w-1/2">
+                    <div class="label-blk">
+                     <label for="country" class="font-Lexend text-base font-light">Country</label>
+                    </div>
+                    <div class="name-input-blk">
+                       <input type="text" name="contry" id="contry" placeholder="Country" class="border-gray-400 w-full py-2 font-Lexend text-base font-light rounded-lg">
+                    </div>
+                </div>
+                <div class="number-blk w-1/2">
+                   <div class="label-blk">
+                      <label for="dateOfBirth" class="font-Lexend text-base font-light">Date-Of-Birth</label>
+                   </div>
+                   <div class="number-input-blk w-full">
+                      <input type="date" name="dateOfBirth" id="dateOfBirth" class="border-gray-400 w-full py-2 font-Lexend text-base font-light rounded-lg">
+                   </div>
+                </div>
+                
+               </div>
+
+               <div class="update-button-blk mt-8">
+                <button class=" border w-1/2 py-2 rounded-lg border-greenog hover:bg-greenog hover:text-white duration-500 font-Lexend font-medium text-lg">Update</button>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

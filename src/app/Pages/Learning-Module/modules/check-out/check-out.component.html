@@ -1,0 +1,322 @@
+<app-header></app-header>
+
+<div class="main-block">
+  <div class="container mx-auto">
+    <div class="main-heading-blk pt-5 py-10 2xl:px-10 xl:px-10 lg:px-10 lgb:px-10 md:px-10 sm:px-10 smg:px-10 xs:px-10 xsg:px-10">
+      <div class="heading-blk text-start">
+        <h1 class="font-Lexend font-semibold text-2xl">Billing Details</h1>
+      </div>
+      <div class="grid grid-cols-5 gap-40 main-section-credit 2xl:gap-40 xl:gap-20 lg:gap-20 lgb-gap-20 md:gap-10">
+        <div class="col-span-3 2xl:col-span-3 xl:col-span-3 lg:col-span-3 lgb:col-span-3 md:col-span-3 sm:col-span-5 smg:col-span-5 xs:col-span-5 xsg:col-span-5">
+          <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+          <div class="form-blk flex flex-col gap-5 mt-3">
+            <div class="name-blk flex flex-col gap-2">
+              <div class="name-label-blk">
+                <label for="name" class="font-Lexend font-light text-base">First & last name</label>
+              </div>
+              <div class="name-input-cart-blk w-full">
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  formControlName="name"
+                  placeholder="Enter a Name"
+                  class="rounded-lg w-full font-Lexend font-light text-sm"
+                  [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
+                />
+                <!-- <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                  <div 
+                  *ngIf="f['name'].errors['required']" class="text-red-700">*Fullname is required</div>
+                </div> -->
+                <div 
+                *ngIf="submitted && f['name'].errors?.['required']" class="text-red-700 text-sm">*Fullname is required</div>
+              </div>
+            </div>
+            <div class="name-blk flex flex-col gap-2">
+              <div class="name-label-blk">
+                <label for="email" class="font-Lexend font-light text-base">Email Address</label>
+              </div>
+              <div class="name-input-cart-blk w-full">
+                <input
+                  type="text"
+                  name="email"
+                  id="email"
+                  placeholder="Enter a Email"
+                  formControlName="email"
+                  class="w-full rounded-lg font-Lexend font-light text-sm"
+                  [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+                />
+                <div 
+                *ngIf="submitted && f['email'].errors?.['required']" class="text-red-700 text-sm">*Email is required</div>
+              </div>
+            </div>
+            <div class="name-blk flex flex-col gap-2">
+              <div class="name-label-blk">
+                <label for="email" class="font-Lexend font-light text-base">Country</label>
+              </div>
+              <div class="name-input-cart-blk w-full">
+                <select name="country" id="country" class="w-full rounded-lg"
+                formControlName="country"
+                [ngClass]="{ 'is-invalid': submitted && f['country'].errors }">
+                  <option value="" class="font-Lexend font-light text-base">Choose a Country</option>
+                  <option value="australia" class="font-Lexend font-light text-base">Australia</option>
+                  <option value="india" class="font-Lexend font-light text-base">india</option>
+                  <option value="bangladesh" class="font-Lexend font-light text-base">Bangladesh</option>
+                </select>
+                <div 
+                *ngIf="submitted && f['country'].errors?.['required']" class="text-red-700 text-sm">*Country is required</div>
+              </div>
+            </div>
+            <div class="main-postal-code flex items-center gap-3 w-full">
+              <div class="name-blk flex flex-col gap-2 w-1/2">
+                <div class="name-label-blk">
+                  <label for="state" class="font-Lexend font-light text-base">State Country</label>
+                </div>
+                <div class="name-input-cart-blk">
+                  <input
+                    type="text"
+                    name="state"
+                    id="state"
+                    placeholder="Enter a State"
+                    class="w-full rounded-lg font-Lexend font-light text-sm"
+                    formControlName="state"
+                    [ngClass]="{ 'is-invalid': submitted && f['state'].errors }"
+                  />
+                  <div 
+                  *ngIf="submitted && f['state'].errors?.['required']" class="text-red-700 text-sm">*State is required</div>
+                </div>
+              </div>
+
+              <div class="name-blk flex flex-col gap-2 w-1/2">
+                <div class="name-label-blk">
+                  <label for="code" class="font-Lexend font-light text-base">Zip & Postal Code</label>
+                </div>
+                <div class="name-input-cart-blk w-full">
+                  <input
+                    type="text"
+                    name="code"
+                    id="code"
+                    placeholder="Enter a Postal Code"
+                    class="w-full rounded-lg font-Lexend font-light text-sm"
+                    formControlName="postal"
+                    [ngClass]="{ 'is-invalid': submitted && f['postal'].errors }"
+                  />
+                  <div 
+                  *ngIf="submitted && f['postal'].errors?.['required']" class="text-red-700 text-sm">*Postal Code is required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="payment-blk flex flex-col gap-5 mt-5">
+            <div class="payment-heading-blk">
+              <h2 class="font-Lexend font-semibold text-2xl">Payment Method</h2>
+            </div>
+            <div
+              class="payment-input-blk flex items-center justify-between gap-3 border border-[#6b7280] rounded-lg px-2 py-1"
+            >
+              <div class="main-radio-blk flex items-center gap-3 2xl:gap-3 xl:gap-3 lg:gap-3 lgb:gap-3 md:gap-3 sm:gap-3 smg:gap-3 xs:gap-3 xsg:gap-1">
+                <div class="radio-blk">
+                    <input type="radio" name="radio" />
+                  </div>
+                  <div class="cradit-blk">
+                    <p class="font-medium font-Lexend text-base">Credit card</p>
+                  </div>
+              </div>
+              <div class="images-blk flex items-center gap-3 2xl:gap-3 xl:gap-3 lg:gap-3 lgb:gap-3 sm:gap-3 smg:gap-3 xs:gap-3 xsg:gap-1">
+                <div class="american-blk">
+                    <img src="../../../../../assets/images/american-express.png" class="w-10 2xl:w-10 xl:w-10 lg:w-10 lgb:w-10 md:w-10 sm:w-10 smg:w-10 xs:w-10 xsg:w-8" alt="">
+                </div>
+                <div class="mastar-blk">
+                    <img src="../../../../../assets/images/master-card.png" class="w-10 2xl:w-10 xl:w-10 lg:w-10 lgb:w-10 md:w-10 sm:w-10 smg:w-10 xs:w-10 xsg:w-8" alt="">
+                </div>
+                <div class="discover-blk">
+                    <img src="../../../../../assets/images/discover.png" class="w-10 2xl:w-10 xl:w-10 lg:w-10 lgb:w-10 md:w-10 sm:w-10 smg:w-10 xs:w-10 xsg:w-8" alt="">
+                </div>
+                <div class="visa-blk">
+                    <img src="../../../../../assets/images/visa.png" class="w-10 2xl:w-10 xl:w-10 lg:w-10 lgb:w-10 md:w-10 sm:w-10 smg:w-10 xs:w-10 xsg:w-8" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="name-blk flex flex-col gap-2">
+              <div class="name-label-blk">
+                <label for="card" class="font-Lexend font-light text-base">Card Number</label>
+              </div>
+              <div class="name-input-cart-blk w-full">
+                <input
+                  type="text"
+                  name="card"
+                  id="card"
+                  placeholder="Enter a Card Number"
+                  class="w-full rounded-lg font-Lexend font-light text-sm"
+                  formControlName="cardNumber"
+                  [ngClass]="{ 'is-invalid': submitted && f['cardNumber'].errors }"
+                />
+                <div 
+                *ngIf="submitted && f['cardNumber'].errors?.['required']" class="text-red-700 text-sm">*Card number is required</div>
+              </div>
+            </div>
+            <div class="name-blk flex flex-col gap-5">
+              <div class="flex 2xl:flex xl:flex lg:flex lgb:flex md:flex sm:flex smg:flex xs:flex xsg:block items-center gap-5">
+                <div class="expiration-blk flex flex-col gap-2 w-1/2 2xl:w-1/2 xl:w-1/2 lg:w-1/2 lgb:w-1/2 sm:w-1/2 smg:w-1/2 xs:w-1/2 xsg:w-full">
+                  <div class="name-label-blk">
+                    <label for="date" class="font-Lexend font-light text-base">Expiration Date</label>
+                  </div>
+                  <div class="name-input-cart-blk flex items-center gap-4">
+                    <div class="month-blk w-1/2">
+                      <select name="month" id="month" class="w-full rounded-lg"
+                      formControlName="month"
+                      [ngClass]="{ 'is-invalid': submitted && f['month'].errors }">
+                        <option value="" class="font-Lexend font-light text-base">Month</option>
+                        <option value="august" class="font-Lexend font-light text-base">august</option>
+                        <option value="december" class="font-Lexend font-light text-base">December</option>
+                      </select>
+                      <div 
+                      *ngIf="submitted && f['month'].errors?.['required']" class="text-red-700 text-sm">*This field is required</div>
+                    </div>
+                    <div class="year-blk w-1/2">
+                      <select name="year" id="year" class="rounded-lg w-full"
+                      formControlName="year"
+                      [ngClass]="{ 'is-invalid': submitted && f['year'].errors }">
+                        <option value="" class="font-Lexend font-light text-base">year</option>
+                        <option value="2001" class="font-Lexend font-light text-base">2001</option>
+                        <option value="2001" class="font-Lexend font-light text-base">2002</option>
+                      </select>
+                      <div 
+                      *ngIf="submitted && f['year'].errors?.['required']" class="text-red-700 text-sm">*This field is required</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="security-code-blk flex items-end justify-end 2xl:justify-end xl:justify-end lg:justify-end lgb:justify-end md:justify-end sm:justify-end smg:justify-end xs:justify-end xsg:justify-start w-1/2 2xl:w-1/2 xl:w-1/2 lg:w-1/2 lgb:w-1/2 sm:w-1/2 smg:w-1/2 xs:w-1/2 xsg:w-full 2xl:mt-0 xl:mt-0 lg:mt-0 lgb:my-0 sm:mt-0 smg:mt-0 xs:mt-0 xsg:mt-5">
+                  <div class="security flex items-end justify-end 2xl:justify-end xl:justify-end lg:justify-end lgb:justify-end md:justify-end sm:justify-end smg:justify-end xs:justify-end xsg:justify-start gap-4">
+                    <div class="security-input w-3/4 flex flex-col gap-3">
+                        <div class="security-label">
+                            <label for="security" class="font-Lexend font-light text-base 2xl:text-base xl:text-base lg:text-base lgb:text-base md:text-base sm:text-base smg:text-base xs:text-base xsg:text-base">Security Code</label>
+                        </div>
+                        <input
+                            type="text"
+                            name="security"
+                            id="security"
+                            placeholder="Enter a Security Code"
+                            class="rounded-lg w-full font-Lexend font-light text-sm"
+                            formControlName="securityCode"
+                            [ngClass]="{ 'is-invalid': submitted && f['securityCode'].errors }"
+                        />
+                        <div 
+                        *ngIf="submitted && f['securityCode'].errors?.['required']" class="text-red-700 text-sm">*Security Code is required</div> 
+                    </div>
+                    <div class="question-blk  rounded-full">
+                      <i class="fa-sharp fa-solid fa-question border hover:bg-greenog hover:text-white duration-300 hover:rotate-[30deg] origin-center rounded-full w-10 h-10 grid place-items-center"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="payment-input-blk flex items-center  justify-between gap-3 border border-[#6b7280] rounded-lg px-2 py-3"
+            >
+              <div class="main-paypal flex items-center gap-3">
+                <div class="radio-blk">
+                    <input type="radio" name="radio" />
+                  </div>
+                  <div class="cradit-blk">
+                    <p class="font-medium font-Lexend text-base">Paypal</p>
+                  </div>
+              </div>
+              <div class="paypal-img">
+                <img src="../../../../../assets/images/paypal.png" class="w-24" alt="">
+              </div>
+            </div>
+
+            <div class="click-button">
+              <p class="font-Lexend text-sm font-light">
+                By Click The button you agree to the terms and conditions
+              </p>
+            </div>
+            <div class="order-button">
+              <button
+                class="font-Lexend border w-full border-greenog text-lg py-2 font-normal bg-greenog rounded-lg text-white hover:border hover:border-greenog hover:bg-transparent hover:text-secondary duration-500"
+              >
+                Place Order
+              </button>
+            </div>
+          </div>
+          </form>
+        </div>
+        <div class="col-span-2 2xl:col-span-2 xl:col-span-2 lg:col-span-2 lgb:col-span-2 md:col-span-2 sm:col-span-5 smg:col-span-5 xs:col-span-5 xsg:col-span-5">
+          <div class="cart-blk bg-white p-5 shadow-custom rounded-lg">
+            <div class="cart-inner-blk flex items-center gap-2 mb-5">
+              <div class="cart-icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </div>
+              <div class="cart-content-blk">
+                <p class="font-Lexend font-light text-base">Cart Summary</p>
+              </div>
+              <div class="edit-blk">
+                <a href="#" class="font-Lexend font-light text-base ">(<span class="hover:text-greenog duration-500 ">edit</span>)</a>
+              </div>
+            </div>
+            <div class="flex flex-col gap-5">
+              <div class="cart-content-blk flex flex-col gap-2">
+                <div class="cart-inner-blk flex justify-between 2xl:gap-0 xl:gap-0 lg:gap-0 lgb:gap-4 md:gap-0 sm:gap-0 smg:gap-0 xs:gap-0 xsg:gap-0 ">
+                  <div class="cart-heading">
+                    <h2 class="font-semibold text-medium font-Lexend 2xl:text-medium xl:text-medium lg:text-medium lgb:text-xs md:text-sm sm:text-lg smg:text-lg xs:text-lg xsg:text-base 2xl:font-semibold xl:font-semibold lg:font-semibold lgb:font-semibold md:font-semibold sm:font-normal smg:font-normal xs:font-normal xsg:font-normal">
+                      The Complete 2023 Web Development Bootcamp
+                    </h2>
+                  </div>
+                  <div class="cart-amount">
+                    <p class="font-semibold text-medium font-Lexend">₹3,699</p>
+                  </div>
+                </div>
+                <div class="cart-name">
+                  <p class="font-light text-sm font-Lexend">Dr.Angela Yu</p>
+                </div>
+              </div>
+  
+              <div class="cart-content-blk flex flex-col gap-2">
+                <div class="cart-inner-blk flex justify-between 2xl:gap-0 xl:gap-0 lg:gap-0 lgb:gap-4 md:gap-0 sm:gap-0 smg:gap-0 xs:gap-0 xsg:gap-0 ">
+                  <div class="cart-heading">
+                    <h2 class="font-semibold text-medium font-Lexend 2xl:text-medium xl:text-medium lg:text-medium lgb:text-xs md:text-sm sm:text-lg smg:text-lg xs:text-lg xsg:text-base 2xl:font-semibold xl:font-semibold lg:font-semibold lgb:font-semibold md:font-semibold sm:font-normal smg:font-normal xs:font-normal xsg:font-normal">
+                      The Complete 2023 Web Development Bootcamp
+                    </h2>
+                  </div>
+                  <div class="cart-amount">
+                    <p class="font-semibold text-medium font-Lexend">₹3,699</p>
+                  </div>
+                </div>
+                <div class="cart-name">
+                  <p class="font-light text-sm font-Lexend">Dr.Angela Yu</p>
+                </div>
+              </div>
+  
+              <div class="cart-content-blk flex flex-col gap-2">
+                <div class="cart-inner-blk flex justify-between 2xl:gap-0 xl:gap-0 lg:gap-0 lgb:gap-4 md:gap-0 sm:gap-0 smg:gap-0 xs:gap-0 xsg:gap-0 ">
+                  <div class="cart-heading">
+                    <h2 class="font-semibold text-medium font-Lexend 2xl:text-medium xl:text-medium lg:text-medium lgb:text-xs md:text-sm sm:text-lg smg:text-lg xs:text-lg xsg:text-base 2xl:font-semibold xl:font-semibold lg:font-semibold lgb:font-semibold md:font-semibold sm:font-normal smg:font-normal xs:font-normal xsg:font-normal">
+                      The Complete 2023 Web Development Bootcamp
+                    </h2>
+                  </div>
+                  <div class="cart-amount">
+                    <p class="font-semibold text-medium font-Lexend">₹3,699</p>
+                  </div>
+                </div>
+                <div class="cart-name">
+                  <p class="font-light text-sm font-Lexend">Dr.Angela Yu</p>
+                </div>
+              </div>
+            </div>
+
+              <div class="border-b-2 mt-3"></div>
+
+              <div class="subtotal-blk text-right mt-3">
+                <p class="text-base font-Lexend font-light">Sub total : <span class="font-semibold">$102.44</span></p>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

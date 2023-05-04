@@ -1,0 +1,168 @@
+<app-header></app-header>
+
+
+<div class="main-content-blk">
+
+    <div class="main-head-blk">
+        <div class="main-content-blk bg-secondary py-10">
+            <div class="xl:px-5 container mx-auto">
+              <div class="grid-cols-12 grid">
+                <div class="main-conetent-inner col-span-8 lg:col-span-12">
+                  <div class="development-blk mt-5">
+                    <h6 class="text-greenog text-sm font-Lexend xxsg:text-center text-left">
+                      Development
+                      <span><i class="fa-solid fa-angle-right text-sm text-white px-2"></i></span>
+                      Web Development
+                    </h6>
+                  </div>
+                  <div class="heading-blk mt-5">
+                    <h1 class="text-white text-3xl font-Lexend font-semibold md:text-2xl sm:text-xl xxsg:text-center xxsg:text-lg text-left">
+                      The Complete 2023 Web Development <br />
+                    </h1>
+                  </div>
+                  <div class="paragraph-blk pt-5">
+                    <p class="text-white text-base font-Lexend md:text-sm xxsg:text-center text-left">
+                      Become a Full-Stack Web Developer with just ONE course. HTML, CSS,
+                      Javascript, <br />
+                      Node, React, MongoDB, Web3 and DApps
+                    </p>
+                  </div>
+
+                  <div class="view-course-blk w-full mt-4 border-greenog">
+                      <button
+                        class="font-Lexend bg-greenog font-bold hover:text-secondary duration-300  text-white w-1/4 h-14 hover:bg-white rounded-lg">
+                   Start Learning
+                      </button>
+                  
+                  </div>
+                 
+                </div>
+                <div class="col-span-4 lg:hidden block">
+                  <div class="maintanence-image h-full brightness-75">
+                    <img class="w-11/12 ml-auto lg:w-full -z-0 rounded-2xl h-full" src="../../../../../assets/images/Untitled-1.webp" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+       <section>
+      <div class="certification-course-blk py-5 lg:pb-5">
+        <div class="container mx-auto xl:px-5">
+          <div class="certification-inner-blk">
+            <div class="certification-heading-main py-10">
+              <div class="certification-heading-blk text-center">
+                <h2 class="font-Lexend font-bold text-3xl lg:text-2xl">
+                    JavaScript Courses
+                </h2>
+              </div>
+              <div class="certification-content-blk text-center mt-6">
+                <p class="font-Lexend font-light text-lg lg:text-sm">
+                    JavaScript relates to <span class="font-Lexend text-greenog font-semibold"> DevelopmentIT & Software</span>
+                </p>
+              </div>
+              <div class="learners-blk flex items-center justify-center mt-2 gap-2">
+                <div class="learner-icon-blk">
+                    <i class="fa-solid fa-user-group"></i>
+                </div>
+                <div class="learners-icon-content-blk">
+                    <p class="font-Lexend font-light text-lg lg:text-base">14,667,394 learners</p>
+                </div>
+              </div>
+            </div>
+            <div class="business-images-blk py-5">
+              <div class="grid grid-cols-9 gap-10 xl:gap-5 md:justify-center md:grid-cols-6 md:gap-7 smg:gap-8 smg:grid-cols-none smg:justify-center md:place-items-center">
+                <div class="col-span-3 hover:scale-105 duration-500 smg:w-3/4 smg:mx-auto xxsg:w-full">
+                  <div *ngFor="let course of corseCategorieData">
+                  <div class="business-images-inner p-5 lg:p-3 bg-white rounded-xl shadow-custom2 md:p-5">
+                    <div class="image-blk w-full">
+                      <img src="https://learningbackend.jobpakado.com/{{course.image}}" class="w-full rounded-xl  duration-300"
+                        alt="" />
+                    </div>
+                    <div class="image-contant-blk pt-5 pb-3">
+                      <!-- <div class="flex items-center justify-between">
+                        <div class="business-blk mb-2">
+                          <h6 class="font-Lexend font-normal text-sm">
+                            BUSINESS
+                          </h6>
+                        </div>
+                        <div class="save-mark group cursor-pointer">
+                          <i class="fa-regular fa-bookmark group-hover:text-greenog duration-300"></i>
+                        </div>
+                      </div> -->
+               
+                      <div class="business-analytic-blk mb-1">
+                        <h2 class="font-Lexend font-semibold text-lg lg:text-base">
+                           {{ course.title}}
+                        </h2>
+                        <div class="para-description my-1">
+                          <p class="text-sm font-Lexend lg:text-sm">{{course.instructor.name_as_per_bank}}</p>
+                        </div>
+                      </div>
+                      <div class="rating-section">
+                        <div class="flex items-center gap-2">
+                            <div class="reviews-section">
+                                <p class="font-Lexend text-lg text-secondary"><span
+                                    class="text-gold font-bold">4.7</span> </p>
+                              </div>
+                          <div class="flex items-center">
+                            <div class="star-1"><span class="material-symbols-outlined text-gold  text-2xl">star</span></div>
+                            <div class="star-2"><span class="material-symbols-outlined text-gold  text-2xl">star</span></div>
+                            <div class="star-3"><span class="material-symbols-outlined text-gold text-2xl">star</span></div>
+                            <div class="star-4"><span class="material-symbols-outlined text-gold  text-2xl">star</span></div>
+                            <div class="star-5"><span class="material-symbols-outlined text-gold  text-2xl">star</span></div>
+                          </div>
+                         
+                        </div>
+                      </div>
+                      <div class="flex flex-col gap-3 my-2">
+                        <div class="jobs-blk flex items-center justify-between gap-4 pb-3">
+                          <div class="bag-img-blk">
+                       
+                            <p class="font-Lexend font-medium text-2xl text-greenog"> ${{course.actualPrice}} <span class="line-through text-lg text-gray-400 font-light">${{course.offerPrice
+                            }}</span> </p>
+                          </div>
+                          <!-- <div class="job-content-blk">
+                           <button> <p class="font-Lexend font-medium text-sm hover:text-greenog duration-300 flex items-center gap-1">
+                            <span class="material-symbols-rounded text-lg">
+                              shopping_cart
+                              </span>
+                            Add To Cart
+                          </p>  </button>
+                          </div> -->
+                        </div>
+                      
+                      </div>
+                      <div class="view-course-blk w-full">
+                        <a [routerLink]="['/single-viewCourse',course._id]">
+                          <button
+                            class="font-Lexend text-base px-10 leading-leading-10p py-4 w-full border border-secondary text-secondary duration-300 font-medium  rounded-lg hover:bg-greenog hover:border-greenog hover:text-white">
+                          Start Learning
+                          </button>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+             
+              </div>
+            </div>
+
+            <div class="browse-button-blk pt-8 pb-5 mt-4">
+              <div class="browser-button-inner">
+                <button
+                  class="font-Lexend font-medium text-lg justify-center mx-auto bg-secondary w-fit flex items-center px-5 py-4 rounded-lg gap-3 hover:bg-greenog duration-300 text-white leading-leading-10p">
+                  Browse All Course
+                  <span class="material-symbols-rounded text-white">north_east </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</div>
+
+<app-footer></app-footer>

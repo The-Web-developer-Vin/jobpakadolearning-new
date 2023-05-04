@@ -1,0 +1,31 @@
+
+.material-symbols-outlined.starer {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.side_content_block-section {
+  position: sticky;
+  top:5% !important
+}
+.liquid.active {
+  color: #0aaa45;
+  border-bottom: 2px solid #0aaa45;
+}
+.liquid {
+  border-bottom: 2px solid transparent;
+  font-family: "Lexend" , sans-serif;
+  padding-bottom: 8px !important;
+}
+.star-rating-sec {
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+.inner{
+  width: 37rem;
+}
+.scroller-section-hider::-webkit-scrollbar {
+  visibility: hidden;
+}

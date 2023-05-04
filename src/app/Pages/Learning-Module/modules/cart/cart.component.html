@@ -1,0 +1,176 @@
+<app-header></app-header>
+<div class="main">
+  <div class="container mx-auto">
+    <div class="cart-blk pt-5 py-10">
+      <div class="cart-heading text-center">
+        <h1 class="text-3xl font-bold font-Lexend">Cart Items</h1>
+      </div>
+      <div class="grid grid-cols-5 mt-10 2xl:mt-5 xl:mt-5 lg:mt-2 lgb:mt-2 md:mt-3 xs:mt-1 xsg:mt-1 2xl:px-10 xl:px-10 lg:px-5 lgb:px-10 md:px-5 sm:px-1 smg:px-0 xs:px-0 xsg:px-0 gap-5">
+        <div
+          class="2xl:m-0 xl:m-0 lg:m-0 lgb:m-0 md:m-5 col-span-3 2xl:col-span-3 xl:col-span-3 lg:col-span-3 lgb:col-span-3 md:col-span-5"
+        >
+         <div *ngFor="let data of cartData; let i=index">
+          <div class="cart-section-inner bg-white shadow-custom rounded-xl flex 2xl:flex xl:flex lg:flex lgb:flex md:flex sm:flex smg:flex xs:flex xsg:block pl-3 py-3 pr-5 gap-4 mb-5"
+          >
+            <div
+              class="image-section w-1/4 2xl:w-1/4 xl:w-1/4 lg:w-1/4 lgb:w-1/4 md:w-1/4 sm:w-1/4 smg:w-1/4 xs:w-1/4 xsg:w-full"
+            >
+              <img
+                src="https://learningbackend.jobpakado.com/{{data.image ? data.image  : data.courseId?.image}}"
+                class="w-full h-full 2xl:w-full 2xl:h-full xl:w-full xl:h-full lg:w-full lg:h-full lgb:w-full lgb:h-full md:w-full md:h-full sm:w-full sm:h-full smg:w-36 smg:h-28 xs:w-36 xs:h-28 xsg:w-full xsg:h-full object-cover rounded-xl"
+                alt=""
+              />
+            </div>
+            <div
+              class="side-para-section w-3/4 2xl:w-3/4 xl:w-3/4 lg:w-3/4 lgb:w-3/4 md:w-3/4 sm:w-3/4 smg:w-3/4 xs:w-3/4 xsg:w-full flex flex-col 2xl:gap-3 xl:gap-3 lg:gap-3 lgb:gap-3 ms:gap-3 sm:gap-3 smg:gap-1 gap-3"
+            >
+              <div class="firts-section flex justify-between 2xl:mt-0 xl:mt-0 lg:mt-0 lgb:mt-0 md:mt-0 sm:mt-0 smg:mt-0 xs:mt-0 xsg:mt-5">
+                <div class="img-name-blk">
+                  <h6
+                    class="font-Lexend text-lg font-medium 2xl:text-lg xl:text-lg lg:text-lg lgb:text-lg md:text-lg sm:text-lg smg:text-sm xs:text-sm xsg:text-xl"
+                  >
+                  {{data.title ? data.title : data.courseId?.title}}
+                  </h6>
+                </div>
+              </div>
+              <div class="second-section flex items-center justify-between">
+                <div class="img-number-blk">
+                  <p class="font-light text-sm font-Lexend">{{data.courseId?.instructor?.name_as_per_bank}}</p>
+                </div>
+               <div class="flex items-center gap-2">
+                <div class="number-inner">
+                  <p class="font-Lexend text-lg font-medium">₹{{data.offerPrice ? data.offerPrice : data.courseId?.offerPrice}}</p>
+                </div>
+                <div class="number-inner mt-2">
+                  <p class="font-Lexend text-sm font-medium line-through text-gray-400">₹{{data.actualPrice ? data.actualPrice: data.courseId?.actualPrice}}</p>
+                </div>
+               </div>
+              </div>
+              <div class="remove-button">
+                 <button (click)="deleteCartData(data,i)"
+                  class="rounded-lg ml-auto flex items-center gap-4 px-3 py-2 font-Lexend text-sm text-white bg-greenog group"
+                >
+                  <p
+                    class="translate-x-4 duration-300 group-hover:translate-x-0"
+                  >
+                    Remove
+                  </p>
+                  <i
+                    class="fa-solid fa-xmark text-white duration-300 group-hover:translate-y-0 translate-y-7"
+                  ></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div
+          class="col-span-2 2xl:col-span-2 xl:col-span-2 lg:col-span-2 lgb:col-span-2 md:col-span-5 2xl:ml-5 xl:ml-5 lg:ml-5 lgb:ml-5 md:m-5 sm:m-5 smg:m-5 xs:m-5 xsg:m-5"
+        >
+
+        <div class="coupon-main-blk flex flex-col gap-4 shadow-custom bg-white p-5 rounded-lg">
+          <div class="coupon-inner-blk">
+             <h6 class="font-Lexend font-semibold text-xl">Offer Coupon</h6>
+          </div>
+         <div class="flex flex-col gap-4">
+           <div class="coupon-input-blk">
+             <input type="text" id="coupon" name="coupon" class="w-full rounded-lg py-2"  [(ngModel)]="couponId" placeholder="Enter Coupon">
+          </div>
+          <div class="apply-blk">
+             <button type="submit" (click)="getCouponData()" class="w-full rounded-lg border border-greenog hover:bg-greenog py-2 font-medium font-Lexend text-base duration-500 hover:text-white">Apply</button>
+          </div>
+         </div>
+     </div>
+
+     <!-- <div class="border-b-2 text-secondary mt-5"></div> -->
+
+
+          <div class="right-blk bg-white shadow-custom px-5 py-5 rounded-lg mt-5 min-h-675h">
+            <div class="right-blk-inner flex items-center justify-between">
+              <div class="subtotal-blk">
+                <p class="font-Lexend text-base font-light text-secondary">
+                  Subtotal
+                </p>
+              </div>
+              <div class="subtotal-am">
+                <p class="font-Lexend text-ba se font-light text-secondary">
+                  ₹{{(totalPrice ? totalPrice: 0).toFixed(2)}}
+                </p>
+              </div>
+            </div>
+
+            <div class="right-blk-inner flex items-center justify-between mt-3">
+              <div class="subtotal-blk">
+                <p class="font-Lexend text-base font-light text-secondary">
+                  Offer Coupon
+                </p>
+              </div>
+              <div class="subtotal-am">
+                <p class="font-Lexend text-base font-light text-secondary">
+                  ₹{{(offerTotalPrice ? offerTotalPrice : 0).toFixed(2)}}
+                </p>
+              </div>
+            </div>
+            <!-- <div class="right-blk-inner flex items-center justify-between mt-3">
+              <div class="subtotal-blk">
+                <p class="font-Lexend text-base font-light text-secondary">
+                  Shipping
+                </p>
+              </div>
+              <div class="subtotal-am">
+                <p class="font-Lexend text-base font-light text-secondary">
+                  $4.99
+                </p>
+              </div>
+            </div> -->
+            <div class="border-b-2 text-secondary mt-5"></div>
+
+            <div class="total-blk flex justify-between mt-5">
+              <div class="total-content-blk">
+                <p class="font-Lexend font-bold text-xl">Total</p>
+              </div>
+              <div class="total-amount">
+                <div class="amount-inner text-end">
+                  <p class="font-Lexend font-bold text-xl">  <p class="font-Lexend font-bold text-xl">₹{{(coupontotal?coupontotal:totalPrice).toFixed(2)}}
+                    
+                  </p>
+                </div>
+                <div class="include-blk mt-2">
+                  <p class="font-Lexend text-base font-light text-secondary">
+                    including VAT
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="checkout-blk w-full mt-5">
+               <div *ngIf="logins">
+              <a   [routerLink]="['/check-out']"  
+                ><button  
+                 class="w-full text-lg font-Lexend font-normal border border-greenog bg-transparent py-2 rounded-lg hover:bg-greenog hover:text-white duration-500"
+                >
+                  Check Out
+                </button
+                ></a></div>
+                <div *ngIf="!logins">
+               <button
+             
+               type="button"
+               data-modal-target="defaultModal"
+               data-modal-toggle="defaultModal"
+               class="w-full text-lg font-Lexend font-normal border border-greenog bg-transparent py-2 rounded-lg hover:bg-greenog hover:text-white duration-500" >
+               Check Out
+               </button> 
+              </div>
+            </div>
+          </div>
+
+         
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

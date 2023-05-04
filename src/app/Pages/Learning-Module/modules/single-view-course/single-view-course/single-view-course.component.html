@@ -1,0 +1,2631 @@
+<div>
+<div class="header-blk">
+  <app-header></app-header>
+</div>
+
+<div>
+  <div class="main-content-blk bg-secondary py-10">
+    <div class="xl:px-5 container mx-auto">
+      <div class="grid-cols-12 grid">
+        <div class="main-conetent-inner col-span-8 lg:col-span-12">
+          <div class="development-blk">
+            <h6
+              class="text-greenog text-sm font-Lexend xxsg:text-center text-left"
+            >
+              Development
+              <span
+                ><i class="fa-solid fa-angle-right text-sm text-white px-2"></i
+              ></span>
+              Web Development
+            </h6>
+          </div>
+          <div class="heading-blk mt-3">
+            <h1
+              class="text-white text-3xl font-Lexend font-semibold md:text-2xl sm:text-xl xxsg:text-center xxsg:text-lg text-left"
+            >
+              {{ webDevolpmentData?.title }}
+            </h1>
+          </div>
+          <div class="paragraph-blk pt-3">
+            <p
+              class="text-white text-base font-Lexend md:text-sm xxsg:text-center text-left"
+            >
+              {{ webDevolpmentData?.titleDescription }}
+            </p>
+          </div>
+          <div
+            class="rating-blk mt-6 flex items-center smg:block smg:mb-5 justify-start xxsg:justify-center"
+          >
+            <div
+              class="dbeseller-button order-1 smg:order-2 smg:mb-3 xxsg:text-center text-left"
+            >
+              <!-- <button class="bg-white hover:bg-greenog hover:text-white text-secondary rounded-xl leading-leading-10p px-10 py-5 duration-300 font-Lexend font-medium text-lg">Bestseller</button> -->
+            </div>
+            <div class="flex items-center mr-2">
+              <div class="rating-inner-blk mx-1 smg:ml-0">
+                <p class="text-gold text-xl font-Lexend font-medium">4.7</p>
+              </div>
+              <!-- <div class="star-rating-sec w-20 h-20 bg-red-600">
+                <div class="star-inner-rating w-8 bg-white h-full">
+                  
+                </div>
+              </div> -->
+
+              <span
+                class="material-symbols-outlined text-gold lg:text-base md:text-lg text-[18px]"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-gold lg:text-base md:text-lg text-[18px]"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-gold lg:text-base md:text-lg text-[18px]"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-gold lg:text-base md:text-lg text-[18px]"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-gold lg:text-base md:text-lg text-[18px]"
+                >star</span
+              >
+            </div>
+            <div
+              class="flex items-center order-2 smg:order-1 text-left xxsg:text-center xxsg:justify-center justify-start"
+            >
+              <div class="numbers-rating-blk">
+                <p class="text-white text-base font-Lexend">
+                  (
+                  <span class="underline underline-offset-4 text-greenog"
+                    >{{ webDevolpmentData?.courseReviews }} ratings</span
+                  >
+                  )
+                </p>
+              </div>
+              <div class="students-blk ml-2">
+                <p class="text-white text-base font-Lexend font-light">
+                  929,250 Students
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="created-blk mt-3 text-left xxsg:text-center">
+            <p class="text-white text-sm font-Lexend">
+              Created by
+              <a
+                href=""
+                class="text-greenog text-sm underline underline-offset-4"
+                >Dr.Angela Yu</a
+              >
+            </p>
+          </div>
+          <div
+            class="lastUpdate-blk flex flex-wrap items-center gap-5 mt-3 smg:flex-wrap justify-start xxsg:justify-center"
+          >
+            <div class="lastUpdate-inner-blk flex items-center gap-2">
+              <span class="material-symbols-outlined text-greenog text-lg">
+                info</span
+              >
+              <p class="text-light-fff text-sm font-Lexend">
+                Last updated
+                {{ webDevolpmentData?.updatedAt | date : "MMM d, y" }}
+              </p>
+            </div>
+            <div class="lastUpdate-inner-blk flex items-center gap-2">
+              <span class="material-symbols-outlined text-greenog text-lg"
+                >language</span
+              >
+              <p class="text-light-fff text-sm font-Lexend">
+                {{ webDevolpmentData?.language }}
+              </p>
+            </div>
+            <div class="lastUpdate-inner-blk flex items-center gap-2">
+              <i class="fa-solid fa-pager text-greenog"></i>
+              <!-- <p class="text-light-fff text-sm font-Lexend font-light">
+                {{ webDevolpmentData?.caption }}
+                <a href=""
+                  class="text-white ml-2  duration-300 hover:underline hover:underline-offset-4 hover:text-greenog">13
+                  More</a>
+              </p> -->
+              <p class="text-light-fff text-sm font-Lexend font-light">
+                {{
+                  showMore
+                    ? webDevolpmentData?.caption
+                    : (webDevolpmentData?.caption | slice : 0 : 32)
+                }}
+                <span *ngIf="!showMore">...</span>
+                <a
+                  class="underline text-greenog font-medium"
+                  href="javascript:;"
+                  *ngIf="!showMore"
+                  (click)="showMore = true"
+                  >more</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-4 lg:hidden block">
+          <div class="maintanence-image h-full">
+            <img
+              src="https://learningbackend.jobpakado.com/{{ webDevolpmentData?.image }}"
+              alt=""
+              class="w-11/12 ml-auto lg:w-full rounded-2xl h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="learn-blk py-10">
+    <div class="xl:px-5 container mx-auto">
+      <div class="grid grid-cols-12 relative">
+        <div
+          class="col-span-8 2xl:col-span-8 xl:col-span-8 lg:col-span-12 md:col-span-12 sm:col-span-12"
+        >
+          <div class="side-blk-after-991 mb-10 hidden lg:block xs:hidden">
+            <div
+              class="sider-blk-after-991-inner border border-grayShade rounded-xl"
+            >
+              <div class="left-image-seciton col-span-4">
+                <img
+                  class="rounded-t-xl"
+                  src="../../../../../assets/images/right-image-991.webp"
+                  alt=""
+                />
+              </div>
+              <div class="right-tabs-section col-span-8">
+                <div class="pt-4 pb-7 px-6">
+                  <!-- <div class="tabs w-full">
+                  
+                    <ul class="flex justify-start w-full">
+                      <li class="w-1/2">
+                        <button type="button" [ngClass]="{ active: tabs.Personal }" (click)="menuTabs('personals')"
+                          class="liquid duration-300 w-full">
+                          Personal
+                        </button>
+                      </li>
+                      <li class="w-1/2">
+                        <button type="button" [ngClass]="{ active: tabs.Teams }" (click)="menuTabs('teams')"
+                          class="liquid duration-300 w-full">
+                          Teams
+                        </button>
+                      </li>
+                    </ul>
+                  </div> -->
+                  <div class="" [hidden]="!tabs.Personal">
+                    <div class="flex justify-between items-center">
+                      <div class="discount-block">
+                        <div class="side-image-content mt-3">
+                          <p class="text-xl font-Lexend">
+                            <span class="font-bold"
+                              ><span class="font-Lexend text-greenog">₹</span>
+                              649
+                            </span>
+                            <span class="line-through"> ₹3,699</span> 82% off
+                          </p>
+                        </div>
+                        <div class="clock-blk mt-2">
+                          <p class="font-Lexend text-sm">
+                            <span class="font-bold text-greenog">
+                              <i class="fa-solid fa-stopwatch"></i> 3 days</span
+                            >
+                            left at this price!
+                          </p>
+                        </div>
+                        <div class="buy-blk mt-3">
+                          <button
+                            class="font-medium font-Lexend leading-leading-10p text-lg w-fit py-5 px-10 sm:px-0 sm:w-full bg-secondary rounded-lg duration-300 text-white hover:bg-greenog"
+                          >
+                            Buy This Course
+                          </button>
+                        </div>
+                      </div>
+                      <div class="navigation-links-tabs">
+                        <div class="guarantee-blk text-center mt-3">
+                          <p class="font-Lexend text-sm">
+                            30-Day Money-Back Guarantee <br />
+                            Full Lifetime Access
+                          </p>
+                        </div>
+                        <div
+                          class="share-blk flex justify-center mt-3 px-3 gap-7 xl:px-0 flex-wrap xl:justify-center"
+                        >
+                          <a href="">
+                            <p
+                              class="font-Lexend text-sm font-bold underline underline-offset-4 text-greenog"
+                            >
+                              Share
+                            </p>
+                          </a>
+                          <!-- <a href="">
+                            <p class="font-Lexend text-sm font-bold underline underline-offset-4 text-greenog">Gift This
+                              Course
+                            </p>
+                          </a> -->
+                          <a href="">
+                            <p
+                              class="font-Lexend text-sm font-bold underline underline-offset-4 text-greenog"
+                            >
+                              Apply Coupon
+                            </p>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="or-block flex items-center mt-5">
+                      <div class="border w-1/2"></div>
+                      <p class="px-2 font-Lexend">or</p>
+                      <div class="border w-1/2"></div>
+                    </div>
+                    <div class="subscribe-blk mt-3">
+                      <h2 class="font-Lexend font-bold text-xl">
+                        Subscribe to Jobpakado's top courses
+                      </h2>
+                    </div>
+                    <div class="inline-block mt-3">
+                      <p class="font-Lexend text-sm">
+                        <span class="collapsable float-left">
+                          {{
+                            info.length > firstCount
+                              ? (info | slice : 0 : counter) + ".."
+                              : info
+                          }}
+                          <span
+                            class="text-greenog font-bold"
+                            *ngIf="info.length > 200"
+                            (click)="toggleSkil()"
+                          >
+                            {{ showTxt }}
+                          </span>
+                        </span>
+                      </p>
+                    </div>
+                    <div
+                      class="start-subscription-blk mt-3 flex justify-between items-center"
+                    >
+                      <button
+                        class="font-medium font-Lexend leading-leading-10p text-lg w-fit px-10 py-5 sm:px-0 sm:w-1/2 bg-secondary rounded-lg duration-300 text-white hover:bg-greenog"
+                      >
+                        Start subscription
+                      </button>
+                      <div class="permonth-blk text-center mt-2">
+                        <p class="text-sm font-Lexend text-gray-500">
+                          ₹829.00 per month. Cancel anytime.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="team-main-blk" [hidden]="!tabs.Teams">
+                    <div class="team-heding-blk mt-5">
+                      <h2 class="text-xl font-Lexend font-bold">
+                        Jobpakado
+                        <span class="text-greenog font-medium">Business</span>
+                      </h2>
+                      <p class="text-sm font-Lexend mt-2">
+                        Subscribe to this course and 19,000+ top‑rated Jobpakado
+                        courses for your organization.
+                      </p>
+                    </div>
+                    <div class="buy-blk mt-3">
+                      <button
+                        class="font-medium font-Lexend leading-leading-10p text-lg py-5 px-10 w-fit bg-secondary rounded-lg duration-300 text-white hover:bg-greenog"
+                      >
+                        Try Jobpakado Business
+                      </button>
+                    </div>
+                    <div class="check-blk mt-4">
+                      <ul
+                        class="text-sm grid grid-cols-2 gap-3 smg:grid-cols-1"
+                      >
+                        <li class="flex gap-3">
+                          <i class="fa-solid fa-check pt-1 text-greenog"></i>
+                          <p class="font-Lexend">
+                            For teams of 5 or more users
+                          </p>
+                        </li>
+                        <li class="flex gap-3">
+                          <i class="fa-solid fa-check pt-1 text-greenog"></i>
+                          <p class="font-Lexend">
+                            19,000+ fresh & in-demand courses
+                          </p>
+                        </li>
+                        <li class="flex gap-3">
+                          <i class="fa-solid fa-check pt-1 text-greenog"></i>
+                          <p class="font-Lexend">Learning Engagement tools</p>
+                        </li>
+                        <li class="flex gap-3">
+                          <i class="fa-solid fa-check pt-1 text-greenog"></i>
+                          <p class="font-Lexend">SSO and LMS Integrations</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="side-blk-after-474 hidden xs:block mb-10">
+            <div class="side-content-blk w-full">
+              <div class="side-content-inner">
+                <div class="bg-white border border-grayShade rounded-2xl">
+                  <div class="side-image-blk">
+                    <img
+                      class="w-full object-cover rounded-t-2xl"
+                      src="../../../../../assets/images/right-side.webp"
+                      alt=""
+                    />
+                  </div>
+                  <div class="pt-4 pb-7 px-6">
+                    <!-- <div class="tabs w-full">
+                  
+                      <ul class="flex justify-start w-full">
+                        <li class="w-1/2">
+                          <button type="button" [ngClass]="{ active: tabs.Personal }" (click)="menuTabs('personals')"
+                            class="liquid duration-300 w-full">
+                            Personal
+                          </button>
+                        </li>
+                        <li class="w-1/2">
+                          <button type="button" [ngClass]="{ active: tabs.Teams }" (click)="menuTabs('teams')"
+                            class="liquid duration-300 w-full">
+                            Teams
+                          </button>
+                        </li>
+
+                      </ul>
+                    </div> -->
+                    <div class="">
+                      <div class="side-image-content mt-3">
+                        <p class="text-xl font-Lexend">
+                          <span class="font-bold"
+                            ><span class="font-Lexend text-greenog">₹</span> 649
+                          </span>
+                          <span class="line-through"> ₹3,699</span> 82% off
+                        </p>
+                      </div>
+                      <div class="clock-blk mt-2">
+                        <p class="font-Lexend text-sm">
+                          <span class="font-bold text-greenog">
+                            <i class="fa-solid fa-stopwatch"></i> 3 days</span
+                          >
+                          left at this price!
+                        </p>
+                      </div>
+                      <div class="buy-blk px-3 mt-3">
+                        <button
+                          class="font-medium font-Lexend leading-leading-10p text-lg w-full py-5 bg-secondary rounded-lg duration-300 text-white hover:bg-greenog"
+                        >
+                          Buy This Course
+                        </button>
+                      </div>
+                      <div class="guarantee-blk text-center mt-3">
+                        <p class="font-Lexend text-sm">
+                          30-Day Money-Back Guarantee <br />
+                          Full Lifetime Access
+                        </p>
+                      </div>
+                      <div
+                        class="share-blk flex justify-center mt-3 px-3 gap-7 xl:px-0 flex-wrap xl:justify-center"
+                      >
+                        <a href="">
+                          <p
+                            class="font-Lexend text-sm font-bold underline underline-offset-4 text-greenog"
+                          >
+                            Share
+                          </p>
+                        </a>
+                        <!-- <a href="">
+                          <p class="font-Lexend text-sm font-bold underline underline-offset-4 text-greenog">Gift This
+                            Course
+                          </p>
+                        </a> -->
+                        <a href="">
+                          <p
+                            class="font-Lexend text-sm font-bold underline underline-offset-4 text-greenog"
+                          >
+                            Apply Coupon
+                          </p>
+                        </a>
+                      </div>
+                      <div class="or-block flex items-center mt-5">
+                        <div class="border w-1/2"></div>
+                        <p class="px-2">or</p>
+                        <div class="border w-1/2"></div>
+                      </div>
+                      <div class="subscribe-blk mt-3">
+                        <h2
+                          class="font-Lexend font-bold text-xl text-left xxsg:text-center xxsg:text-lg"
+                        >
+                          Subscribe to Jobpakado's top <br />
+                          courses
+                        </h2>
+                      </div>
+                      <div class="inline-block mt-3 text-left xxsg:text-center">
+                        <p class="font-Lexend text-sm">
+                          <span class="collapsable float-left">
+                            {{
+                              info.length > firstCount
+                                ? (info | slice : 0 : counter) + ".."
+                                : info
+                            }}
+                            <span
+                              class="text-greenog font-bold"
+                              *ngIf="info.length > 200"
+                              (click)="toggleSkil()"
+                            >
+                              {{ showTxt }}
+                            </span>
+                          </span>
+                        </p>
+                      </div>
+                      <div class="start-subscription-blk px-3 mt-3">
+                        <button
+                          class="font-medium font-Lexend leading-leading-10p text-lg w-full py-5 w-full bg-secondary rounded-lg duration-300 text-white hover:bg-greenog"
+                        >
+                          Start subscription
+                        </button>
+                      </div>
+                      <div class="permonth-blk text-center mt-2">
+                        <p class="text-sm font-Lexend text-gray-500">
+                          ₹829.00 per month. Cancel anytime.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="team-main-blk">
+                      <div class="team-heding-blk mt-5">
+                        <h2 class="text-xl font-Lexend font-bold">
+                          Jobpakado
+                          <span class="text-greenog font-medium">Business</span>
+                        </h2>
+                        <p class="text-sm font-Lexend mt-2">
+                          Subscribe to this course and 19,000+ <br />
+                          top‑rated Jobpakado courses for your <br />
+                          organization.
+                        </p>
+                      </div>
+                      <div class="buy-blk px-3 mt-3">
+                        <button
+                          class="font-medium font-Lexend leading-leading-10p text-lg w-full py-5 bg-secondary rounded-lg duration-300 text-white hover:bg-greenog"
+                        >
+                          Try Jobpakado Business
+                        </button>
+                      </div>
+                      <div class="check-blk mt-3">
+                        <ul class="text-sm flex flex-col gap-3">
+                          <div class="flex gap-3">
+                            <i class="fa-solid fa-check pt-1 text-greenog"></i>
+                            <li class="font-Lexend">
+                              For teams of 5 or more users
+                            </li>
+                          </div>
+                          <div class="flex gap-3">
+                            <i class="fa-solid fa-check pt-1 text-greenog"></i>
+                            <li class="font-Lexend">
+                              19,000+ fresh & in-demand courses
+                            </li>
+                          </div>
+                          <div class="flex gap-3">
+                            <i class="fa-solid fa-check pt-1 text-greenog"></i>
+                            <li class="font-Lexend">
+                              Learning Engagement tools
+                            </li>
+                          </div>
+                          <div class="flex gap-3">
+                            <i class="fa-solid fa-check pt-1 text-greenog"></i>
+                            <li class="font-Lexend">
+                              SSO and LMS Integrations
+                            </li>
+                          </div>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="learn-inner-blk border border-borderlight rounded-xl py-6 px-6"
+          >
+            <div class="learn-heading-blk mb-4">
+              <h2
+                class="text-xl font-Lexend font-bold text-left xxsg:text-center"
+              >
+                What You'll learn
+              </h2>
+            </div>
+            <div class="list-blk grid grid-cols-2 gap-5 smg:grid-cols-1">
+              <ng-container *ngFor="let learn of youWillLearnData">
+                <div class="list-include">
+                  <div class="flex gap-2">
+                    <div class="tik">
+                      <i class="fa-solid fa-check text-greenog"></i>
+                    </div>
+                    <div class="par">
+                      <p class="text-sm font-Lexend text-secondary font-normal">
+                        {{ learn.description ? learn.description : ""}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="course-main-block mt-8">
+            <div class="course-heading-blk mb-4">
+              <h2
+                class="font-bold text-xl font-Lexend text-left xxsg:text-center"
+              >
+                This course includes:
+              </h2>
+            </div>
+            <div
+              class="course-list-blk "
+            >
+              <div class="icons-sections grid grid-cols-2 gap-y-4 xsg:grid-cols-1">
+                <ng-container *ngFor="let data of courseIncludesData">
+                  <div
+                    class="flex items-center gap-3 xxsg:justify-center justify-start"
+                  >
+                    <div class="ico-list w-6 text-center">
+                      <i class="text-greenog fa-solid fa-laptop-code"></i>
+                    </div>
+                    <div class="ico-head">
+                      <p class="font-Lexend text-secondary text-sm">
+                        {{data.description ?  data.description:""}}
+                      </p>
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+          <div
+            class="top-compenies-blk border border-borderlight rounded-xl py-6 px-4 mt-8"
+          >
+            <div class="topa-compenie-heading">
+              <h2
+                class="font-Lexend font-bold text-lg text-left xxsg:text-center"
+              >
+                Top companies offer this course to their employees
+              </h2>
+            </div>
+            <div class="top-compenie-content mt-2">
+              <p
+                class="font-Lexend font-normal text-base text-left xxsg:text-center"
+              >
+                This course was selected for our collection of top-rated courses
+                trusted by businesses worldwide.
+                <a href="" class="text-greenog underline underline-offset-4"
+                  >Learn more</a
+                >
+              </p>
+            </div>
+            <div class="icon-nas-block mt-5">
+              <div
+                class="grid grid-cols-5 items-center smg:grid-cols-3 xxsg:grid-cols-2"
+              >
+                <div class="nasa-images">
+                  <img
+                    class="mx-auto"
+                    src="../../../../../assets/images/nasa.svg"
+                    alt=""
+                  />
+                </div>
+                <div class="nasa-images">
+                  <img
+                    class="mx-auto"
+                    src="../../../../../assets/images/volks.svg"
+                    alt=""
+                  />
+                </div>
+                <div class="nasa-images">
+                  <img
+                    class="mx-auto"
+                    src="../../../../../assets/images/netapp.svg"
+                    alt=""
+                  />
+                </div>
+                <div class="nasa-images">
+                  <img
+                    class="mx-auto"
+                    src="../../../../../assets/images/box.svg"
+                    alt=""
+                  />
+                </div>
+                <div class="nasa-images xxsg:col-span-2 col-span-1">
+                  <img
+                    class="mx-auto"
+                    src="../../../../../assets/images/netapp.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cource-content-inner py-6 px-4 mt-8">
+            <div class="corce-heading-blk mb-4">
+              <h2
+                class="font-Lexend font-bold text-lg text-left xxsg:text-center"
+              >
+                Course Content
+              </h2>
+            </div>
+            <div
+              class="section-blk flex justify-between mb-3 px-1 sm:flex-wrap sm:gap-y-2 xxsg:justify-center"
+            >
+              <p class="font-Lexend text-left xxsg:text-center">
+                <span class="text-greenog">41</span> sections •
+                <span class="text-greenog">490</span> lectures •
+                <span class="text-greenog">65h 33m</span> total length
+              </p>
+              <p
+                class="text-greenog font-semibold font-Lexend text-left xxsg:text-center cursor-pointer"
+              >
+                Expand all sections
+              </p>
+            </div>
+            <div class="accodient-section-blk">
+              <div id="accordionExample5" data-accordion="collapse">
+                <div
+                  class="border border-b-0 border-grayShade last:border-b"
+                  *ngFor="let course of courseContent; let i = index"
+                >
+                  <h2
+                    [ngClass]="selectedFaq === i ? 'border-b ' : ''"
+                    class="mb-0 bg-graySha"
+                    id="headingOne5 "
+                  >
+                    <button
+                      type="button"
+                      class="flex items-center justify-between w-full p-3 md:p-3 md:text-base font-semibold text-left text-md text-secondary font-Lexend"
+                      data-accordion-target="#accordion-collapse-body-1"
+                      aria-expanded="true"
+                      aria-controls="accordion-collapse-body-1"
+                      (click)="openAccordionFaq(i)"
+                    >
+                      <div
+                        class="flex justify-between w-full items-center px-2"
+                      >
+                        <div class="icon-content-blk flex items-center">
+                          <span
+                            [ngClass]="
+                              selectedFaq === i
+                                ? '[&:not([data-te-collapse-collapsed])]:rotate-[-180deg]'
+                                : ''
+                            "
+                            class="ml-auto h-3.5 w-3.5 shrink-0 transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white mr-3 mt-0.5"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke-width="3.5"
+                              stroke="currentColor"
+                              class="h-3.5 w-3.5"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                              />
+                            </svg>
+                          </span>
+
+                          <!-- (i+1).toString() -->
+                          <span (click)="getDetails(i)">
+                            {{ course?.sectionTitle }}
+                          </span>
+                        </div>
+                        <div class="xsg:hidden block">
+                          <p class="text-sm font-Lexend">
+                            <!-- {{ course.sectionDuration }} -->
+                            {{ course?.section?.length }} lectures •
+                            <span class="text-greenog">
+                              {{ course?.sectionDuration }}</span
+                            >
+                          </p>
+                        </div>
+                      </div>
+                    </button>
+                  </h2>
+                  <!-- [ngClass]="{
+                    visible: clickedIndex?.i,
+                    '!visible hidden': !clickedIndex?.i
+                  }" -->
+                  <div
+                    id="accordion-collapse-body-1"
+                    data-te-collapse-item
+                    data-te-collapse-show
+                    aria-labelledby="headingOne5"
+                    [ngClass]="
+                      selectedFaq === i ? '!visible' : '!visible hidden'
+                    "
+                  >
+                    <div class="py-5 px-5 font-Lexend font-normal">
+                      <div class="course-content-blk">
+                        <div
+                          class="course-intro-blk flex justify-between items-center mb-4 last:mb-0"
+                          *ngFor="let content of course?.section"
+                        >
+                          <div class="vedio-course-blk">
+                            <p #OutSideClick
+                              (click)="showVideo(content, course?.section)"
+                              class="font-Lexend font-normal text-sm flex items-center gap-3 hover:text-greenog duration-300 cursor-pointer"
+                            >
+                              <i class="fa-regular fa-circle-play"></i>
+                              <span class="underline">{{
+                                content?.lectureTitle
+                              }}</span>
+                            </p>
+                          </div>
+                          <div class="time-outer-blk flex items-center gap-3">
+                            <div class="preview-blk">
+                              <button class="">
+                                <p
+                                  class="font-Lexend font-normal text-sm flex items-center gap-2 text-greenog underline"
+                                >
+                                  <span><i class="fa-regular fa-eye"></i></span
+                                  >Preview
+                                </p>
+                              </button>
+                              <!-- <i class="lock-closed-outline"></i> -->
+                            </div>
+                            <div class="time-blk">
+                              <p
+                                class="font-light font-Lexend text-sm hover:text-greenog duration-300"
+                              >
+                                {{ content?.duration }}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="requirements-inner-blk py-6 px-4">
+            <div class="requermets-heading-blk">
+              <h2
+                class="font-bold font-Lexend text-xl text-left xxsg:text-center"
+              >
+                Requirements
+              </h2>
+            </div>
+            <div
+              class="requerments-list pl-5 mt-2"
+              *ngFor="let requirement of requerementsData"
+            >
+              <ul class="">
+                <li class="font-Lexend text-sm list-disc">
+                  {{ requirement.description ? requirement.description : "" }}
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="description-inner-blk py-6 px-4">
+            <div class="description-heading mb-4">
+              <h2
+                class="font-bold text-xl font-Lexend text-left xxsg:text-center"
+              >
+                Description
+              </h2>
+            </div>
+            <div
+              class="text-sm font-Lexend text-left xxsg:text-center description-content"
+              [innerHTML]="webDevolpmentData?.description"
+            ></div>
+
+            <!-- <div class="description-content" *ngFor="let description of descriptionData">
+              <p class="text-sm font-Lexend text-left xxsg:text-center">
+            {{description}}.
+              </p>
+            
+            </div> -->
+            <!-- <div class="description-list pt-3 pl-4">
+              <ul>
+                <li class="font-Lexend text-sm list-disc">
+                  The course is taught by the
+                  <span class="font-bold text-black"> lead instructor </span> at the
+                  App Brewery, London's
+                  <span class="font-bold">
+                    leading in-person programming bootcamp.</span>
+                </li>
+                <li class="font-Lexend text-sm pt-2 list-disc">
+                  The course is taught by the
+                  <span class="font-bold text-black"> lead instructor </span> at the
+                  App Brewery, London's
+                  <span class="font-bold">
+                    leading in-person programming bootcamp.</span>
+                </li>
+              </ul>
+            </div> -->
+            <!-- <div class="showmore-blk flex items-center">
+              <p class="font-Lexend text-sm text-left xxsg:text-center">
+                <span class="collapsable float-left">
+                  {{
+                  info.length > firstCount
+                  ? (info | slice : 0 : counter) + ".."
+                  : info
+                  }} <br>
+                  <span class="text-greenog font-bold" *ngIf="info.length > 100" (click)="toggleSkil()">
+                    {{ showTxt }}
+                    <i class="fa-solid fa-angle-down pt-3 pl-2 text-greenog"></i>
+                  </span>
+                </span>
+              </p>
+            </div> -->
+          </div>
+          <div class="student-inner-blk py-6 px-4 hidden">
+            <div class="student-heading-blk mb-4">
+              <h2
+                class="font-bold font-Lexend text-xl text-left xxsg:text-center"
+              >
+                Students also bought
+              </h2>
+            </div>
+            <div class="student-details-section border-b border-grayShade py-5">
+              <div
+                class="image-content-seciton grid grid-cols-12 items-center gap-2"
+              >
+                <div
+                  class="col-span-7 sm:col-span-10 xsg:col-span-12 block xsg:hidden"
+                >
+                  <div class="grid grid-cols-6 gap-3">
+                    <div class="stack-image-sec col-span-1">
+                      <img
+                        class="w-full rounded-lg"
+                        src="../../../../../assets/images/days-train.webp"
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="stack-content-sec flex flex-col justify-between h-full col-span-5"
+                    >
+                      <div class="stack-head">
+                        <h2 class="font-Lexend text-base font-semibold">
+                          The Web Developer Bootcamp 2023
+                        </h2>
+                      </div>
+                      <div class="stack-para">
+                        <p class="text-sm font-Lexend">
+                          <span class="text-greenog">64 total hours •</span>
+                          Updated 3/2023
+                        </p>
+                      </div>
+                      <div class="hidden sm:block">
+                        <div class="flex items-center mt-3 gap-5">
+                          <div class="ratinger">
+                            <p class="font-Lexend text-xl text-gold font-bold">
+                              4.7
+                            </p>
+                          </div>
+                          <div class="user-block">
+                            <div class="flex items-center gap-2">
+                              <div class="user-icon">
+                                <i
+                                  class="fa-solid fa-user-group text-greenog"
+                                ></i>
+                              </div>
+                              <div class="users-count">
+                                <p class="font-Lexend text-base text-secondary">
+                                  857,691
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="price-desc">
+                            <p class="font-Lexend text-secondary text-base">
+                              <span class="text-greenog text-lg">₹</span> 3,699
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hidden xsg:block w-full col-span-12">
+                  <div class="price-block-section flex items-center gap-4">
+                    <div class="stack-image-sec col-span-1">
+                      <img
+                        class="w-3/4 rounded-lg"
+                        src="../../../../../assets/images/days-train.webp"
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="stack-content-sec flex flex-col justify-between h-full col-span-5"
+                    >
+                      <div class="stack-head">
+                        <h2 class="font-Lexend text-base font-semibold">
+                          The Web Developer Bootcamp 2023
+                        </h2>
+                      </div>
+                      <div class="stack-para">
+                        <p class="text-sm font-Lexend">
+                          <span class="text-greenog">64 total hours •</span>
+                          Updated 3/2023
+                        </p>
+                      </div>
+                    </div>
+                    <div class="heart-blk">
+                      <button
+                        class="group text-base font-regular leading-leading-10p hover:text-primary flex items-center border border-secondary w-10 h-10 rounded-full justify-center hover:bg-greenlight hover:border-greenlight duration-300"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 26 26"
+                          stroke-width="1.8"
+                          stroke="currentColor"
+                          class="w-5 h-5 group-hover:hidden -mb-1 duration-300"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                          ></path>
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 26 26"
+                          fill="#00AA45"
+                          class="w-5 h-5 hidden group-hover:block -mb-1 duration-300"
+                        >
+                          <path
+                            d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="flex items-center mt-3 gap-5">
+                    <div class="ratinger">
+                      <p class="font-Lexend text-xl text-gold font-bold">4.7</p>
+                    </div>
+                    <div class="user-block">
+                      <div class="flex items-center gap-2">
+                        <div class="user-icon">
+                          <i class="fa-solid fa-user-group text-greenog"></i>
+                        </div>
+                        <div class="users-count">
+                          <p class="font-Lexend text-base text-secondary">
+                            857,691
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="price-desc">
+                      <p class="font-Lexend text-secondary text-base">
+                        <span class="text-greenog text-lg">₹</span> 3,699
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-span-5 sm:col-span-2 block xsg:hidden">
+                  <div class="rating-seciton-block">
+                    <div class="flex items-center justify-between">
+                      <div class="ratinger block sm:hidden">
+                        <p class="font-Lexend text-xl text-gold font-bold">
+                          4.7
+                        </p>
+                      </div>
+                      <div class="user-block block sm:hidden">
+                        <div class="flex items-center gap-2">
+                          <div class="user-icon">
+                            <i class="fa-solid fa-user-group text-greenog"></i>
+                          </div>
+                          <div class="users-count">
+                            <p class="font-Lexend text-base text-secondary">
+                              857,691
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="price-desc block sm:hidden">
+                        <p class="font-Lexend text-secondary text-base">
+                          <span class="text-greenog text-lg">₹</span> 3,699
+                        </p>
+                      </div>
+                      <div class="heart-blk">
+                        <button
+                          class="group text-base font-regular leading-leading-10p hover:text-primary flex items-center border border-secondary w-10 h-10 rounded-full justify-center hover:bg-greenlight hover:border-greenlight duration-300"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 26 26"
+                            stroke-width="1.8"
+                            stroke="currentColor"
+                            class="w-5 h-5 group-hover:hidden -mb-1 duration-300"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                            ></path>
+                          </svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 26 26"
+                            fill="#00AA45"
+                            class="w-5 h-5 hidden group-hover:block -mb-1 duration-300"
+                          >
+                            <path
+                              d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"
+                            ></path>
+                          </svg>
+                        </button>
+                        <!-- <i class="fa-solid  cursor-pointer grid place-items-center fa-heart rounded-full hover:text-greenog hover:bg-greenlight duration-300"></i> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="student-details-section border-b border-grayShade py-5">
+              <div
+                class="image-content-seciton grid grid-cols-12 items-center gap-2"
+              >
+                <div
+                  class="col-span-7 sm:col-span-10 xsg:col-span-12 block xsg:hidden"
+                >
+                  <div class="grid grid-cols-6 gap-3">
+                    <div class="stack-image-sec col-span-1">
+                      <img
+                        class="w-full rounded-lg"
+                        src="../../../../../assets/images/code-image.webp"
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="stack-content-sec flex flex-col justify-between h-full col-span-5"
+                    >
+                      <div class="stack-head">
+                        <h2 class="font-Lexend text-base font-semibold">
+                          100 Days Of Code-2023 Web Development Bootcamp
+                        </h2>
+                      </div>
+                      <div class="stack-para">
+                        <p class="text-sm font-Lexend">
+                          <span class="text-greenog">64 total hours •</span>
+                          Updated 3/2023
+                        </p>
+                      </div>
+                      <div class="hidden sm:block">
+                        <div class="flex items-center mt-3 gap-5">
+                          <div class="ratinger">
+                            <p class="font-Lexend text-xl text-gold font-bold">
+                              4.7
+                            </p>
+                          </div>
+                          <div class="user-block">
+                            <div class="flex items-center gap-2">
+                              <div class="user-icon">
+                                <i
+                                  class="fa-solid fa-user-group text-greenog"
+                                ></i>
+                              </div>
+                              <div class="users-count">
+                                <p class="font-Lexend text-base text-secondary">
+                                  857,691
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="price-desc">
+                            <p class="font-Lexend text-secondary text-base">
+                              <span class="text-greenog text-lg">₹</span> 3,699
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hidden xsg:block w-full col-span-12">
+                  <div class="price-block-section flex items-center gap-4">
+                    <div class="stack-image-sec col-span-1">
+                      <img
+                        class="w-full rounded-lg"
+                        src="../../../../../assets/images/code-image.webp"
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="stack-content-sec flex flex-col justify-between h-full col-span-5"
+                    >
+                      <div class="stack-head">
+                        <h2 class="font-Lexend text-base font-semibold">
+                          100 Days Of Code-2023 Web Development Bootcamp
+                        </h2>
+                      </div>
+                      <div class="stack-para">
+                        <p class="text-sm font-Lexend">
+                          <span class="text-greenog">64 total hours •</span>
+                          Updated 3/2023
+                        </p>
+                      </div>
+                    </div>
+                    <div class="heart-blk">
+                      <button
+                        class="group text-base font-regular leading-leading-10p hover:text-primary flex items-center border border-secondary w-10 h-10 rounded-full justify-center hover:bg-greenlight hover:border-greenlight duration-300"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 26 26"
+                          stroke-width="1.8"
+                          stroke="currentColor"
+                          class="w-5 h-5 group-hover:hidden -mb-1 duration-300"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                          ></path>
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 26 26"
+                          fill="#00AA45"
+                          class="w-5 h-5 hidden group-hover:block -mb-1 duration-300"
+                        >
+                          <path
+                            d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="flex items-center mt-3 gap-5">
+                    <div class="ratinger">
+                      <p class="font-Lexend text-xl text-gold font-bold">4.7</p>
+                    </div>
+                    <div class="user-block">
+                      <div class="flex items-center gap-2">
+                        <div class="user-icon">
+                          <i class="fa-solid fa-user-group text-greenog"></i>
+                        </div>
+                        <div class="users-count">
+                          <p class="font-Lexend text-base text-secondary">
+                            857,691
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="price-desc">
+                      <p class="font-Lexend text-secondary text-base">
+                        <span class="text-greenog text-lg">₹</span> 3,699
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-span-5 sm:col-span-2 block xsg:hidden">
+                  <div class="rating-seciton-block">
+                    <div class="flex items-center justify-between">
+                      <div class="ratinger block sm:hidden">
+                        <p class="font-Lexend text-xl text-gold font-bold">
+                          4.7
+                        </p>
+                      </div>
+                      <div class="user-block block sm:hidden">
+                        <div class="flex items-center gap-2">
+                          <div class="user-icon">
+                            <i class="fa-solid fa-user-group text-greenog"></i>
+                          </div>
+                          <div class="users-count">
+                            <p class="font-Lexend text-base text-secondary">
+                              857,691
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="price-desc block sm:hidden">
+                        <p class="font-Lexend text-secondary text-base">
+                          <span class="text-greenog text-lg">₹</span> 3,699
+                        </p>
+                      </div>
+                      <div class="heart-blk">
+                        <button
+                          class="group text-base font-regular leading-leading-10p hover:text-primary flex items-center border border-secondary w-10 h-10 rounded-full justify-center hover:bg-greenlight hover:border-greenlight duration-300"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 26 26"
+                            stroke-width="1.8"
+                            stroke="currentColor"
+                            class="w-5 h-5 group-hover:hidden -mb-1 duration-300"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                            ></path>
+                          </svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 26 26"
+                            fill="#00AA45"
+                            class="w-5 h-5 hidden group-hover:block -mb-1 duration-300"
+                          >
+                            <path
+                              d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"
+                            ></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="student-details-section border-b border-grayShade py-5">
+              <div
+                class="image-content-seciton grid grid-cols-12 items-center gap-2"
+              >
+                <div
+                  class="col-span-7 sm:col-span-10 xsg:col-span-12 block xsg:hidden"
+                >
+                  <div class="grid grid-cols-6 gap-3">
+                    <div class="stack-image-sec col-span-1">
+                      <img
+                        class="w-full rounded-lg"
+                        src="../../../../../assets/images/fullstack.webp"
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="stack-content-sec flex flex-col justify-between h-full col-span-5"
+                    >
+                      <div class="stack-head">
+                        <h2 class="font-Lexend text-base font-semibold">
+                          The Ultimate 2023 FullStack WEb Development Bootcamp
+                        </h2>
+                      </div>
+                      <div class="stack-para">
+                        <p class="text-sm font-Lexend">
+                          <span class="text-greenog">64 total hours •</span>
+                          Updated 3/2023
+                        </p>
+                      </div>
+                      <div class="hidden sm:block">
+                        <div class="flex items-center mt-3 gap-5">
+                          <div class="ratinger">
+                            <p class="font-Lexend text-xl text-gold font-bold">
+                              4.7
+                            </p>
+                          </div>
+                          <div class="user-block">
+                            <div class="flex items-center gap-2">
+                              <div class="user-icon">
+                                <i
+                                  class="fa-solid fa-user-group text-greenog"
+                                ></i>
+                              </div>
+                              <div class="users-count">
+                                <p class="font-Lexend text-base text-secondary">
+                                  857,691
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="price-desc">
+                            <p class="font-Lexend text-secondary text-base">
+                              <span class="text-greenog text-lg">₹</span> 3,699
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hidden xsg:block w-full col-span-12">
+                  <div class="price-block-section flex items-center gap-4">
+                    <div class="stack-image-sec col-span-1">
+                      <img
+                        class="w-full rounded-lg"
+                        src="../../../../../assets/images/fullstack.webp"
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="stack-content-sec flex flex-col justify-between h-full col-span-5"
+                    >
+                      <div class="stack-head">
+                        <h2 class="font-Lexend text-base font-semibold">
+                          The Ultimate 2023 FullStack WEb Development Bootcamp
+                        </h2>
+                      </div>
+                      <div class="stack-para">
+                        <p class="text-sm font-Lexend">
+                          <span class="text-greenog">64 total hours •</span>
+                          Updated 3/2023
+                        </p>
+                      </div>
+                    </div>
+                    <div class="heart-blk">
+                      <button
+                        class="group text-base font-regular leading-leading-10p hover:text-primary flex items-center border border-secondary w-10 h-10 rounded-full justify-center hover:bg-greenlight hover:border-greenlight duration-300"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 26 26"
+                          stroke-width="1.8"
+                          stroke="currentColor"
+                          class="w-5 h-5 group-hover:hidden -mb-1 duration-300"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                          ></path>
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 26 26"
+                          fill="#00AA45"
+                          class="w-5 h-5 hidden group-hover:block -mb-1 duration-300"
+                        >
+                          <path
+                            d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="flex items-center mt-3 gap-5">
+                    <div class="ratinger">
+                      <p class="font-Lexend text-xl text-gold font-bold">4.7</p>
+                    </div>
+                    <div class="user-block">
+                      <div class="flex items-center gap-2">
+                        <div class="user-icon">
+                          <i class="fa-solid fa-user-group text-greenog"></i>
+                        </div>
+                        <div class="users-count">
+                          <p class="font-Lexend text-base text-secondary">
+                            857,691
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="price-desc">
+                      <p class="font-Lexend text-secondary text-base">
+                        <span class="text-greenog text-lg">₹</span> 3,699
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-span-5 sm:col-span-2 block xsg:hidden">
+                  <div class="rating-seciton-block">
+                    <div class="flex items-center justify-between">
+                      <div class="ratinger block sm:hidden">
+                        <p class="font-Lexend text-xl text-gold font-bold">
+                          4.7
+                        </p>
+                      </div>
+                      <div class="user-block block sm:hidden">
+                        <div class="flex items-center gap-2">
+                          <div class="user-icon">
+                            <i class="fa-solid fa-user-group text-greenog"></i>
+                          </div>
+                          <div class="users-count">
+                            <p class="font-Lexend text-base text-secondary">
+                              857,691
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="price-desc block sm:hidden">
+                        <p class="font-Lexend text-secondary text-base">
+                          <span class="text-greenog text-lg">₹</span> 3,699
+                        </p>
+                      </div>
+                      <div class="heart-blk">
+                        <button
+                          class="group text-base font-regular leading-leading-10p hover:text-primary flex items-center border border-secondary w-10 h-10 rounded-full justify-center hover:bg-greenlight hover:border-greenlight duration-300"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 26 26"
+                            stroke-width="1.8"
+                            stroke="currentColor"
+                            class="w-5 h-5 group-hover:hidden -mb-1 duration-300"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                            ></path>
+                          </svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 26 26"
+                            fill="#00AA45"
+                            class="w-5 h-5 hidden group-hover:block -mb-1 duration-300"
+                          >
+                            <path
+                              d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"
+                            ></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="student-details-section border-b border-grayShade py-5">
+              <div
+                class="image-content-seciton grid grid-cols-12 items-center gap-2"
+              >
+                <div
+                  class="col-span-7 sm:col-span-10 xsg:col-span-12 block xsg:hidden"
+                >
+                  <div class="grid grid-cols-6 gap-3">
+                    <div class="stack-image-sec col-span-1">
+                      <img
+                        class="w-full rounded-lg"
+                        src="../../../../../assets/images/python.webp"
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="stack-content-sec flex flex-col justify-between h-full col-span-5"
+                    >
+                      <div class="stack-head">
+                        <h2 class="font-Lexend text-base font-semibold">
+                          The 100 Days Of Code: The Complete Python Pro Bootcamp
+                          for 2023
+                        </h2>
+                      </div>
+                      <div class="stack-para">
+                        <p class="text-sm font-Lexend">
+                          <span class="text-greenog">64 total hours •</span>
+                          Updated 3/2023
+                        </p>
+                      </div>
+                      <div class="hidden sm:block">
+                        <div class="flex items-center mt-3 gap-5">
+                          <div class="ratinger">
+                            <p class="font-Lexend text-xl text-gold font-bold">
+                              4.7
+                            </p>
+                          </div>
+                          <div class="user-block">
+                            <div class="flex items-center gap-2">
+                              <div class="user-icon">
+                                <i
+                                  class="fa-solid fa-user-group text-greenog"
+                                ></i>
+                              </div>
+                              <div class="users-count">
+                                <p class="font-Lexend text-base text-secondary">
+                                  857,691
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="price-desc">
+                            <p class="font-Lexend text-secondary text-base">
+                              <span class="text-greenog text-lg">₹</span> 3,699
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hidden xsg:block w-full col-span-12">
+                  <div class="price-block-section flex items-center gap-4">
+                    <div class="stack-image-sec col-span-1">
+                      <img
+                        class="w-full rounded-lg"
+                        src="../../../../../assets/images/python.webp"
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="stack-content-sec flex flex-col justify-between h-full col-span-5"
+                    >
+                      <div class="stack-head">
+                        <h2 class="font-Lexend text-base font-semibold">
+                          The 100 Days Of Code: The Complete Python Pro Bootcamp
+                          for 2023
+                        </h2>
+                      </div>
+                      <div class="stack-para">
+                        <p class="text-sm font-Lexend">
+                          <span class="text-greenog">64 total hours •</span>
+                          Updated 3/2023
+                        </p>
+                      </div>
+                    </div>
+                    <div class="heart-blk">
+                      <button
+                        class="group text-base font-regular leading-leading-10p hover:text-primary flex items-center border border-secondary w-10 h-10 rounded-full justify-center hover:bg-greenlight hover:border-greenlight duration-300"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 26 26"
+                          stroke-width="1.8"
+                          stroke="currentColor"
+                          class="w-5 h-5 group-hover:hidden -mb-1 duration-300"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                          ></path>
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 26 26"
+                          fill="#00AA45"
+                          class="w-5 h-5 hidden group-hover:block -mb-1 duration-300"
+                        >
+                          <path
+                            d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="flex items-center mt-3 gap-5">
+                    <div class="ratinger">
+                      <p class="font-Lexend text-xl text-gold font-bold">4.7</p>
+                    </div>
+                    <div class="user-block">
+                      <div class="flex items-center gap-2">
+                        <div class="user-icon">
+                          <i class="fa-solid fa-user-group text-greenog"></i>
+                        </div>
+                        <div class="users-count">
+                          <p class="font-Lexend text-base text-secondary">
+                            857,691
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="price-desc">
+                      <p class="font-Lexend text-secondary text-base">
+                        <span class="text-greenog text-lg">₹</span> 3,699
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-span-5 sm:col-span-2 block xsg:hidden">
+                  <div class="rating-seciton-block">
+                    <div class="flex items-center justify-between">
+                      <div class="ratinger block sm:hidden">
+                        <p class="font-Lexend text-xl text-gold font-bold">
+                          4.7
+                        </p>
+                      </div>
+                      <div class="user-block block sm:hidden">
+                        <div class="flex items-center gap-2">
+                          <div class="user-icon">
+                            <i class="fa-solid fa-user-group text-greenog"></i>
+                          </div>
+                          <div class="users-count">
+                            <p class="font-Lexend text-base text-secondary">
+                              857,691
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="price-desc block sm:hidden">
+                        <p class="font-Lexend text-secondary text-base">
+                          <span class="text-greenog text-lg">₹</span> 3,699
+                        </p>
+                      </div>
+                      <div class="heart-blk">
+                        <button
+                          class="group text-base font-regular leading-leading-10p hover:text-primary flex items-center border border-secondary w-10 h-10 rounded-full justify-center hover:bg-greenlight hover:border-greenlight duration-300"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 26 26"
+                            stroke-width="1.8"
+                            stroke="currentColor"
+                            class="w-5 h-5 group-hover:hidden -mb-1 duration-300"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                            ></path>
+                          </svg>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 26 26"
+                            fill="#00AA45"
+                            class="w-5 h-5 hidden group-hover:block -mb-1 duration-300"
+                          >
+                            <path
+                              d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"
+                            ></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="showMore-button-blk mt-5">
+              <button
+                class="border py-2 w-full font-Lexend font-bold border-black hover:border-greenog hover:bg-greenog duration-300 hover:text-white rounded-lg"
+              >
+                Show more
+              </button>
+            </div>
+          </div>
+          <div class="frequently-inner-blk py-6 mt-4 px-4 border rounded-xl border-borderlight"
+          >
+            <div class="frequently-heading mb-4">
+              <h2
+                class="font-bold font-Lexend text-xl text-left xxsg:text-center"
+              >
+                Frequently Bought Together
+              </h2>
+            </div>
+            
+            <div class="">
+              <div class="images-section-574-blk flex flex-col gap-16 relative">
+                <div *ngFor="let course of singleCourseData" class="relative">                 
+                  <div class="the-three-courses smg:block xxsg:text-center text-left">             
+                      <div class="grid grid-cols-12 gap-2">
+                        <div class="course-image col-span-3 xxsg:w-full">
+                          <img class="rounded-xl shadow-custom w-full xxsg:w-1/2 xxsg:mx-auto"
+                            src="https://learningbackend.jobpakado.com/{{course.image}}"
+                            alt=""/>
+                        </div>
+                        <div class="course-section-header-desc col-span-7">
+                          <div class="course-head xxsg:w-full">
+                            <h6 class="font-bold font-Lexend xxsg:text-sm text-lg">
+                              {{course.title}}
+                            </h6>
+                          </div>
+                          <div class="xxsg:justify-center xxsg:gap-2 flex flex-col gap-2">
+                            <div class="angle-yu">
+                              <p class="font-Lexend mt-1">Dr.Angela Yu</p>
+                            </div>
+                            <div class="rater">
+                              <p class="text-secondary font-Lexend">
+                                <span class="text-gold font-medium">{{course.courseRating}}</span>( <span>{{course.courseReviews}} Reviews </span> )
+                              </p>
+                            </div>
+                            <!-- <div class="star-ratings-blk flex items-center mt-1 gap-4">
+                              <button
+                                class="bg-secondary hover:text-white leading-leading-10p px-8 py-3 duration-300 font-Lexend font-medium text-sm hover:bg-greenog rounded-lg text-white"
+                              >
+                                Bestseller
+                              </button>
+                            </div> -->
+                          </div>
+                        </div>
+                        <div class="course-price xxsg:text-center text-left xxsg:w-full col-span-2">
+                          <p class="font-bold text-base sm:text-sm font-Lexend first-letter:text-greenog text-left xxsg:text-center">
+                            ₹ {{course.actualPrice}}
+                          </p>
+                        </div>                 
+                      </div>
+                  </div>
+                <!-- <div class="plus-position-blk absolute bg-white z-50 h-10 w-10 sm:h-10 sm:w-10 sm:shadow-2xl sm:top-[30%] sm:bg-greenog sm:text-white flex items-center justify-center bottom-[-38px] left-[8%] rounded-full drop-shadow-2xl text-center">
+                  <i class="fa-solid fa-plus"></i>
+                </div> -->
+              </div>
+                <!-- <div
+                  class="the-three-courses hidden smg:block xxsg:text-center text-left"
+                >
+                  <div class="flex gap-2 items-center flex-wrap">
+                    <div class="course-image w-1/4 xxsg:w-full">
+                      <img
+                        class="rounded-xl shadow-custom xxsg:w-1/2 xxsg:mx-auto"
+                        src="../../../../../assets/images/program-1.webp"
+                        alt=""
+                      />
+                    </div>
+                    <div class="course-head w-1/2 xxsg:w-full">
+                      <h6 class="font-bold font-Lexend">
+                        The Complete 2023 Web Development Bootcamp
+                      </h6>
+                    </div>
+                    <div class="course-price xxsg:w-full">
+                      <p
+                        class="font-bold text-base sm:text-sm font-Lexend first-letter:text-greenog"
+                      >
+                        ₹ 3,699
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="flex items-center justify-between flex-wrap xxsg:justify-center xxsg:gap-2"
+                  >
+                    <div class="angle-yu">
+                      <p class="font-Lexend mt-1">Dr.Angela Yu</p>
+                    </div>
+                    <div class="rater">
+                      <p class="text-secondary font-Lexend">
+                        <span class="text-gold font-medium">4.7</span> (274,707)
+                      </p>
+                    </div>
+                    <div class="star-ratings-blk flex items-center mt-1 gap-4">
+                      <button
+                        class="bg-secondary hover:text-white leading-leading-10p px-8 py-3 duration-300 font-Lexend font-medium text-sm hover:bg-greenog rounded-lg text-white"
+                      >
+                        Bestseller
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="plus-position-blk absolute bg-white z-50 h-14 w-14 sm:h-10 sm:w-10 sm:shadow-2xl sm:top-[65%] sm:bg-greenog sm:text-white flex items-center justify-center bottom-[-38px] left-[40%] rounded-full drop-shadow-2xl text-center"
+                >
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+                <div
+                  class="the-three-courses hidden smg:block xxsg:text-center text-left"
+                >
+                  <div class="flex gap-2 items-center flex-wrap">
+                    <div class="course-image w-1/4 xxsg:w-full">
+                      <img
+                        class="rounded-xl shadow-custom w-full xxsg:w-1/2 xxsg:mx-auto"
+                        src="../../../../../assets/images/code-testing-nv.webp"
+                        alt=""
+                      />
+                    </div>
+                    <div class="course-head w-1/2 xxsg:w-full">
+                      <h6
+                        class="font-bold font-Lexend text-left xxsg:text-center"
+                      >
+                        The Complete 2023 Web Development Bootcamp
+                      </h6>
+                    </div>
+                    <div class="course-price xxsg:w-full">
+                      <p
+                        class="font-bold text-base sm:text-sm font-Lexend first-letter:text-greenog"
+                      >
+                        ₹ 3,699
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="flex items-center justify-between flex-wrap xxsg:justify-center xxsg:gap-2"
+                  >
+                    <div class="angle-yu">
+                      <p class="font-Lexend mt-1">Dr.Angela Yu</p>
+                    </div>
+                    <div class="rater">
+                      <p class="text-secondary font-Lexend">
+                        <span class="text-gold font-medium">4.7</span> (274,707)
+                      </p>
+                    </div>
+                    <div class="star-ratings-blk flex items-center mt-1 gap-4">
+                      <button
+                        class="bg-secondary hover:text-white leading-leading-10p px-8 py-3 duration-300 font-Lexend font-medium text-sm hover:bg-greenog rounded-lg text-white"
+                      >
+                        Bestseller
+                      </button>
+                    </div>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+            <!-- <div
+              class="images-main-blk grid grid-cols-10 py-3 items-center smg:grid-cols-12 smg:hidden"
+            >
+              <div class="col-span-9 smg:col-span-9">
+                <div class="inner-image-section grid grid-cols-5">
+                  <div class="frequently-images-blk h-full col-span-2 relative">
+                    <img
+                      class="rounded-xl shadow-custom w-10/12 mx-auto"
+                      src="../../../../../assets/images/program-2.webp"
+                      alt=""
+                    />
+                    <div
+                      class="plus-position-blk absolute bg-white z-50 h-14 w-14 sm:h-10 sm:w-10 sm:shadow-2xl sm:bottom-[-30px] sm:bg-greenog sm:text-white flex items-center justify-center bottom-[-38px] left-[40%] rounded-full drop-shadow-2xl text-center"
+                    >
+                      <i class="fa-solid fa-plus"></i>
+                    </div>
+                  </div>
+                  <div class="images-content-blk col-span-3">
+                    <h6 class="font-bold font-Lexend">
+                      The Complete 2023 Web Development Bootcamp
+                    </h6>
+                    <p class="font-Lexend mt-1">Dr.Angela Yu</p>
+                    <div class="star-ratings-blk flex items-center mt-1 gap-4">
+                      <p class="text-secondary font-Lexend">
+                        <span class="text-gold font-medium">4.7</span> (274,707)
+                      </p>
+                      <button
+                        class="bg-secondary hidden sm:block hover:text-white leading-leading-10p px-8 py-3 duration-300 font-Lexend font-medium text-sm hover:bg-greenog rounded-lg text-white"
+                      >
+                        Bestseller
+                      </button>
+                    </div>
+                    <div class="dbeseller-button mt-3 block sm:hidden">
+                      <button
+                        class="bg-secondary hover:text-white leading-leading-10p px-9 py-4 duration-300 font-Lexend font-medium text-base hover:bg-greenog rounded-lg text-white"
+                      >
+                        Bestseller
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-span-1 smg:col-span-3">
+                <p class="font-bold text-base sm:text-sm">
+                  <span class="text-greenog font-Lexend">₹</span> 3,699
+                </p>
+              </div>
+            </div>
+            <div
+              class="images-main-blk grid grid-cols-10 items-center py-3 relative smg:grid-cols-12 smg:hidden"
+            >
+              <div class="col-span-9 smg:col-span-9">
+                <div class="inner-image-section grid grid-cols-5">
+                  <div class="frequently-images-blk h-full col-span-2 relative">
+                    <img
+                      class="rounded-xl shadow-custom w-10/12 mx-auto"
+                      src="../../../../../assets/images/program-1.webp"
+                      alt=""
+                    />
+                    <div
+                      class="plus-position-blk absolute bg-white z-50 h-14 w-14 sm:h-10 sm:w-10 sm:shadow-2xl sm:bottom-[-30px] sm:bg-greenog sm:text-white flex items-center justify-center bottom-[-38px] left-[40%] rounded-full drop-shadow-2xl text-center"
+                    >
+                      <i class="fa-solid fa-plus"></i>
+                    </div>
+                  </div>
+                  <div class="images-content-blk col-span-3">
+                    <h6 class="font-bold font-Lexend">
+                      The Complete 2023 Web Development Bootcamp
+                    </h6>
+                    <p class="font-Lexend mt-1">Dr.Angela Yu</p>
+                    <div class="star-ratings-blk flex items-center mt-1 gap-4">
+                      <p class="text-secondary font-Lexend">
+                        <span class="text-gold font-medium">4.7</span> (274,707)
+                      </p>
+                      <button
+                        class="bg-secondary hidden sm:block hover:text-white leading-leading-10p px-8 py-3 duration-300 font-Lexend font-medium text-sm hover:bg-greenog rounded-lg text-white"
+                      >
+                        Bestseller
+                      </button>
+                    </div>
+                    <div class="dbeseller-button mt-3">
+                      <button
+                        class="bg-secondary block sm:hidden hover:text-white leading-leading-10p px-9 py-4 duration-300 font-Lexend font-medium text-base hover:bg-greenog rounded-lg text-white"
+                      >
+                        Bestseller
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-span-1 smg:col-span-3">
+                <p class="font-bold text-base sm:text-sm">
+                  <span class="font-Lexend text-greenog">₹</span> 3,699
+                </p>
+              </div>
+            </div>
+            <div
+              class="images-main-blk grid grid-cols-10 items-center py-3 relative smg:grid-cols-12 smg:hidden"
+            >
+              <div class="col-span-9 smg:col-span-9">
+                <div class="inner-image-section grid grid-cols-5">
+                  <div class="frequently-images-blk h-full col-span-2">
+                    <img
+                      class="rounded-xl shadow-custom w-10/12 mx-auto"
+                      src="../../../../../assets/images/code-testing-nv.webp"
+                      alt=""
+                    />
+                  </div>
+                  <div class="images-content-blk col-span-3">
+                    <h6 class="font-bold font-Lexend">
+                      The Complete 2023 Web Development Bootcamp
+                    </h6>
+                    <p class="font-Lexend mt-1">Dr.Angela Yu</p>
+                    <div class="star-ratings-blk flex items-center mt-1 gap-4">
+                      <p class="text-secondary font-Lexend">
+                        <span class="text-gold font-medium">4.7</span> (274,707)
+                      </p>
+                      <button
+                        class="bg-secondary hidden sm:block hover:text-white leading-leading-10p px-8 py-3 duration-300 font-Lexend font-medium text-sm hover:bg-greenog rounded-lg text-white"
+                      >
+                        Bestseller
+                      </button>
+                    </div>
+                    <div class="dbeseller-button mt-3">
+                      <button
+                        class="bg-secondary block sm:hidden hover:text-white leading-leading-10p px-9 py-4 duration-300 font-Lexend font-medium text-base hover:bg-greenog rounded-lg text-white"
+                      >
+                        Bestseller
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-span-1 smg:col-span-3">
+                <p class="font-bold text-base sm:text-sm">
+                  <span class="font-Lexend text-greenog">₹</span> 3,699
+                </p>
+              </div>
+            </div> -->
+            <div
+              class="add-to-cart-blk flex items-center justify-between mt-3 border-t border-borderlight pt-5"
+            >
+              <p class="font-Lexend font-medium text-secondary">
+                Total:
+                <span class="font-bold"
+                  ><strong class="text-greenog font-normal">₹</strong>
+                  10,497</span
+                >
+              </p>
+              <div class="add-to-cart-button">
+                <button
+                  class="bg-secondary hover:text-white leading-leading-10p px-9 py-4 duration-300 font-Lexend font-medium text-base hover:bg-greenog rounded-lg text-white"
+                >
+                  Add all to cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="instructor-inner-blk py-5 px-2 mt-3">
+            <div class="instructor-heading-blk">
+              <h2
+                class="font-bold text-xl font-Lexend text-left xxsg:text-center"
+              >
+                Instructor
+              </h2>
+            </div>
+            <div class="instructor-content-blk mt-3 mb-6">
+              <p
+                class="text-greenog font-bold font-Lexend text-sm underline underline-offset-4 mb-2 text-left xxsg:text-center"
+              >
+                Dr.Angela Yu
+              </p>
+              <p
+                class="text-gray-500 font-Lexend text-sm text-left xxsg:text-center"
+              >
+                Developer and Lead Instructor
+              </p>
+            </div>
+            <div
+              class="instructor-main-image-blk grid grid-cols-12 gap-8 items-center mt-2 xxsg:block xxsg:justify-center"
+            >
+              <div class="angela-img col-span-3 xxsg:col-span-1">
+                <img
+                  class="rounded-full w-full xxsg:w-1/2 xxsg:mx-auto"
+                  src="../../../../../assets/images/avatar-nv.webp"
+                  alt=""
+                />
+              </div>
+              <div class="angela-details-blk leading-8 col-span-9">
+                <div
+                  class="flex flex-col gap-3 xxsg:justify-center justify-start"
+                >
+                  <div class="flex items-center gap-2 xxsg:justify-center">
+                    <span class="material-symbols-outlined starer text-greenog"
+                      >star</span
+                    >
+                    <div class="rating-er">
+                      <p
+                        class="font-Lexend font-normal text-base text-secondary"
+                      >
+                        4.7 Instructor Rating
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-2 xxsg:justify-center">
+                    <span class="material-symbols-outlined text-greenog">
+                      verified</span
+                    >
+                    <div class="rating-er">
+                      <p
+                        class="font-Lexend font-normal text-base text-secondary"
+                      >
+                        604,321 Reviews
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-2 xxsg:justify-center">
+                    <i class="fa-solid fa-user-group text-greenog"></i>
+                    <div class="rating-er">
+                      <p
+                        class="font-Lexend font-normal text-base text-secondary"
+                      >
+                        1,994,189 Students
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-2 xxsg:justify-center">
+                    <i class="fa-solid fa-circle-play text-greenog text-xl"></i>
+                    <div class="rating-er">
+                      <p
+                        class="font-Lexend font-normal text-base text-secondary"
+                      >
+                        8 Courses
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="angela-content-blk mt-2">
+              <p class="text-sm font-Lexend mt-4 text-left xxsg:text-center">
+                I'm Angela, I'm a developer with a passion for teaching. I'm the
+                <span class="font-bold"> lead instructor </span> at the London
+                App Brewery, London's leading
+                <span class="font-bold"> Programming Bootcamp.</span> I've
+                helped hundreds of thousands of students learn to code and
+                change their lives by becoming a developer. I've been invited by
+                companies such as Twitter, Facebook and Google to teach their
+                employees.
+              </p>
+
+              <div class="inline-block mt-2">
+                <p class="font-Lexend text-sm text-left xxsg:text-center">
+                  <span class="collapsable float-left">
+                    {{
+                      info.length > firstCount
+                        ? (info | slice : 0 : counter) + ".."
+                        : info
+                    }}
+                    <span
+                      class="text-greenog font-bold"
+                      *ngIf="info.length > 100"
+                      (click)="toggleSkil()"
+                    >
+                      {{ showTxt }}
+                      <i
+                        class="fa-solid fa-angle-down pt-3 pl-2 text-greenog"
+                      ></i>
+                    </span>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="course-inner-blk py-6 px-4 border rounded-xl border-borderlight"
+          >
+            <div class="course-heading-blk mb-4">
+              <h2
+                class="font-Lexend text-xl font-bold flex items-center gap-2 text-left xxsg:text-center flex-wrap xxsg:justify-center"
+              >
+                {{ mainRatingData }} course rating
+                <span class="inline-block text-3xl text-greenog">•</span>
+                275K ratings
+              </h2>
+            </div>
+            <div
+              class="course-rating-content grid grid-cols-2 py-3 gap-y-10 gap-x-4 px-4 md:grid-cols-1"
+            >
+              <div class="blocker" *ngFor="let rating of ratingsData">
+                <div class="colla-blk flex items-center justify-between">
+                  <div
+                    class="flex items-center justify-between gap-3 md:flex-wrap"
+                  >
+                    <div
+                      class="colla-inner-blk flex items-center justify-center"
+                    >
+                      <p
+                        class="text-white text-xl font-bold font-Lexend bg-secondary h-12 w-12 grid place-items-center rounded-full"
+                      >
+                        {{
+                          rating.userId?.Name
+                            ? rating.userId?.Name.charAt(0).toUpperCase()
+                            : ""
+                        }}
+                      </p>
+                    </div>
+                    <div class="">
+                      <div class="colla-name-blk">
+                        <h6 class="font-bold font-Lexend text-lg">
+                          {{ rating.userId?.Name }}
+                        </h6>
+                      </div>
+                      <div class="colla-ratings-blk flex items-center">
+                        <p class="text-sm font-Lexend">
+                          {{ rating.createdAt | DayAgo }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="report-inner-blk flex items-center gap-4 hidden">
+                    <div class="reports-blk cursor-pointer" (click)="report()">
+                      <i
+                        class="fa-solid fa-ellipsis-vertical hover:text-greenog duration-300"
+                      ></i>
+                    </div>
+                    <div class="" *ngIf="reportBlock ? true : false">
+                      <button
+                        class="bg-secondary hover:text-white leading-leading-10p px-9 py-4 duration-300 font-Lexend font-medium text-base hover:bg-greenog rounded-lg text-white"
+                      >
+                        Report
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="inline-block mt-4">
+                  <p class="font-Lexend text-sm">
+                    <span class="collapsable float-left">
+                      {{
+                        rating.message.length > firstCount
+                          ? (rating.message | slice : 0 : counter) + ".."
+                          : rating.message
+                      }}
+                      <span
+                        class="text-greenog font-bold"
+                        *ngIf="rating.message.length > 200"
+                        (click)="toggleSkil()"
+                      >
+                        {{ showTxt }}
+                        <!-- <i class="fa-solid fa-angle-down pl-2 text-greenog"></i> -->
+                      </span>
+                    </span>
+                  </p>
+                </div>
+                <div class="helpful-blk flex items-center gap-2 mt-2">
+                  <div class="gelpful-content">
+                    <p class="text-sm font-Lexend">Helpful?</p>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="thumbs">
+                      <i
+                        class="fa-regular fa-thumbs-up hover:text-greenog duration-300 cursor-pointer"
+                      ></i>
+                    </div>
+                    <div class="thumbs">
+                      <i
+                        class="fa-regular fa-thumbs-down hover:text-greenog duration-300 cursor-pointer"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="allreviews-blk mt-4">
+              <button
+                class="bg-secondary hover:text-white leading-leading-10p px-9 py-4 duration-300 font-Lexend font-medium text-base hover:bg-greenog rounded-lg text-white"
+              >
+                Show all reviews
+              </button>
+            </div>
+          </div>
+          <div class="more-course-inner py-6 px-4 mt-3 hidden">
+            <div class="more-course-heading-blk">
+              <h2
+                class="font-Lexend text-xl font-bold text-left xxsg:text-center"
+              >
+                More Courses by <span class="text-greenog">Dr. Angela Yu</span>
+              </h2>
+            </div>
+            <div
+              class="more-course-content grid grid-cols-3 mt-4 gap-4 smg:grid-cols-2 xs:grid-cols-1"
+            >
+              <div
+                class="mobile-prices-sec group shadow-custom rounded-xl overflow-hidden"
+              >
+                <div class="morecourse-contant-blk">
+                  <div class="image-block">
+                    <img
+                      class="group-hover:scale-110 duration-500 w-full rounded-t-xl"
+                      src="../../../../../assets/images/ios-2.webp"
+                      alt=""
+                    />
+                  </div>
+                  <div class="morecourse-details p-4">
+                    <h6 class="font-medium text-sm font-Lexend">
+                      100 Days of Code:The Complete Python Pro...
+                    </h6>
+                    <div class="name-blk">
+                      <div class="my-2">
+                        <p
+                          class="font-Lexend text-base font-meidum text-greenog"
+                        >
+                          Dr.Angela Yu
+                        </p>
+                      </div>
+                      <div
+                        class="rating-inner-blk flex items-center gap-1 mt-1"
+                      >
+                        <p class="text-gold text-sm">4.7</p>
+                        <div>
+                          <p class="font-Lexend text-sm">(188,851)</p>
+                        </div>
+                      </div>
+                      <div class="mt-1">
+                        <p class="font-Lexend text-sm">
+                          64 total hours.676lectures.All Levels
+                        </p>
+                      </div>
+                      <div class="mt-2 pt-2 border-t border-grayShade">
+                        <div class="flex items-center gap-3">
+                          <div class="rupee">
+                            <p class="font-Lexend text-sm">
+                              <span class="text-greenog font-bold">₹</span> 649
+                            </p>
+                          </div>
+                          <div class="rupee">
+                            <p class="font-Lexend text-sm line-through">
+                              <span class="text-greenog font-bold">₹</span>
+                              3,699
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mobile-prices-sec group shadow-custom rounded-xl overflow-hidden"
+              >
+                <div class="morecourse-contant-blk">
+                  <div class="image-block">
+                    <img
+                      class="w-full group-hover:scale-110 duration-500 rounded-t-xl"
+                      src="../../../../../assets/images/ios-app.webp"
+                      alt=""
+                    />
+                  </div>
+                  <div class="morecourse-details p-4">
+                    <h6 class="font-medium text-sm font-Lexend">
+                      iOS & Swift - The Complete iOS App Development...
+                    </h6>
+                    <div class="name-blk">
+                      <div class="my-2">
+                        <p
+                          class="font-Lexend text-base font-meidum text-greenog"
+                        >
+                          Dr.Angela Yu
+                        </p>
+                      </div>
+                      <div
+                        class="rating-inner-blk flex items-center gap-1 mt-1"
+                      >
+                        <p class="text-gold text-sm">4.7</p>
+                        <div>
+                          <p class="font-Lexend text-sm">(188,851)</p>
+                        </div>
+                      </div>
+                      <div class="mt-1">
+                        <p class="font-Lexend text-sm">
+                          64 total hours.676lectures.All Levels
+                        </p>
+                      </div>
+                      <div class="mt-2 pt-2 border-t border-grayShade">
+                        <div class="flex items-center gap-3">
+                          <div class="rupee">
+                            <p class="font-Lexend text-sm">
+                              <span class="text-greenog font-bold">₹</span> 649
+                            </p>
+                          </div>
+                          <div class="rupee">
+                            <p class="font-Lexend text-sm line-through">
+                              <span class="text-greenog font-bold">₹</span>
+                              3,699
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mobile-prices-sec group shadow-custom rounded-xl overflow-hidden"
+              >
+                <div class="morecourse-contant-blk">
+                  <div class="image-block">
+                    <img
+                      class="w-full group-hover:scale-110 duration-500 rounded-t-xl"
+                      src="../../../../../assets/images/ios-3.webp"
+                      alt=""
+                    />
+                  </div>
+                  <div class="morecourse-details p-4">
+                    <h6 class="font-medium text-sm font-Lexend">
+                      The Complete Fulter Development Bootcamp wi...
+                    </h6>
+                    <div class="name-blk">
+                      <div class="my-2">
+                        <p
+                          class="font-Lexend text-base font-meidum text-greenog"
+                        >
+                          Dr.Angela Yu
+                        </p>
+                      </div>
+                      <div
+                        class="rating-inner-blk flex items-center gap-1 mt-1"
+                      >
+                        <p class="text-gold text-sm">4.7</p>
+                        <div>
+                          <p class="font-Lexend text-sm">(188,851)</p>
+                        </div>
+                      </div>
+                      <div class="mt-1">
+                        <p class="font-Lexend text-sm">
+                          64 total hours.676lectures.All Levels
+                        </p>
+                      </div>
+                      <div class="mt-2 pt-2 border-t border-grayShade">
+                        <div class="flex items-center gap-3">
+                          <div class="rupee">
+                            <p class="font-Lexend text-sm">
+                              <span class="text-greenog font-bold">₹</span> 649
+                            </p>
+                          </div>
+                          <div class="rupee">
+                            <p class="font-Lexend text-sm line-through">
+                              <span class="text-greenog font-bold">₹</span>
+                              3,699
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="allreviews-blk mt-8">
+              <p
+                class="border border-secondary px-6 py-2 text-center rounded-lg hover:bg-greenog cursor-pointer duration-300 hover:text-white hover:border-greenog font-Lexend text-sm font-bold"
+              >
+                Report abuse
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-4 relative block lg:hidden">
+          <div class="side-content-blk w-full pl-6 side_content_block-section">
+            <div class="side-content-inner">
+              <div class="bg-white shadow-2xl rounded-2xl">
+                <div class="side-image-blk">
+                  <img
+                    class="w-full object-cover rounded-t-2xl "
+                    src="../../../../../assets/images/right-side.webp"
+                    alt=""
+                  />
+                </div>
+                <div class="pt-4 pb-7 px-6">
+                  <!-- <div class="tabs w-full">
+                  
+                    <ul class="flex justify-start w-full">
+                      <li class="w-1/2">
+                        <button type="button" [ngClass]="{ active: tabs.Personal }" (click)="menuTabs('personals')"
+                          class="liquid duration-300 w-full">
+                          Personal
+                        </button>
+                      </li>
+                      <li class="w-1/2">
+                        <button type="button" [ngClass]="{ active: tabs.Teams }" (click)="menuTabs('teams')"
+                          class="liquid duration-300 w-full">
+                          Teams
+                        </button>
+                      </li>
+
+                    </ul>
+                  </div> -->
+                  <div class="" [hidden]="!tabs.Personal">
+                    <div class="side-image-content mt-3">
+                      <p class="text-xl font-Lexend">
+                        <span class="font-bold"
+                          ><span class="font-Lexend text-greenog">₹</span> 649
+                        </span>
+                        <span class="line-through"> ₹3,699</span> 82% off
+                      </p>
+                    </div>
+                    <div class="clock-blk mt-2">
+                      <p class="font-Lexend text-sm">
+                        <span class="font-bold text-greenog">
+                          <i class="fa-solid fa-stopwatch"></i> 3 days</span
+                        >
+                        left at this price!
+                      </p>
+                    </div>
+                    <div class="buy-blk px-3 mt-3">
+                      <button
+                        class="font-medium font-Lexend leading-leading-10p text-lg w-full py-5 bg-secondary rounded-lg duration-300 text-white hover:bg-greenog"
+                      >
+                        Buy This Course
+                      </button>
+                    </div>
+                    <div class="guarantee-blk text-center mt-3">
+                      <p class="font-Lexend text-sm">
+                        30-Day Money-Back Guarantee <br />
+                        Full Lifetime Access
+                      </p>
+                    </div>
+                    <div
+                      class="share-blk flex justify-center mt-3 px-3 gap-7 xl:px-0 flex-wrap xl:justify-center"
+                    >
+                      <a href="">
+                        <p
+                          class="font-Lexend text-sm font-bold underline underline-offset-4 text-greenog"
+                        >
+                          Share
+                        </p>
+                      </a>
+                      <!-- <a href="">
+                        <p class="font-Lexend text-sm font-bold underline underline-offset-4 text-greenog">Gift This
+                          Course
+                        </p>
+                      </a> -->
+                      <a href="">
+                        <p
+                          class="font-Lexend text-sm font-bold underline underline-offset-4 text-greenog"
+                        >
+                          Apply Coupon
+                        </p>
+                      </a>
+                    </div>
+                    <div class="or-block flex items-center mt-5">
+                      <div class="border w-1/2"></div>
+                      <p class="px-2">or</p>
+                      <div class="border w-1/2"></div>
+                    </div>
+                    <div class="subscribe-blk mt-3">
+                      <h2 class="font-Lexend font-bold text-xl">
+                        Subscribe to Jobpakado's top <br />
+                        courses
+                      </h2>
+                    </div>
+                    <div class="inline-block mt-3">
+                      <p class="font-Lexend text-sm">
+                        <span class="collapsable float-left">
+                          {{
+                            info.length > firstCount
+                              ? (info | slice : 0 : counter) + ".."
+                              : info
+                          }}
+                          <span
+                            class="text-greenog font-bold"
+                            *ngIf="info.length > 200"
+                            (click)="toggleSkil()"
+                          >
+                            {{ showTxt }}
+                          </span>
+                        </span>
+                      </p>
+                    </div>
+                    <div class="start-subscription-blk px-3 mt-3">
+                      <button
+                        class="font-medium font-Lexend leading-leading-10p text-lg w-full py-5 bg-secondary rounded-lg duration-300 text-white hover:bg-greenog"
+                      >
+                        Start subscription
+                      </button>
+                    </div>
+                    <div class="permonth-blk text-center mt-2">
+                      <p class="text-sm font-Lexend text-gray-500">
+                        ₹829.00 per month. Cancel anytime.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="team-main-blk" [hidden]="!tabs.Teams">
+                    <div class="team-heding-blk mt-5">
+                      <h2 class="text-xl font-Lexend font-bold">
+                        Jobpakado
+                        <span class="text-greenog font-medium">Business</span>
+                      </h2>
+                      <p class="text-sm font-Lexend mt-2">
+                        Subscribe to this course and 19,000+ <br />
+                        top‑rated Jobpakado courses for your <br />
+                        organization.
+                      </p>
+                    </div>
+                    <div class="buy-blk px-3 mt-3">
+                      <button
+                        class="font-medium font-Lexend leading-leading-10p text-lg w-full py-5 bg-secondary rounded-lg duration-300 text-white hover:bg-greenog"
+                      >
+                        Try Jobpakado Business
+                      </button>
+                    </div>
+                    <div class="check-blk mt-3">
+                      <ul class="text-sm flex flex-col gap-3">
+                        <div class="flex gap-3">
+                          <i class="fa-solid fa-check pt-1 text-greenog"></i>
+                          <li class="font-Lexend">
+                            For teams of 5 or more users
+                          </li>
+                        </div>
+                        <div class="flex gap-3">
+                          <i class="fa-solid fa-check pt-1 text-greenog"></i>
+                          <li class="font-Lexend">
+                            19,000+ fresh & in-demand courses
+                          </li>
+                        </div>
+                        <div class="flex gap-3">
+                          <i class="fa-solid fa-check pt-1 text-greenog"></i>
+                          <li class="font-Lexend">Learning Engagement tools</li>
+                        </div>
+                        <div class="flex gap-3">
+                          <i class="fa-solid fa-check pt-1 text-greenog"></i>
+                          <li class="font-Lexend">SSO and LMS Integrations</li>
+                        </div>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-blk">
+    <app-footer></app-footer>
+  </div>
+</div>
+
+<div
+  *ngIf="videoModel"
+  class="vide_model fixed top-0 h-screen bg-slate-950 bg-opacity-70 bg-gray-300 left-0 right-0"
+>
+  <div class="inner scroller-section-hider m-auto bg-secondary h-full  w-1/2 mx-auto relative z-50 overflow-auto">
+    <div class="p-7 mb-2">
+      <p class="text-sm font-Lexend font-semibold text-slate-300 mb-1 flex flex-wrap justify-between items-center">
+        Course Preview
+        <span (click)="closeModel()" class="cursor-pointer text-white text-lg"><i class="fa-solid fa-xmark"></i></span>
+      </p>
+      <h2 
+        class="text-white leading-6 mb-4 text-lg font-Lexend font-semibold xxsg:text-center xxsg:text-lg text-left"
+      >
+        {{ webDevolpmentData?.title }}
+      </h2>
+      <div *ngIf="!videorl" class="h-72 bg-white rounded-md">
+
+      </div>
+      <video *ngIf="videorl" [src]="videorl" class="h-72 rounded-md" width="100%"  controls autoplay>    
+      </video>
+    </div>
+    <div class="">
+      <h2
+        class="text-white leading-6 mb-3 px-7 text-lg font-Lexend font-semibold xxsg:text-center xxsg:text-lg text-left"
+      >
+        Videos
+      </h2>
+      <div [ngClass] = "isActive == content?.lectureTitle ? 'bg-white bg-opacity-10' : ''  " (click)="showModelVideo(content)"
+        class="course-intro-blk flex justify-between items-center py-4 px-7 text-white hover:bg-white duration-300 hover:bg-opacity-10 mb-1"
+        *ngFor="let content of modelData"
+      >
+        <div class="vedio-course-blk">
+          <p
+            class="font-Lexend font-normal text-sm flex items-center gap-3 cursor-pointer"
+          >
+            <i class="fa-regular fa-circle-play"></i>
+            {{ content?.lectureTitle }}
+          </p>
+        </div>
+        <div class="time-outer-blk flex items-center gap-3">
+          <div class="time-blk">
+            <p
+              class="font-light font-Lexend text-sm hover:text-greenog duration-300"
+            >
+              {{ content?.duration }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
