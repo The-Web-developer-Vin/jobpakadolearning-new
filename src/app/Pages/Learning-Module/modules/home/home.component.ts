@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { courseService } from 'src/app/Pages/shared/services/courses/courses.service';
+import { ToastrService } from 'ngx-toastr';
 // import { OwlOptions } from 'ngx-owl-carousel-o';
 // import { OwlOptions } from 'ngx-owl-carousel-o';
 @Component({
@@ -61,7 +62,7 @@ export class HomeComponent implements OnInit {
     private router:Router,
     private route: ActivatedRoute,
     private http: HttpClient,
-    private toastr:ToastrService
+    private toastr: ToastrService
     ) { 
        this.data=localStorage.getItem('USERDATA')
     console.log("data",this.data)
@@ -215,12 +216,14 @@ export class HomeComponent implements OnInit {
           this.courseServices.cartGetById(this.cartId).subscribe((res:any)=>{
              console.log("cartGetById res===>",res);
             this.cartLength=res.data.total;
+            this.toastr.success('Cart Item Added Sucessfully');
          // this.cartLength=this.cartLength++
             console.log("this.cartLength",this.cartLength);
             this.courseServices.isCartCount.next(this.cartLength);
             // this.courseServices.sharedData.next(this.cartLength);
             // this.courseServices.sharedData.next(this.product);
             // this.courseServices.cartData.next(this.cartLength);
+
           },(err:any)=>{
            console.log("cartGetById err",err)
           })
