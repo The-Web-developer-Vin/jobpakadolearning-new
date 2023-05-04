@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { courseService } from 'src/app/Pages/shared/services/courses/courses.service';
-import { ToastrService } from 'ngx-toastr';
 // import { OwlOptions } from 'ngx-owl-carousel-o';
 // import { OwlOptions } from 'ngx-owl-carousel-o';
 @Component({
