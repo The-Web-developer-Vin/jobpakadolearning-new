@@ -54,7 +54,13 @@ export class SingleViewCourseComponent implements OnInit {
   singleCoursetitle: any;
   courseData: any;
   index: any;
-  userId:any
+  actualPrice: any;
+  offerPrice: any;
+  userId:any;
+  serverUrl="https://learning-jobpakado.s3.amazonaws.com/"
+  totalcourse: any;
+  videoPreview: any;
+  
   constructor(
     private route: ActivatedRoute,
     private courseService: courseService,
@@ -62,29 +68,15 @@ export class SingleViewCourseComponent implements OnInit {
     private router: Router
   ) {
     this.selectedFaq = 0;
-    //   this.renderer.listen('window', 'click',(e:Event)=>{
-    //     if(e.target !== this.OutSideClick.nativeElement){
-    //         this.videoModel=true;
-    //     }
-    // });
   }
 
   ngOnInit(): void {
     let userDetails:any = JSON.parse(localStorage.getItem("USERDATA") || '{}');
     this.userId=userDetails._id
-
     this.clickedIndex = false;
     this.clicked = false;
     this.route.paramMap.subscribe((data: any) => (this.id = data.params.id));
     console.log('id', this.id);
-    // this.router.events.subscribe( (event: any) => {
-    //   this.router.navigate(['/']);
-    //   if(event.url.startsWith('/index/')){
-    //     console.log("id is %s", event.id);
-    //     //this.router.navigate(['/']);
-    //   }
-
-    // });
     this.gatAllCorsesData();
     this.getRatingsData();
     this.getSingleCourseData();
@@ -92,20 +84,11 @@ export class SingleViewCourseComponent implements OnInit {
 
   menuTabs(tab: any) {
     this.presentTab = tab;
-    console.log('tab', tab);
     (this.tabs.Personal = tab == 'personals' ? true : false),
       (this.tabs.Teams = tab == 'teams' ? true : false);
-    // this.spinner.hide();
   }
 
   toggleSkil() {
-    //   let active = this.coursetogglers[position]
-    //   ? !this.coursetogglers[position]
-    //   : true;
-    // for (const [key, value] of Object.entries(this.coursetogglers)) {
-    //   this.coursetogglers[key] = false;
-    // }
-    // this.coursetogglers[position] = active;
     if (this.counter < 201) {
       this.counter = this.info.length;
       this.showTxt = 'Show less';
@@ -130,17 +113,6 @@ export class SingleViewCourseComponent implements OnInit {
       this.clicked = false;
     }
   }
-
-  // SlideDown(): void {
-  //   if (!this.clicked) {
-  //     this.clicked = true
-  //   }
-  //   else {
-  //     this.clicked = false
-  //   }
-  // }
-  // }
-
   report() {
     this.reportBlock = !this.reportBlock;
   }
@@ -151,28 +123,17 @@ export class SingleViewCourseComponent implements OnInit {
   gatAllCorsesData() {
     this.courseService.getAllSingleViewCourse(this.id).subscribe(
       (res: any) => {
-        console.log('singleCourse res ===>', res);
         this.webDevolpmentData = res.data.course;
         this.rating = res.data.webDevolpmentData;
         this.youWillLearnData = res.data.course.whatUwillLearn;
         this.courseData = res.data.course;
-        // res.data.course.whatUwillLearn.forEach((element:any) => {
-        //   console.log("element",element)
-        // });
-
         this.courseIncludesData = res.data.course.courseIncludes;
-        // res.data.course.courseIncludes.forEach((element: any) => {
-        //   this.courseDesrciption = element.description;
-        // });
         this.courseContent = res.data.course.courseContent;
         res.data.course.courseContent.forEach((element: any) => {
           this.lecture = element.section.lecture;
           this.lectureTitleData.push(element);
         });
         this.requerementsData=res.data.course.requirements;
-        // res.data.course.requirements.forEach((element: any) => {
-        //   this.requerementsData = element.description;
-        // });
         this.descriptionData = res.data.course.description;
       },
       (err: any) => {
@@ -184,13 +145,11 @@ export class SingleViewCourseComponent implements OnInit {
   getDetails(i: any) {
     this.clickedIndex = this.clickedIndex === i ? undefined : i;
     this.clickedIndexOpen = this.clickedIndexOpen ? true : false;
-    console.log('this.clickedIndex', this.clickedIndex);
   }
 
   getRatingsData() {
     this.courseService.getRatingsData(this.id).subscribe(
       (res: any) => {
-        console.log('ratingsData res', res);
         this.ratingsData = res.data;
         this.mainRatingData = res.courseRate;
       },
@@ -207,45 +166,54 @@ export class SingleViewCourseComponent implements OnInit {
     }
   }
   showVideo(data: any, lecture: any) {
-    console.log('data', data);
-    console.log('lecture', lecture);
-    this.modelData = lecture;
+    this.isActive = data.lectureTitle
+    lecture.forEach((element:any) => {
+      if(element?.preview == true){
+        this.modelData.push(element)
+      }
+    });
     this.videoModel = true;
-    this.videorl = data.lecture;
+    this.videorl = this.serverUrl + data.lecture;
+    this.videoPreview=data.preview
   }
   closeModel() {
     this.videoModel = false;
+    this.modelData = []
   }
   showModelVideo(video: any) {
+    this.videoPreview=video.preview
+    console.log("video",this.videoPreview)
     this.isActive = video.lectureTitle;
-    this.videorl = video?.lecture;
+    this.videorl = this.serverUrl + video?.lecture;
+    // if(this.videoPreview==true){
+    //   this.videorl = this.serverUrl + video?.lecture;
+    // }
+   
   }
   getSingleCourseData() {
     let params = this.userId ? `?userId=${this.userId}` : ''
     this.courseService.getAllCoursesData(params).subscribe(
       (res: any) => {
-        console.log('single Course res************', res);
+        console.log("res",res)
+        this.totalcourse=0;
         this.singleCourseData = res.data.course;
-
-        console.log(
-          'this.singleCourseData************',
-          this.singleCourseData,
-          this.id
-        );
         let index = this.singleCourseData.findIndex(
           (course: any) => course._id == this.id
         );
-        console.log('index', index);
         this.singleCourseData.splice(index, 1);
-        // res.data.course.forEach((element:any,index:any) => {
-        //   console.log("index",index)
-        //   if(index==1){
-        //   }
-        // });
+        this.singleCourseData.splice(3);
+        this.singleCourseData.map((course:any) => {
+          this.totalcourse += course.actualPrice;
+        });
       },
       (err: any) => {
         console.log('single course err', err);
       }
     );
   }
+
+  // showMoreText(itemDiv:any) {
+  //   console.log("itemDiv", itemDiv);
+  //   itemDiv.hidden = !itemDiv.hidden;
+  // }
 }

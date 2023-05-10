@@ -59,7 +59,7 @@ export class CartComponent implements OnInit {
     this.cartItems=JSON.parse(localStorage.getItem('products')!);
     this.cartData=this.cartItems
     let sum=0
-    this.cartData.forEach((element:any) => {
+    this.cartData?.forEach((element:any) => {
        sum += element.offerPrice;
     });
      this.totalPrice= sum
@@ -71,26 +71,11 @@ export class CartComponent implements OnInit {
     this.courseService.cartGetById(this.userId).subscribe((res:any)=>{
       console.log("cartGetById res",res);
       this.cartData=res.data.cartId;
-
-  //     this.cartItems?.forEach((element:any) => {
-  //       this.cartData.push(element)
-  //  });
    console.log("this.cartData",this.cartData)
-
-//  localStorage.removeItem('products')
-      // this.cartData.push(this.localcartitem)
       this.offerCoupon=1;
       this.deletyeLength=res.data.cartId.length;
       this.totalPrice=res.data.totalPrice;
-      // this.offerTotalPrice = this.totalPrice - this.offerCoupon
-
-      // res.data.cartId.forEach((element:any) => {
-      // this.priceData=element.courseId.actualPrice,
-      // this.cartTitle=element.courseId.title,
-      // this.cartName=element.courseId.instructor?.name_as_per_bank,
-      // this.cartImage=element.courseId.image,
-      // this.offerPrice=element.courseId.offerPrice
-    // });
+this.addtocart();
            console.log("this.cartData", this.priceData);
       
     },(err:any)=>{
@@ -130,24 +115,27 @@ export class CartComponent implements OnInit {
 
   }
   deleteCartData(data:any,i:any){
-
-    if(this.cartItems){
-      this.cartData.splice(i,1)
-      console.log("this.cartData.",this.cartData)
-    }else{
-      console.log("data",data);
-      this.deleteCartId=data._id;
-      this.courseService.deleteCart(this.deleteCartId).subscribe((res:any)=>{
-        console.log("deleteCart res",res);
-        this.toastr.success('Cart Item Deleted Sucessfully');
-        // this.length=res.data.total
-       this.courseService.sharedData.next(this.deletyeLength);
-        this.cartGetById();
-  
-      },(err:any)=>{
-        console.log("deleteCart err",err)
-      })
-    }
+      if(this.cartItems){
+        this.cartData.splice(i,1)
+        this.toastr.success('Cart Item Deleted Sucessfully')
+        localStorage.setItem('products', JSON.stringify(this.cartItems));
+        this.courseService.sharedData.next(this.cartItems);
+        // this.courseService.deletecartlength.next(this.cartItems.length);
+        }else{
+          this.deleteCartId=data._id;
+          this.courseService.deleteCart(this.deleteCartId).subscribe((res:any)=>{
+            this.toastr.success('Cart Item Deleted Sucessfully');
+            this.length=res.data.total
+          this.courseService.sharedData.next(this.deletyeLength);
+            this.cartGetById();
+            this.getCouponData();
+            setTimeout(() => {
+              window.location.reload()
+              }, 1000);
+          },(err:any)=>{
+            console.log("deleteCart err",err)
+          })
+        }
   }
 
   getCouponData(){
@@ -165,13 +153,14 @@ export class CartComponent implements OnInit {
           if( this.couponType=="percent"){
             this.offerTotalPrice=(this.totalPrice * this.minAmount )/100
            
-            this.coupontotal=this.totalPrice - this.offerTotalPrice
-            console.log("this.coupontotal", this.coupontotal);
+            this.coupontotal=this.totalPrice - this.offerTotalPrice;
+            this.cartGetById();
           }else{
             this.offerTotalPrice=this.totalPrice - this.minAmount
           }
       }
-      console.log("this.couponData",this.couponData)
+      console.log("this.couponData",this.couponData);
+    
     },(err:any)=>{
       console.log("coupon err",err)
     })

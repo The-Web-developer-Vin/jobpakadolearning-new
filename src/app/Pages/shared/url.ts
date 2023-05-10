@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { retry } from "rxjs";
 import { environment } from "src/environments/environment";
 @Injectable({
     providedIn: "root",
@@ -50,6 +51,15 @@ import { environment } from "src/environments/environment";
      }
      get wishList(){
       return this.url + '/wishList/'
+     }
+     get createUserData(){
+      return this. url + '/user/getBy/'
+     }
+     get createUpdateUser(){
+      return this. url + '/user/createupdate'
+     }
+     get upload(){
+      return this. url + '/upload/create_update'
      }
   }
 

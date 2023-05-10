@@ -42,6 +42,12 @@ const routes: Routes = [
     path: 'wishlist',
     loadChildren: () => import('../app/Pages/Learning-Module/modules/whish-list/whish-list.module').then(m => m.WhishListModule)
   },
+  {
+    path: 'instructor',
+    loadChildren: () => import('../app/Pages/Learning-Module/modules/instructor/instructor.module').then(m => m.InstructorModule)
+  },
+  
+
 
 ];
 

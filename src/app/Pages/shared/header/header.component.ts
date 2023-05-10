@@ -12,6 +12,8 @@ import { Subject, filter } from 'rxjs';
 import { courseService } from '../services/courses/courses.service';
 // import { CoursesService } from 'src/app/shared/services/courses/courses.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { InstructorComponent } from '../../Learning-Module/modules/instructor/instructor.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -55,18 +57,20 @@ export class HeaderComponent implements OnInit {
   cartData: any = 0;
 
   cartAllData: any;
-  cart:any
+  cart: any;
   cartCountsssssss: any;
   productsCount: any;
   cartLength: any;
   cartId: any;
   usersId: any;
   UserID: any;
-  cartDatas: any;
+  cartDatas: any = [];
   deletyeLength: any;
   totalPrice: any;
   deleteCartId: any;
-  wishlistData:any=0
+  wishlistData: any = 0;
+  isLognModal: boolean = false;
+  isSideCart: boolean = false;
   constructor(
     private fb: FormBuilder,
     private courseservice: courseService,
@@ -75,33 +79,36 @@ export class HeaderComponent implements OnInit {
     private toastr: ToastrService,
     private route: ActivatedRoute,
     private _activatedRoute: ActivatedRoute,
-    private _router: Router,
-    private courseService: courseService
+    private courseService: courseService,
+    private modalService: NgbModal
   ) {
-    this.productsCount=JSON.parse(localStorage.getItem('products')!);
-    this.cartDatas=this.productsCount
-    if(this.productsCount){
-    this.cartCount=this.productsCount?.length
+    this.productsCount = JSON.parse(localStorage.getItem('products')!);
+    this.cartDatas = this.productsCount;
+    if (this.productsCount) {
+      this.cartCount = this.productsCount?.length;
     }
- console.log("this.cartCount",this.cartCount)
+
     this.userData = JSON.parse(localStorage.getItem('USERDATA')!);
-    this.UserID=this.userData?._id
-    console.log("this.UserID",this.UserID)
+    this.UserID = this.userData?._id;
     if (this.userData) {
       this.userInfo = this.userData.data ? this.userData.data : this.userData;
       this.logins = true;
     }
-    console.log('userData==>', this.userInfo);
 
     this.courseService.isCartCount.subscribe((res) => {
       // alert('here');
       this.cart = res;
-       console.log('this.cart', this.cart);
-  });
-  if(this.userData){
-    this.addtocart()
-  }
+      this.toastr.success('Item Cart Successfully');
+    });
+    this.courseservice.deletecartlength$.subscribe((res: any) => {
+      this.cartCount = res;
+      // this.toastr.success("Item Cart Successfully")
+      console.log('this.cartCount==------>', this.cartCount);
+    });
 
+    if (this.userData) {
+      this.addtocart();
+    }
   }
 
   ngOnInit(): void {
@@ -115,7 +122,6 @@ export class HeaderComponent implements OnInit {
       fullName: ['', [Validators.required]],
       gmail: ['', [Validators.required, Validators.email]],
       city: ['', [Validators.required]],
-      role: ['', [Validators.required]],
       reminders: [true],
     });
     this.verfyOtpForm.statusChanges
@@ -143,92 +149,83 @@ export class HeaderComponent implements OnInit {
     });
 
     let sharedData: any = JSON.parse(localStorage.getItem('products')!);
-    console.log('sharedData', sharedData);
     this.count = sharedData;
-
-    let userDetails: any = JSON.parse(
-      localStorage.getItem('USERDATA') || '{}'
-    );
-
+    let userDetails: any = JSON.parse(localStorage.getItem('USERDATA') || '{}');
     this.userId = userDetails._id;
     this.courseservice.sharedData$.subscribe((res: any) => {
       this.cartCount = res + this.cartData;
-      // this.courseService.isCartCount.next(this.cartCount),
-      console.log('this.cartCount==>',  this.cartCount);
+      if (res) {
+        this.productsCount = JSON.parse(localStorage.getItem('products')!);
+        this.cartDatas = this.productsCount;
+        if (this.productsCount) {
+          this.cartCount = this.productsCount?.length;
+        }
+      }
     });
     this.courseservice.isCartCount$.subscribe((res: any) => {
-      this.cartCount = res 
-      // this.courseService.isCartCount.next(this.cartCount),
-      console.log('cartCountsssssss==>',  this.cartCountsssssss);
+      this.cartCount = res;
+      if (res) {
+        this.cartGetById();
+      }
     });
 
-this.cartGetById()
+    this.cartGetById();
 
-    // this.courseservice.cartData$.subscribe((res:any)=>{
-    //   console.log("res====>",res)
-    // })
     if (this.userId) {
-      this.getWishlist(this.userId)
+      this.getWishlist(this.userId);
     }
-    this.courseService.wishListCount$.subscribe((res:any)=>{
-      if(res){
-        this.getWishlist(this.userId)
+    this.courseService.wishListCount$.subscribe((res: any) => {
+      if (res) {
+        this.getWishlist(this.userId);
       }
-    })
-  }
-  cartGetById(){
-  if (this.userId) {
-    this.courseService.cartGetById(this.userId).subscribe(
-      (res: any) => {
-     
-        // this.cartAllData=res.data.cartI  d;
-        this.cartData = res.data.total;
-        this.courseService.isCartCount.next(this.cartData),
-        this.cartDatas=res.data.cartId;
-
-        //     this.cartItems?.forEach((element:any) => {
-        //       this.cartData.push(element)
-        //  });
-         console.log("this.cartData",this.cartData)
-      
-      //  localStorage.removeItem('products')
-            // this.cartData.push(this.localcartitem)
-           
-            this.deletyeLength=res.data.cartId.length;
-            this.totalPrice=res.data.totalPrice;
-      
-        console.log('cartById==>',  res);
-      },
-      (err: any) => {
-        console.log('cratById err', err);
-      }
-    );
-  }
-}
-  deleteCartData(data:any,i:any){
-
-    if(this.count){
-      this.cartDatas.splice(i,1)
-    console.log("this.cartData.",this.cartData)
-    }else{
-      console.log("data",data);
-      this.deleteCartId=data._id;
-      this.courseService.deleteCart(this.deleteCartId).subscribe((res:any)=>{
-        console.log("deleteCart res",res);
-        this.toastr.success('Cart Item Deleted Sucessfully');
-        // this.length=res.data.total
+    });
+    this.courseService.sharedData.subscribe((res: any) => {
+      if (res) {
+        this.cartDatas = res;
+        this.cartCount = res?.length;
         this.cartGetById();
-        this.courseService.sharedData.next(this.deletyeLength);
-  
-      },(err:any)=>{
-        console.log("deleteCart err",err)
-      })
-    }
-
-
-
+      }
+    });
+    this.courseService.loginModal$.subscribe((res: any) => {
+      if (res == true) {
+        this.isLognModal = true;
+      }
+    });
   }
-
+  cartGetById() {
+    if (this.userId) {
+      this.courseService.cartGetById(this.userId).subscribe(
+        (res: any) => {
+       
+          this.cartData = res.data.total;
+          this.cartDatas = res.data.cartId;
+          console.log('this.cartDatas', this.cartDatas);
+          this.deletyeLength = res.data.cartId.length;
+          this.totalPrice = res.data.totalPrice;
+        },
+        (err: any) => {
+          console.log('cratById err', err);
+        }
+      );
+    }
+  }
+  deleteCartData(data: any, i: any) {
+    if (this.count) {
+      this.cartDatas.splice(i, 1);
+    } else {
+      this.deleteCartId = data._id;
+      this.courseService.deleteCart(this.deleteCartId).subscribe(
+        (res: any) => {
+          this.toastr.success('Cart Item Deleted Sucessfully');
+          this.cartGetById();
+          this.courseService.sharedData.next(this.deletyeLength);
+        },
+        (err: any) => {
+          console.log('deleteCart err', err);
+        }
+      );
+    }
+  }
 
   private onFormValid() {}
 
@@ -248,7 +245,6 @@ this.cartGetById()
     this.signInForm.enable();
   }
   signIn(): void {
-    console.log('router', this.router.url);
     if (this.signInForm.invalid) {
       this.submitted = true;
       return;
@@ -258,25 +254,15 @@ this.cartGetById()
     let body = {
       mobile_number: this.signInForm.value.mobile_number,
     };
-    console.log('this.signInForm.value', this.signInForm.value);
     this.courseservice.sendTheSms(body).subscribe(
       (res: any) => {
         this.verifyOTP = true;
         this.numbeResponse = res.data.mobile_number.toString();
         this.timer(1);
-        console.log('res', res);
-        console.log('numbeResponse', this.numbeResponse);
         this.signInForm.disable();
-
         this.toastr.success(res.message, '', {
           timeOut: 3000,
         });
-        // this.snackBar.open(res.message, '', {
-        //   duration: 3000,
-        //   verticalPosition: 'top',
-        //   horizontalPosition: 'right',
-        //   panelClass: ['mat-sucess'],
-        // });
       },
       (err: any) => {
         console.log('err', err);
@@ -285,7 +271,6 @@ this.cartGetById()
   }
   change(event: any) {
     this.code = event.target.value;
-    console.log('event.target.value', event.target.value);
   }
   verifyOtp() {
     if (this.verfyOtpForm.invalid) {
@@ -293,38 +278,29 @@ this.cartGetById()
       return;
     }
     let sendObj = {
-      mobile_number:this.numbeResponse,
+      mobile_number: this.numbeResponse,
       code: this.code,
     };
 
     this.courseservice.verifyTheSms(sendObj).subscribe(
       (res: any) => {
         this.userData = res?.data;
-        console.log("this.userData",this.userData)
         this.userDetails = res.data;
         this.userToken = res.data.token;
         this.verfyOtpForm.disable();
         this.verifytoken = res.data.token;
-        this.usersId=res.data._id
-        console.log("this.usersId====>",this.usersId)
-        console.log("resverify",res)
-        this.addtocart()
+        this.usersId = res.data._id;
+        this.addtocart();
         if (res.data.newUser === true) {
           this.admitCardDetails = true;
         } else {
           this.verifyOTP = false;
-          // this.verfyOtpForm.reset();
-          console.log("resverify",res)
           document.getElementById('close')?.click();
           window.location.reload();
           localStorage.setItem('USERDATA', JSON.stringify(this.userDetails));
           localStorage.setItem('USERTOKEN', JSON.stringify(this.userToken));
           this.logins = true;
-       
-          //  this.courseservice.close()
-          // get return url from query parameters or default to home page
-          // const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-          // this.router.navigateByUrl(returnUrl);
+
         }
         this.stop();
       },
@@ -385,7 +361,7 @@ this.cartGetById()
       name: this.admitForm.value.fullName,
       email: this.admitForm.value.gmail,
       city: this.admitForm.value.city,
-      role: this.admitForm.value.role,
+      role: 'User',
       whatsapp: this.admitForm.value.reminders,
     };
     this.courseservice.loginprofile(body).subscribe(
@@ -440,69 +416,86 @@ this.cartGetById()
     window.location.reload();
   }
 
-  addtocart(){
-    console.log("this.UserID",this.UserID)
-    if(this.productsCount){
-   console.log("this.productsCount at api",this.productsCount)
-   this.productsCount.forEach((ele:any) => {
-      console.log("ele",ele)
-      let body={
-       userId:this.UserID,
-       courseId:ele._id   
-     }
-   this.courseService.createCratData(body).subscribe((res:any)=>{
-    console.log("pushedData",res)
+  addtocart() {
+    console.log('this.UserID', this.UserID);
+    if (this.productsCount) {
+      console.log('this.productsCount at api', this.productsCount);
+      this.productsCount.forEach((ele: any) => {
+        console.log('ele', ele);
+        let body = {
+          userId: this.UserID,
+          courseId: ele._id,
+        };
+        this.courseService.createCratData(body).subscribe(
+          (res: any) => {
+            console.log('pushedData', res);
 
-     this.cartId=res.data.cartData._id
+            this.cartId = res.data.cartData._id;
 
-     this.courseService.cartGetById(this.cartId).subscribe((res:any)=>{
-      this.cartLength=res.data.total;
-      // this.cartGetById()
-      this.courseService.isCartCount.next(this.cartLength);
-      if(this.userData){
-      localStorage.removeItem('products')
-      }
+            this.courseService.cartGetById(this.cartId).subscribe(
+              (res: any) => {
+                this.cartLength = res.data.total;
+                // this.cartGetById()
+                this.courseService.isCartCount.next(this.cartLength);
 
-
-    },(err:any)=>{
-     console.log("cartGetById err",err)
-    })
-     },
-     (err:any)=>{
-       console.log("cart err",err)
-     });
-
-
-   });
-
- }
-
-
-}
-
-
-// cartGetById(){
-//   this.courseService.cartGetById(this.userId).subscribe((res:any)=>{
-//     console.log("cartGetById res",res);
-//     this.cartData=res.data.cartId;
-//  console.log("this.cartData getall",res)
-    
-//   },(err:any)=>{
-//     console.log("cratById err",err)
-//   })
-// }
-
-getWishlist(id: any) {
-  this.courseService.getAllWishlist(id).subscribe(
-    (res: any) => {
-      this.wishlistData = res?.data?.total;
-      console.log("wishlistData", this.wishlistData)
-    },
-    (err) => {
-      console.log(err);
+                if (this.userData) {
+                  localStorage.removeItem('products');
+                }
+              },
+              (err: any) => {
+                console.log('cartGetById err', err);
+              }
+            );
+          },
+          (err: any) => {
+            console.log('cart err', err);
+          }
+        );
+      });
     }
-  );
-}
+  }
 
-  
+
+  getWishlist(id: any) {
+    this.courseService.getAllWishlist(id).subscribe(
+      (res: any) => {
+        this.wishlistData = res?.data?.total;
+        console.log('wishlistData', this.wishlistData);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+  loginModal() {
+    this.isLognModal = true;
+  }
+  closeLoginModal() {
+    this.isLognModal = false;
+  }
+  showSideCart() {
+    this.isSideCart = true;
+    // document.body.classList.add('ishidden');
+  }
+  closeCart() {
+    this.isSideCart = false;
+    // document.body.classList.remove('ishidden');
+  }
+  goToCart() {
+    this.router.navigate(['/cart']);
+    this.closeCart();
+  }
+  goToHome() {
+    this.router.navigate(['/']);
+    this.closeCart();
+  }
+  instructorModal() {
+    this.modalService.open(InstructorComponent);
+  }
+  removeCart(i:any){
+    this.cartDatas.splice(i,1)
+    localStorage.setItem('products', JSON.stringify(this.cartDatas));
+    this.cartCount = this.cartDatas.length
+
+  }
 }
