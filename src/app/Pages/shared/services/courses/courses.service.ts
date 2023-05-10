@@ -11,6 +11,8 @@ export class courseService {
   isUser = new Subject()
   sharedData: Subject<any> = new Subject<any>();
   sharedData$: Observable<any> = this.sharedData.asObservable();
+  deletecartlength:Subject<any> = new Subject<any>();
+  deletecartlength$: Observable<any> = this.deletecartlength.asObservable();
   cartData: Subject<any> = new Subject<any>();
   cartData$: Observable<any> = this.sharedData.asObservable();
   isCartCount= new Subject<any>();
@@ -19,11 +21,15 @@ export class courseService {
   currentMessage = this.messageSource.asObservable();
   wishListCount: Subject<any> = new Subject<any>();
   wishListCount$: Observable<any> = this.wishListCount.asObservable();
+  loginModal: Subject<any> = new Subject<any>();
+  loginModal$: Observable<any> = this.loginModal.asObservable();
+  isUserName= new Subject<any>();
+  isUserName$: Observable<any> = this.isUserName.asObservable();
 
   constructor(private http: HttpClient,private _httpClient: HttpClient,) {
     let data = JSON.parse(localStorage.getItem('USERTOKEN')!);
     this.token = data;
-    console.log("this.token",this.token)
+
    }
   sendTheSms(data: any) {
     let options={
@@ -158,18 +164,65 @@ getCouponData(body:any){
   return this.http.post(applicationUrls.couponData,body,options)
 }
 creatWishlist(body: any) {
+  let options={
+    headers: new HttpHeaders({
+    Authorization: "Bearer " + this.token,
+    accept:"application/json",
+  }),
+}
   return this.http.post(
     applicationUrls.wishList + 'create_update_wishlist',
-    body
+    body,options
   );
 }
 getAllWishlist(id: any) {
-  return this.http.get(applicationUrls.wishList + 'get_wishlist_by_id/' + id);
+  let options={
+    headers: new HttpHeaders({
+    Authorization: "Bearer " + this.token,
+    accept:"application/json",
+  }),
+}
+  return this.http.get(applicationUrls.wishList + 'get_wishlist_by_id/' + id,options);
 }
 removeWishlist(id: any) {
+  let options={
+    headers: new HttpHeaders({
+    Authorization: "Bearer " + this.token,
+    accept:"application/json",
+  }),
+}
   return this.http.delete(
-    applicationUrls.wishList + 'delete_wishlist_by_id/' + id
+    applicationUrls.wishList + 'delete_wishlist_by_id/' + id,options
   );
 }
+getCreateUserData(params:any){
+  let options={
+    headers: new HttpHeaders({
+    Authorization: "Bearer " + this.token,
+    accept:"application/json",
+  }),
+}
+  return this.http.get(applicationUrls.createUserData + params,options)
+}
+getCreateUpdatedUser(body:any){
+  let options={
+    headers:new HttpHeaders({
+      Authorization: "Bearer " + this.token,
+      accept:"application/json",
+    })
+  }
+  return this.http.post(applicationUrls.createUpdateUser,body,options)
+}
+
+commonUpload(body:any){
+  let options={
+    headers:new HttpHeaders({
+      Authorization: "Bearer " + this.token,
+      accept:"application/json",
+    })
+  }
+  return this.http.post(applicationUrls.upload,body,options)
+}
+
 
 }

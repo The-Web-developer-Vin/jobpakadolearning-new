@@ -3,29 +3,38 @@
   <div class="learning-module-inner">
     <section>
       <div class="section-1">
-        <div class="section-1-inner bg-faqBg bg-no-repeat bg-cover bg-center pt-32 pb-8 lgb:pt-12">
+        <div
+          class="section-1-inner bg-faqBg bg-no-repeat bg-cover bg-center pt-32 pb-8 lgb:pt-12"
+        >
           <div class="container mx-auto xl:px-5">
             <div class="grid grid-cols-12 sm:grid-cols-6 sm:gap-5">
               <div class="col-span-6 sm:order-2">
                 <div class="skills-main-blk">
                   <div class="skills-main-blk">
-                    <h1 class="text-5xl font-semibold font-Lexend mb-5 lg:text-4xl xs:text-center">
+                    <h1
+                      class="text-5xl font-semibold font-Lexend mb-5 lg:text-4xl xs:text-center"
+                    >
                       Master the Skills to <br class="lg:hidden" />
                       Drive your
-                      <span class="text-greenog"><u>
+                      <span class="text-greenog"
+                        ><u>
                           {{ typewriter_display }}
-                        </u></span>
+                        </u></span
+                      >
                     </h1>
                   </div>
                   <div class="skills-content-blk mb-5">
-                    <p class="font-Lexend font-normal text-lg lg:text-base xs:text-center">
+                    <p
+                      class="font-Lexend font-normal text-lg lg:text-base xs:text-center"
+                    >
                       Free online courses from the world’s leading experts. Join
                       17 million learners today
                     </p>
                   </div>
                   <div class="start-button-blk xs:text-center">
                     <button
-                      class="font-Lexend px-10 py-5 bg-secondary duration-300 font-medium text-white rounded-lg hover:bg-greenog leading-leading-10p">
+                      class="font-Lexend px-10 py-5 bg-secondary duration-300 font-medium text-white rounded-lg hover:bg-greenog leading-leading-10p"
+                    >
                       Start Learning
                     </button>
                   </div>
@@ -33,7 +42,11 @@
               </div>
               <div class="col-span-6 sm:order-1">
                 <div class="homeBanner-image-blk">
-                  <img src="../../../../../assets/images/home-banner.svg" class="w-full sm:w-3/4 sm:mx-auto" alt="" />
+                  <img
+                    src="../../../../../assets/images/home-banner.svg"
+                    class="w-full sm:w-3/4 sm:mx-auto"
+                    alt=""
+                  />
                 </div>
               </div>
             </div>
@@ -43,35 +56,52 @@
           <div class="container mx-auto xl:px-5">
             <div class="explore-heading-blk text-center">
               <h2 class="font-Lexend font-bold text-3xl xs:text-2xl">
-                Explore Top Courses Caterories <br class="xs:hidden"/>
+                Explore Top Courses Caterories <br class="xs:hidden" />
                 That Change Yourself
               </h2>
             </div>
             <div class="explore-blk py-10 text-center">
-              <div class="grid grid-cols-12 justify-center gap-8 sm:grid-cols-9 xs:grid-cols-6">
+              <div
+                class="grid grid-cols-12 justify-center gap-8 sm:grid-cols-9 xs:grid-cols-6"
+              >
                 <ng-container *ngFor="let course of coursesData">
-                <div class="col-span-3 group cursor-pointer" >
-                  <div class="explore-img-blk text-center bg-white shadow-lg py-10 hover:-translate-y-3 duration-500" >
-                    <div class="explore-img-inner-blk">
-                      <img src="https://learningbackend.jobpakado.com/{{course?.image}}" class="w-1/4 mx-auto duration-500" alt="">
-                    </div>
-                    <div class="explore-conent-blk py-3">
-                      <h6 class="font-Lexend font-medium text-lg capitalize">{{course?.categoryName}}</h6>
-                    </div>
-                    <div class="explore-paragraph flex items-center gap-4 justify-center">
-                      <div class="explore-paragraph-inner-blk">
-                        <p class="font-Lexend font-light text-sm"> {{course?.courses}} Courses</p>
+                  <div class="col-span-3 group cursor-pointer">
+                    <div
+                      class="explore-img-blk text-center bg-white shadow-lg py-10 hover:-translate-y-3 duration-500"
+                    >
+                      <div class="explore-img-inner-blk">
+                        <img
+                          src="https://learningbackend.jobpakado.com/{{
+                            course?.image
+                          }}"
+                          class="w-1/4 mx-auto duration-500"
+                          alt=""
+                        />
                       </div>
-                      <div class="aarrow-mark-blk">
-                        <a [routerLink]="['/single-courses',course._id]">
-                        <i
-                          class="group-hover:text-greenog group-hover:translate-x-2 duration-300 fa-solid fa-arrow-right-long"></i></a>
+                      <div class="explore-conent-blk py-3">
+                        <h6 class="font-Lexend font-medium text-lg capitalize">
+                          {{ course?.categoryName }}
+                        </h6>
+                      </div>
+                      <div
+                        class="explore-paragraph flex items-center gap-4 justify-center"
+                      >
+                        <div class="explore-paragraph-inner-blk">
+                          <p class="font-Lexend font-light text-sm">
+                            {{ course?.courses }} Courses
+                          </p>
+                        </div>
+                        <div class="aarrow-mark-blk">
+                          <a [routerLink]="['/single-courses', course._id]">
+                            <i
+                              class="group-hover:text-greenog group-hover:translate-x-2 duration-300 fa-solid fa-arrow-right-long"
+                            ></i
+                          ></a>
+                        </div>
                       </div>
                     </div>
-
                   </div>
-                </div>
-              </ng-container>
+                </ng-container>
                 <!-- <div class="col-span-3 group cursor-pointer">
                   <div class="explore-img-blk text-center bg-white shadow-lg py-10 hover:-translate-y-5 duration-500">
                     <div class="explore-img-inner-blk">
@@ -242,10 +272,16 @@
                 </p>
               </div>
             </div>
-            <div class="educators-main-blk grid grid-cols-3 sm:grid-cols-2 sm:justify-center gap-7 xs:block lg:gap-5 my-8 lg:mt-4">
-              <div class="editors-inner-blk flex gap-3 sm:justify-center xs:mb-2">
+            <div
+              class="educators-main-blk grid grid-cols-3 sm:grid-cols-2 sm:justify-center gap-7 xs:block lg:gap-5 my-8 lg:mt-4"
+            >
+              <div
+                class="editors-inner-blk flex gap-3 sm:justify-center xs:mb-2"
+              >
                 <div class="icon-blk">
-                  <i class="fa-brands fa-youtube text-greenog text-2xl lg:text-xl"></i>
+                  <i
+                    class="fa-brands fa-youtube text-greenog text-2xl lg:text-xl"
+                  ></i>
                 </div>
                 <div class="educators-blk">
                   <p class="font-Lexend text-lg font-light lg:text-base">
@@ -253,9 +289,13 @@
                   </p>
                 </div>
               </div>
-              <div class="editors-inner-blk flex gap-3 sm:justify-center xs:mb-2">
+              <div
+                class="editors-inner-blk flex gap-3 sm:justify-center xs:mb-2"
+              >
                 <div class="icon-blk">
-                  <i class="fa-solid fa-briefcase text-greenog text-xl lg:text-lg"></i>
+                  <i
+                    class="fa-solid fa-briefcase text-greenog text-xl lg:text-lg"
+                  ></i>
                 </div>
                 <div class="educators-blk">
                   <p class="font-Lexend text-lg font-light lg:text-base">
@@ -263,9 +303,13 @@
                   </p>
                 </div>
               </div>
-              <div class="editors-inner-blk flex gap-3 sm:col-span-2 justify-center">
+              <div
+                class="editors-inner-blk flex gap-3 sm:col-span-2 justify-center"
+              >
                 <div class="icon-blk">
-                  <i class="fa-solid fa-briefcase text-greenog text-xl lg:text-lg"></i>
+                  <i
+                    class="fa-solid fa-briefcase text-greenog text-xl lg:text-lg"
+                  ></i>
                 </div>
                 <div class="educators-blk">
                   <p class="font-Lexend text-lg font-light lg:text-base">
@@ -275,83 +319,181 @@
               </div>
             </div>
             <div class="business-images-blk py-5">
-              <div class="grid grid-cols-9 gap-10 xl:gap-5 md:justify-center md:grid-cols-6 md:gap-7 smg:gap-8 smg:grid-cols-none smg:justify-center md:place-items-center">
-                <ng-container  *ngFor="let data of singleCourseData">
-                <div class="col-span-3 hover:scale-105 duration-500 smg:w-3/4 smg:mx-auto xxsg:w-full">
-                  <div class="business-images-inner p-5 lg:p-3 bg-white rounded-xl shadow-custom2 md:p-5">
-                    <div class="image-blk w-full">
-                      <img src="https://learningbackend.jobpakado.com/{{data.image}}" class="w-320w h-230h object-cover mx-auto rounded-xl  duration-300"
-                        alt="" />
-                    </div>
-                    <div class="image-contant-blk py-3">
-                      <div class="flex items-center justify-between">
-                        <div class="business-blk mb-2">
-                          <h6 class="font-Lexend font-normal text-sm">
-                          {{data.categoryName}}
-                          </h6>
-                        </div>
-                        <div *ngIf="!data.wishList" class="save-mark group cursor-pointer" (click)="wishlist(data)">
-                          <i class="fa-regular fa-bookmark group-hover:text-greenog duration-300"></i>
-                        </div>
-                        <div *ngIf="data.wishList" class="save-mark group cursor-pointer" (click)="removeWishlist(data._id)">
-                          <i class="fa-solid fa-bookmark text-greenog"></i>
-                     
-                        </div>
-
-                        
+              <div
+                class="grid grid-cols-9 gap-10 xl:gap-5 md:justify-center md:grid-cols-6 md:gap-7 smg:gap-8 smg:grid-cols-none smg:justify-center md:place-items-center"
+              >
+                <ng-container *ngFor="let data of singleCourseData; let i=index">
+                  <div
+                    class="col-span-3 hover:scale-105 duration-500 smg:w-3/4 smg:mx-auto xxsg:w-full"
+                  >
+                    <div
+                      class="business-images-inner p-5 lg:p-3 bg-white rounded-xl shadow-custom2 md:p-5"
+                    >
+                      <div class="image-blk w-full">
+                        <img
+                          src="https://learningbackend.jobpakado.com/{{
+                            data.image
+                          }}"
+                          class="w-320w h-230h object-cover mx-auto rounded-xl duration-300"
+                          alt=""
+                        />
                       </div>
-                      <div class="rating-section my-2">
-                        <div class="flex items-center gap-2">
-                          <div class="flex items-center">
-                            <div class="star-1"><span class="material-symbols-outlined text-gold lg:text-base md:text-lg">star</span></div>
-                            <div class="star-2"><span class="material-symbols-outlined text-gold lg:text-base md:text-lg">star</span></div>
-                            <div class="star-3"><span class="material-symbols-outlined text-gold lg:text-base md:text-lg">star</span></div>
-                            <div class="star-4"><span class="material-symbols-outlined text-gold lg:text-base md:text-lg">star</span></div>
-                            <div class="star-5"><span class="material-symbols-outlined text-gold lg:text-base md:text-lg">star</span></div>
+                      <div class="image-contant-blk py-3">
+                        <div class="flex items-center justify-between">
+                          <div class="business-blk mb-2">
+                            <h6 class="font-Lexend font-normal text-sm">
+                              {{ data.categoryName }}
+                            </h6>
                           </div>
-                          <div class="reviews-section">
-                            <p class="font-Lexend text-base text-secondary ">( <span
-                                class="text-greenog">{{data.courseReviews}} Reviews</span> )</p>
+                          <div
+                            *ngIf="!data.wishList"
+                            class="save-mark group cursor-pointer"
+                            (click)="wishlist(data)"
+                          >
+                            <i
+                              class="fa-regular fa-bookmark group-hover:text-greenog duration-300"
+                            ></i>
                           </div>
-                        </div>
-                      </div>
-                      <div class="business-analytic-blk mb-4">
-                        <h2 class="font-Lexend font-semibold text-lg lg:text-base min-h-[56px]">
-                         {{data.title}}
-                        </h2>
-                        <div class="para-description my-3">
-                          <p class="text-sm font-Lexend lg:text-sm">{{data.titleDescription}}</p>
-                        </div>
-                      </div>
-                      <div class="flex flex-col gap-3 my-3">
-                        <div class="jobs-blk flex items-center justify-between gap-4 pb-3">
-                          <div class="bag-img-blk">
-                            <!-- <i class="fa-solid fa-briefcase text-greenog text-xl"></i> -->
-                            <p class="font-Lexend font-medium text-xl text-greenog"> {{data.offerPrice | currency:'INR'}}<span class="line-through text-sm text-gray-400 font-light"> {{data.actualPrice | currency:'INR'}}</span> </p>
-                          </div>
-                          <div class="job-content-blk">
-                            
-                           <button type="submit" (click)="addToCart(data)"> <p class="font-Lexend font-medium text-sm hover:text-greenog duration-300 flex items-center gap-1">
-                            <span class="material-symbols-rounded text-lg">
-                              shopping_cart
-                              </span>
-                            Add To Cart
-                          </p></button>
+                          <div
+                            *ngIf="data.wishList"
+                            class="save-mark group cursor-pointer"
+                            (click)="removeWishlist(data._id)"
+                          >
+                            <i class="fa-solid fa-bookmark text-greenog"></i>
                           </div>
                         </div>
-                      </div>
-                      <div class="view-course-blk w-full">
-                        <a [routerLink]="['/single-viewCourse',data._id]">
-                          <button
-                            class="font-Lexend text-base px-10 leading-leading-10p py-4 w-full border border-secondary text-secondary duration-300 font-medium  rounded-lg hover:bg-greenog hover:border-greenog hover:text-white">
-                            Start Learning
-                          </button>
-                        </a>
+                        <div class="rating-section my-2">
+                          <div class="flex items-center gap-2">
+                            <div class="flex items-center">
+                              <div class="star-1">
+                                <span
+                                  class="material-symbols-outlined text-gold lg:text-base md:text-lg"
+                                  >star</span
+                                >
+                              </div>
+                              <div class="star-2">
+                                <span
+                                  class="material-symbols-outlined text-gold lg:text-base md:text-lg"
+                                  >star</span
+                                >
+                              </div>
+                              <div class="star-3">
+                                <span
+                                  class="material-symbols-outlined text-gold lg:text-base md:text-lg"
+                                  >star</span
+                                >
+                              </div>
+                              <div class="star-4">
+                                <span
+                                  class="material-symbols-outlined text-gold lg:text-base md:text-lg"
+                                  >star</span
+                                >
+                              </div>
+                              <div class="star-5">
+                                <span
+                                  class="material-symbols-outlined text-gold lg:text-base md:text-lg"
+                                  >star</span
+                                >
+                              </div>
+                            </div>
+                            <div class="reviews-section">
+                              <p class="font-Lexend text-base text-secondary">
+                                (
+                                <span class="text-greenog"
+                                  >{{ data.courseReviews }} Reviews</span
+                                >
+                                )
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="business-analytic-blk mb-4">
+                          <h2
+                            class="font-Lexend font-semibold text-lg lg:text-base min-h-[56px]"
+                          >
+                            {{ data.title }}
+                          </h2>
+                          <div class="para-description my-3">
+                            <p class="text-sm font-Lexend lg:text-sm">
+                              {{ data.titleDescription }}
+                            </p>
+                          </div>
+                        </div>
+                        <div class="flex flex-col gap-3 my-3">
+                          <div
+                            class="jobs-blk flex items-center justify-between gap-4 pb-3"
+                          >
+                            <div class="bag-img-blk">
+                              <!-- <i class="fa-solid fa-briefcase text-greenog text-xl"></i> -->
+                              <p
+                                class="font-Lexend font-medium text-xl text-greenog"
+                              >
+                                {{ data.offerPrice | currency : "INR"
+                                }}<span
+                                  class="line-through text-sm text-gray-400 font-light"
+                                >
+                                  {{
+                                    data.actualPrice | currency : "INR"
+                                  }}</span
+                                >
+                              </p>
+                            </div>
+                            <div class="job-content-blk relative">
+                              <button type="submit" (click)="addToCart(data, i)" *ngIf="findCartId[i]?._id != data?._id">
+                                <p
+                                  class="font-Lexend font-medium text-sm hover:text-greenog duration-300 flex items-center gap-1"
+                                >
+                                  <span
+                                    class="material-symbols-rounded text-lg"
+                                  >
+                                    shopping_cart
+                                  </span>
+                                  Add To Cart
+                                </p>
+                              </button>
+                              <button  [routerLink]="['/cart']" type="submit" *ngIf="findCartId[i]?._id == data?._id">
+                                <p
+                                  class="font-Lexend font-medium text-sm hover:text-greenog duration-300 flex items-center gap-1"
+                                >
+                                  <span
+                                    class="material-symbols-rounded text-lg"
+                                  >
+                                    shopping_cart
+                                  </span>
+                                  
+                                  Go To Cart
+                                </p>
+                              </button>
+                              <div class="spinner center" *ngIf="isSpiner[data?._id]">
+                                <div class="spinner-blade"></div>
+                                <div class="spinner-blade"></div>
+                                <div class="spinner-blade"></div>
+                                <div class="spinner-blade"></div>
+                                <div class="spinner-blade"></div>
+                                <div class="spinner-blade"></div>
+                                <div class="spinner-blade"></div>
+                                <div class="spinner-blade"></div>
+                                <div class="spinner-blade"></div>
+                                <div class="spinner-blade"></div>
+                                <div class="spinner-blade"></div>
+                                <div class="spinner-blade"></div>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="view-course-blk w-full">
+                          <a [routerLink]="['/single-viewCourse', data._id]">
+                            <button
+                              class="font-Lexend text-base px-10 leading-leading-10p py-4 w-full border border-secondary text-secondary duration-300 font-medium rounded-lg hover:bg-greenog hover:border-greenog hover:text-white"
+                            >
+                              Start Learning
+                            </button>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </ng-container>
+                </ng-container>
                 <!-- <div class="col-span-3 group overflow-hidden">
                                     <div class="business-images-inner">
                                         <div class="image-blk w-full">
@@ -505,9 +647,12 @@
             <div class="browse-button-blk pt-8 pb-5 mt-4">
               <div class="browser-button-inner">
                 <button
-                  class="font-Lexend font-medium text-lg justify-center mx-auto bg-secondary w-fit flex items-center px-5 py-4 rounded-lg gap-3 hover:bg-greenog duration-300 text-white leading-leading-10p">
+                  class="font-Lexend font-medium text-lg justify-center mx-auto bg-secondary w-fit flex items-center px-5 py-4 rounded-lg gap-3 hover:bg-greenog duration-300 text-white leading-leading-10p"
+                >
                   Browse All Course
-                  <span class="material-symbols-rounded text-white">north_east </span>
+                  <span class="material-symbols-rounded text-white"
+                    >north_east
+                  </span>
                 </button>
               </div>
             </div>
@@ -517,7 +662,9 @@
     </section>
 
     <section>
-      <div class="thinking-main-blk bg-thinkingBg bg-no-repeat bg-cover bg-center my-10">
+      <div
+        class="thinking-main-blk bg-thinkingBg bg-no-repeat bg-cover bg-center my-10"
+      >
         <div class="container mx-auto xl:px-5">
           <div class="thinking-inner-blk py-40 lg:py-20 xxsg:py-10">
             <div class="thinking-heading-blk text-center">
@@ -533,7 +680,8 @@
             </div>
             <div class="start-button-blk text-center pt-10">
               <button
-                class="font-Lexend px-8 py-4 bg-white duration-300 font-medium hover:text-white text-secondary rounded-lg hover:bg-greenog">
+                class="font-Lexend px-8 py-4 bg-white duration-300 font-medium hover:text-white text-secondary rounded-lg hover:bg-greenog"
+              >
                 Get Started Now
               </button>
             </div>
@@ -594,49 +742,75 @@
       <div class="lorem-main-blk py-10 lg:pt-5">
         <div class="container mx-auto xl:px-5">
           <div class="lorem-inner-blk py-5">
-            <div class="grid grid-cols-12 items-center smg:grid-cols-6 smg:gap-7">
+            <div
+              class="grid grid-cols-12 items-center smg:grid-cols-6 smg:gap-7"
+            >
               <div class="col-span-6 lg:col-span-7 smg:order-2 smg:col-span-6">
                 <div class="lorem-content-blk">
                   <div class="loresm-heading-blk">
-                    <h2 class="font-Lexend font-medium text-5xl text-secondary lg:text-4xl xsg:text-center xsg:text-2xl">
+                    <h2
+                      class="font-Lexend font-medium text-5xl text-secondary lg:text-4xl xsg:text-center xsg:text-2xl"
+                    >
                       What Our Students Have To
                       <span class="text-greenog">Say</span>
                     </h2>
                   </div>
                   <div class="lorem-paragraph-blk pt-5">
-                    <p class="font-Lexend font-light text-sm text-secondary xsg:text-center">
+                    <p
+                      class="font-Lexend font-light text-sm text-secondary xsg:text-center"
+                    >
                       Lorem ipsum dolor sit amet, consectetur dolorili
-                      adipiscing <br class="xs:hidden"/>
+                      adipiscing <br class="xs:hidden" />
                       elit. Felis donec massa aliquam id dolor .
                     </p>
                   </div>
-                  <div class="great-worn-blk border border-grayShade rounded-xl py-8 px-10 mt-16 lg:mt-7 w-3/4 smg:w-full smg:px-16">
-                    <carousel [cellsToShow]="1" [autoplay]="true" [autoplayInterval]='3000' [arrows]="true"
-                      [arrowsOutside]="true" [arrowsTheme]="'dark'" [dots]="true" [loop]="true">
+                  <div
+                    class="great-worn-blk border border-grayShade rounded-xl py-8 px-10 mt-16 lg:mt-7 w-3/4 smg:w-full smg:px-16"
+                  >
+                    <carousel
+                      [cellsToShow]="1"
+                      [autoplay]="true"
+                      [autoplayInterval]="3000"
+                      [arrows]="true"
+                      [arrowsOutside]="true"
+                      [arrowsTheme]="'dark'"
+                      [dots]="true"
+                      [loop]="true"
+                    >
                       <div class="carousel-cell">
                         <div class="great-work-inner-blk">
-                          <div class="great-work-heading-outer flex justify-between items-center">
+                          <div
+                            class="great-work-heading-outer flex justify-between items-center"
+                          >
                             <div class="great-work-heading">
                               <h6 class="font-Lexend font-medium text-xl">
                                 Great Work
                               </h6>
                             </div>
                             <div class="great-work-icon">
-                              <i class="fa-solid fa-quote-left text-greenog text-3xl"></i>
+                              <i
+                                class="fa-solid fa-quote-left text-greenog text-3xl"
+                              ></i>
                             </div>
                           </div>
-                          <div class="great-work-content-blk py-8 leading leading-leading-10p">
+                          <div
+                            class="great-work-content-blk py-8 leading leading-leading-10p"
+                          >
                             <p class="font-Lexend font-light text-sm">
-                              “I think Educrat is the best theme I ever seen this
-                              year. Amazing design, easy to customize and a design
-                              quality superlative account on its cloud platform for
-                              the optimized performance”
+                              “I think Educrat is the best theme I ever seen
+                              this year. Amazing design, easy to customize and a
+                              design quality superlative account on its cloud
+                              platform for the optimized performance”
                             </p>
                           </div>
                           <hr />
                           <div class="courtney-blk flex gap-4 py-5">
                             <div class="courteny-img-blk">
-                              <img src="../../../../../assets/images/video.png" class="w-10" alt="" />
+                              <img
+                                src="../../../../../assets/images/video.png"
+                                class="w-10"
+                                alt=""
+                              />
                             </div>
                             <div class="courteney-content-blk">
                               <div class="courteny-name-blk">
@@ -655,28 +829,38 @@
                       </div>
                       <div class="carousel-cell">
                         <div class="great-work-inner-blk">
-                          <div class="great-work-heading-outer flex justify-between items-center">
+                          <div
+                            class="great-work-heading-outer flex justify-between items-center"
+                          >
                             <div class="great-work-heading">
                               <h6 class="font-Lexend font-medium text-xl">
                                 Great Work
                               </h6>
                             </div>
                             <div class="great-work-icon">
-                              <i class="fa-solid fa-quote-left text-greenog text-3xl"></i>
+                              <i
+                                class="fa-solid fa-quote-left text-greenog text-3xl"
+                              ></i>
                             </div>
                           </div>
-                          <div class="great-work-content-blk py-8 leading leading-leading-10p">
+                          <div
+                            class="great-work-content-blk py-8 leading leading-leading-10p"
+                          >
                             <p class="font-Lexend font-light text-sm">
-                              “I think Educrat is the best theme I ever seen this
-                              year. Amazing design, easy to customize and a design
-                              quality superlative account on its cloud platform for
-                              the optimized performance”
+                              “I think Educrat is the best theme I ever seen
+                              this year. Amazing design, easy to customize and a
+                              design quality superlative account on its cloud
+                              platform for the optimized performance”
                             </p>
                           </div>
                           <hr />
                           <div class="courtney-blk flex gap-4 py-5">
                             <div class="courteny-img-blk">
-                              <img src="../../../../../assets/images/video.png" class="w-10" alt="" />
+                              <img
+                                src="../../../../../assets/images/video.png"
+                                class="w-10"
+                                alt=""
+                              />
                             </div>
                             <div class="courteney-content-blk">
                               <div class="courteny-name-blk">
@@ -695,28 +879,38 @@
                       </div>
                       <div class="carousel-cell">
                         <div class="great-work-inner-blk">
-                          <div class="great-work-heading-outer flex justify-between items-center">
+                          <div
+                            class="great-work-heading-outer flex justify-between items-center"
+                          >
                             <div class="great-work-heading">
                               <h6 class="font-Lexend font-medium text-xl">
                                 Great Work
                               </h6>
                             </div>
                             <div class="great-work-icon">
-                              <i class="fa-solid fa-quote-left text-greenog text-3xl"></i>
+                              <i
+                                class="fa-solid fa-quote-left text-greenog text-3xl"
+                              ></i>
                             </div>
                           </div>
-                          <div class="great-work-content-blk py-8 leading leading-leading-10p">
+                          <div
+                            class="great-work-content-blk py-8 leading leading-leading-10p"
+                          >
                             <p class="font-Lexend font-light text-sm">
-                              “I think Educrat is the best theme I ever seen this
-                              year. Amazing design, easy to customize and a design
-                              quality superlative account on its cloud platform for
-                              the optimized performance”
+                              “I think Educrat is the best theme I ever seen
+                              this year. Amazing design, easy to customize and a
+                              design quality superlative account on its cloud
+                              platform for the optimized performance”
                             </p>
                           </div>
                           <hr />
                           <div class="courtney-blk flex gap-4 py-5">
                             <div class="courteny-img-blk">
-                              <img src="../../../../../assets/images/video.png" class="w-10" alt="" />
+                              <img
+                                src="../../../../../assets/images/video.png"
+                                class="w-10"
+                                alt=""
+                              />
                             </div>
                             <div class="courteney-content-blk">
                               <div class="courteny-name-blk">
@@ -735,28 +929,45 @@
                       </div>
                     </carousel>
                   </div>
-                  <div class="arrow-mark-blk items-center gap-20 px-16 mt-10 hidden">
+                  <div
+                    class="arrow-mark-blk items-center gap-20 px-16 mt-10 hidden"
+                  >
                     <div class="left-arrow-mark-blk">
-                      <i class="fa-solid fa-arrow-left-long text-lg text-gray-400"></i>
+                      <i
+                        class="fa-solid fa-arrow-left-long text-lg text-gray-400"
+                      ></i>
                     </div>
                     <div class="dots-blk">
                       <i class="fa-solid fa-circle text-greenog text-xs"></i>
                     </div>
                     <div class="right-arrow-mark-blk">
-                      <i class="fa-solid fa-arrow-right-long text-lg text-gray-400"></i>
+                      <i
+                        class="fa-solid fa-arrow-right-long text-lg text-gray-400"
+                      ></i>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="col-span-6 lg:col-span-5 smg:order-1 smg:col-span-6">
-                <div class="testi_video relative ">
+                <div class="testi_video relative">
                   <div class="testimonial-video-section">
-                    <img src="../../../../../assets/images/client-1.png" class="w-full rounded-2xl shadow-2xl smg:hidden" alt="">
-                    <img src="../../../../../assets/images/client-1-574.png" class="w-full rounded-2xl shadow-2xl hidden smg:block" alt="">
+                    <img
+                      src="../../../../../assets/images/client-1.png"
+                      class="w-full rounded-2xl shadow-2xl smg:hidden"
+                      alt=""
+                    />
+                    <img
+                      src="../../../../../assets/images/client-1-574.png"
+                      class="w-full rounded-2xl shadow-2xl hidden smg:block"
+                      alt=""
+                    />
                   </div>
-                  <div class="play-icon-video absolute top-1/2 right-[40%] smg:top-[45%] smg:right-[45%]">
+                  <div
+                    class="play-icon-video absolute top-1/2 right-[40%] smg:top-[45%] smg:right-[45%]"
+                  >
                     <i
-                      class="fa-solid fa-play bg-white text-3xl cursor-pointer hover:scale-95 duration-500 rounded-full w-20 h-20 lg:w-14 lg:h-14 lg:text-2xl grid place-items-center text-greenog hover:bg-greenog hover:text-white shadow-2xl"></i>
+                      class="fa-solid fa-play bg-white text-3xl cursor-pointer hover:scale-95 duration-500 rounded-full w-20 h-20 lg:w-14 lg:h-14 lg:text-2xl grid place-items-center text-greenog hover:bg-greenog hover:text-white shadow-2xl"
+                    ></i>
                   </div>
                 </div>
               </div>
@@ -772,7 +983,9 @@
           <div class="frequently-blk">
             <div class="frequently-inner-blk py-20 lgb:pt-10">
               <div class="frequently-heading-blk text-center">
-                <h2 class="font-Lexend font-bold text-3xl text-secondary lg:text-2xl">
+                <h2
+                  class="font-Lexend font-bold text-3xl text-secondary lg:text-2xl"
+                >
                   Frequently Asked Questions.
                 </h2>
               </div>
@@ -788,78 +1001,129 @@
                     <div id="accordion-collapse" data-accordion="collapse">
                       <div class="first-accord mb-5 shadow-xl">
                         <h2 id="accordion-collapse-heading-1">
-                          <button type="button"
+                          <button
+                            type="button"
                             class="flex items-center justify-between w-full p-5 md:p-3 md:text-base font-medium text-left text-lg text-secondary font-Lexend border border-b-0 border-grayShade bg-white"
-                            data-accordion-target="#accordion-collapse-body-1" aria-expanded="true"
-                            aria-controls="accordion-collapse-body-1">
+                            data-accordion-target="#accordion-collapse-body-1"
+                            aria-expanded="true"
+                            aria-controls="accordion-collapse-body-1"
+                          >
                             <span>What is Flowbite?</span>
-                            <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0 duration-500" fill="currentColor"
-                              viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                              <path fill-rule="evenodd"
+                            <svg
+                              data-accordion-icon
+                              class="w-6 h-6 rotate-180 shrink-0 duration-500"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
                                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
+                                clip-rule="evenodd"
+                              ></path>
                             </svg>
                           </button>
                         </h2>
-                        <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
-                          <div class="p-5 border border-b-0 border-grayShade bg-white">
+                        <div
+                          id="accordion-collapse-body-1"
+                          class="hidden"
+                          aria-labelledby="accordion-collapse-heading-1"
+                        >
+                          <div
+                            class="p-5 border border-b-0 border-grayShade bg-white"
+                          >
                             <p class="mb-2 text-sm font-Lexend">
-                              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                              when an unknown printer took a galley of type and scrambled it to make a type
-                              specimen book
+                              Lorem Ipsum is simply dummy text of the printing
+                              and typesetting industry. Lorem Ipsum has been the
+                              industry's standard dummy text ever since the
+                              1500s, when an unknown printer took a galley of
+                              type and scrambled it to make a type specimen book
                             </p>
                           </div>
                         </div>
                       </div>
                       <div class="second-accord mb-5 shadow-xl">
                         <h2 id="accordion-collapse-heading-2">
-                          <button type="button"
+                          <button
+                            type="button"
                             class="flex items-center justify-between w-full p-5 md:text-base md:p-3 font-medium text-left text-lg text-secondary font-Lexend border border-b-0 border-grayShade bg-white"
-                            data-accordion-target="#accordion-collapse-body-2" aria-expanded="false"
-                            aria-controls="accordion-collapse-body-2">
+                            data-accordion-target="#accordion-collapse-body-2"
+                            aria-expanded="false"
+                            aria-controls="accordion-collapse-body-2"
+                          >
                             <span>Is there a Figma file available?</span>
-                            <svg data-accordion-icon class="w-6 h-6 shrink-0 duration-500" fill="currentColor" viewBox="0 0 20 20"
-                              xmlns="http://www.w3.org/2000/svg">
-                              <path fill-rule="evenodd"
+                            <svg
+                              data-accordion-icon
+                              class="w-6 h-6 shrink-0 duration-500"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
                                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
+                                clip-rule="evenodd"
+                              ></path>
                             </svg>
                           </button>
                         </h2>
-                        <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
-                          <div class="p-5 border border-b-0 border-grayShade bg-white">
+                        <div
+                          id="accordion-collapse-body-2"
+                          class="hidden"
+                          aria-labelledby="accordion-collapse-heading-2"
+                        >
+                          <div
+                            class="p-5 border border-b-0 border-grayShade bg-white"
+                          >
                             <p class="mb-2 text-sm font-Lexend">
-                              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                              when an unknown printer took a galley of type and scrambled it to make a type
-                              specimen book
+                              Lorem Ipsum is simply dummy text of the printing
+                              and typesetting industry. Lorem Ipsum has been the
+                              industry's standard dummy text ever since the
+                              1500s, when an unknown printer took a galley of
+                              type and scrambled it to make a type specimen book
                             </p>
                           </div>
                         </div>
                       </div>
                       <div class="third-accord shadow-xl">
                         <h2 id="accordion-collapse-heading-3">
-                          <button type="button"
+                          <button
+                            type="button"
                             class="flex items-center justify-between w-full p-5 md:p-3 md:text-base font-medium text-left text-lg text-secondary font-Lexend border border-b-0 border-grayShade bg-white"
-                            data-accordion-target="#accordion-collapse-body-3" aria-expanded="false"
-                            aria-controls="accordion-collapse-body-3">
+                            data-accordion-target="#accordion-collapse-body-3"
+                            aria-expanded="false"
+                            aria-controls="accordion-collapse-body-3"
+                          >
                             <span>What are the differences in FlowBite</span>
-                            <svg data-accordion-icon class="w-6 h-6 shrink-0 duration-500" fill="currentColor" viewBox="0 0 20 20"
-                              xmlns="http://www.w3.org/2000/svg">
-                              <path fill-rule="evenodd"
+                            <svg
+                              data-accordion-icon
+                              class="w-6 h-6 shrink-0 duration-500"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
                                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
+                                clip-rule="evenodd"
+                              ></path>
                             </svg>
                           </button>
                         </h2>
-                        <div id="accordion-collapse-body-3" class="hidden" aria-labelledby="accordion-collapse-heading-3">
-                          <div class="p-5 border border-b-0 border-grayShade bg-white">
+                        <div
+                          id="accordion-collapse-body-3"
+                          class="hidden"
+                          aria-labelledby="accordion-collapse-heading-3"
+                        >
+                          <div
+                            class="p-5 border border-b-0 border-grayShade bg-white"
+                          >
                             <p class="mb-2 text-sm font-Lexend">
-                              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                              when an unknown printer took a galley of type and scrambled it to make a type
-                              specimen book
+                              Lorem Ipsum is simply dummy text of the printing
+                              and typesetting industry. Lorem Ipsum has been the
+                              industry's standard dummy text ever since the
+                              1500s, when an unknown printer took a galley of
+                              type and scrambled it to make a type specimen book
                             </p>
                           </div>
                         </div>
@@ -868,84 +1132,135 @@
                   </div>
                   <div class="right-faq-seciton">
                     <div id="accordion-collapse" data-accordion="collapse">
-                     <div class="fourth-accord mb-5 shadow-xl">
-                      <h2 id="accordion-collapse-heading-4">
-                        <button type="button"
-                          class="flex items-center justify-between w-full p-5 md:p-3 font-medium md:text-base text-left text-lg text-secondary font-Lexend border border-b-0 border-grayShade bg-white"
-                          data-accordion-target="#accordion-collapse-body-4" aria-expanded="true"
-                          aria-controls="accordion-collapse-body-4">
-                          <span>What is Flowbite?</span>
-                          <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0 duration-500" fill="currentColor"
-                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                              clip-rule="evenodd"></path>
-                          </svg>
-                        </button>
-                      </h2>
-                      <div id="accordion-collapse-body-4" class="hidden" aria-labelledby="accordion-collapse-heading-4">
-                        <div class="p-5 border border-b-0 border-grayShade bg-white">
-                          <p class="mb-2 text-sm font-Lexend">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and scrambled it to make a type
-                            specimen book
-                          </p>
+                      <div class="fourth-accord mb-5 shadow-xl">
+                        <h2 id="accordion-collapse-heading-4">
+                          <button
+                            type="button"
+                            class="flex items-center justify-between w-full p-5 md:p-3 font-medium md:text-base text-left text-lg text-secondary font-Lexend border border-b-0 border-grayShade bg-white"
+                            data-accordion-target="#accordion-collapse-body-4"
+                            aria-expanded="true"
+                            aria-controls="accordion-collapse-body-4"
+                          >
+                            <span>What is Flowbite?</span>
+                            <svg
+                              data-accordion-icon
+                              class="w-6 h-6 rotate-180 shrink-0 duration-500"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </button>
+                        </h2>
+                        <div
+                          id="accordion-collapse-body-4"
+                          class="hidden"
+                          aria-labelledby="accordion-collapse-heading-4"
+                        >
+                          <div
+                            class="p-5 border border-b-0 border-grayShade bg-white"
+                          >
+                            <p class="mb-2 text-sm font-Lexend">
+                              Lorem Ipsum is simply dummy text of the printing
+                              and typesetting industry. Lorem Ipsum has been the
+                              industry's standard dummy text ever since the
+                              1500s, when an unknown printer took a galley of
+                              type and scrambled it to make a type specimen book
+                            </p>
+                          </div>
                         </div>
                       </div>
-                     </div>
-                     <div class="fifth-accord mb-5 shadow-xl">
-                      <h2 id="accordion-collapse-heading-5">
-                        <button type="button"
-                          class="flex items-center justify-between w-full p-5 md:p-3 font-medium md:text-base text-left text-lg text-secondary font-Lexend border border-b-0 border-grayShade bg-white"
-                          data-accordion-target="#accordion-collapse-body-5" aria-expanded="false"
-                          aria-controls="accordion-collapse-body-5">
-                          <span>Is there a Figma file available?</span>
-                          <svg data-accordion-icon class="w-6 h-6 shrink-0 duration-500" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                              clip-rule="evenodd"></path>
-                          </svg>
-                        </button>
-                      </h2>
-                      <div id="accordion-collapse-body-5" class="hidden" aria-labelledby="accordion-collapse-heading-5">
-                        <div class="p-5 border border-b-0 border-grayShade bg-white">
-                          <p class="mb-2 text-sm font-Lexend">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and scrambled it to make a type
-                            specimen book
-                          </p>
+                      <div class="fifth-accord mb-5 shadow-xl">
+                        <h2 id="accordion-collapse-heading-5">
+                          <button
+                            type="button"
+                            class="flex items-center justify-between w-full p-5 md:p-3 font-medium md:text-base text-left text-lg text-secondary font-Lexend border border-b-0 border-grayShade bg-white"
+                            data-accordion-target="#accordion-collapse-body-5"
+                            aria-expanded="false"
+                            aria-controls="accordion-collapse-body-5"
+                          >
+                            <span>Is there a Figma file available?</span>
+                            <svg
+                              data-accordion-icon
+                              class="w-6 h-6 shrink-0 duration-500"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </button>
+                        </h2>
+                        <div
+                          id="accordion-collapse-body-5"
+                          class="hidden"
+                          aria-labelledby="accordion-collapse-heading-5"
+                        >
+                          <div
+                            class="p-5 border border-b-0 border-grayShade bg-white"
+                          >
+                            <p class="mb-2 text-sm font-Lexend">
+                              Lorem Ipsum is simply dummy text of the printing
+                              and typesetting industry. Lorem Ipsum has been the
+                              industry's standard dummy text ever since the
+                              1500s, when an unknown printer took a galley of
+                              type and scrambled it to make a type specimen book
+                            </p>
+                          </div>
                         </div>
                       </div>
-                     </div>
-                     <div class="sixth-accord shadow-xl">
-                      <h2 id="accordion-collapse-heading-6">
-                        <button type="button"
-                          class="flex items-center justify-between w-full p-5 md:p-3 font-medium text-left text-lg md:text-base text-secondary font-Lexend border border-b-0 border-grayShade bg-white"
-                          data-accordion-target="#accordion-collapse-body-6" aria-expanded="false"
-                          aria-controls="accordion-collapse-body-6">
-                          <span>What are the differences in Flowbite</span>
-                          <svg data-accordion-icon class="w-6 h-6 shrink-0 duration-500" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                              clip-rule="evenodd"></path>
-                          </svg>
-                        </button>
-                      </h2>
-                      <div id="accordion-collapse-body-6" class="hidden" aria-labelledby="accordion-collapse-heading-6">
-                        <div class="p-5 border border-b-0 border-grayShade bg-white">
-                          <p class="mb-2 text-sm font-Lexend">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and scrambled it to make a type
-                            specimen book
-                          </p>
+                      <div class="sixth-accord shadow-xl">
+                        <h2 id="accordion-collapse-heading-6">
+                          <button
+                            type="button"
+                            class="flex items-center justify-between w-full p-5 md:p-3 font-medium text-left text-lg md:text-base text-secondary font-Lexend border border-b-0 border-grayShade bg-white"
+                            data-accordion-target="#accordion-collapse-body-6"
+                            aria-expanded="false"
+                            aria-controls="accordion-collapse-body-6"
+                          >
+                            <span>What are the differences in Flowbite</span>
+                            <svg
+                              data-accordion-icon
+                              class="w-6 h-6 shrink-0 duration-500"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </button>
+                        </h2>
+                        <div
+                          id="accordion-collapse-body-6"
+                          class="hidden"
+                          aria-labelledby="accordion-collapse-heading-6"
+                        >
+                          <div
+                            class="p-5 border border-b-0 border-grayShade bg-white"
+                          >
+                            <p class="mb-2 text-sm font-Lexend">
+                              Lorem Ipsum is simply dummy text of the printing
+                              and typesetting industry. Lorem Ipsum has been the
+                              industry's standard dummy text ever since the
+                              1500s, when an unknown printer took a galley of
+                              type and scrambled it to make a type specimen book
+                            </p>
+                          </div>
                         </div>
                       </div>
-                     </div>
                     </div>
                   </div>
                 </div>
@@ -955,7 +1270,6 @@
         </div>
       </div>
     </section>
-
 
     <!-- <div class="section-rotater">
       <div class="section-rotater-inner">

@@ -11,6 +11,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { DayAgoPipe } from './day-ago-pipe';
 import { RouterModule } from '@angular/router';
+import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 // import {RatingModule} from "ngx-rating";
 
 
@@ -19,6 +21,7 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     HeaderComponent,
     DayAgoPipe,
+
   ],
   imports: [
     CommonModule,
@@ -27,7 +30,8 @@ import { RouterModule } from '@angular/router';
     ModalDialogModule,
     IvyCarouselModule,
     ToastrModule,
-    RouterModule
+    RouterModule,
+    // NgbModal
     // DomSanitizer,
 
 
@@ -43,6 +47,10 @@ import { RouterModule } from '@angular/router';
     ModalDialogModule,
     IvyCarouselModule,
     ToastrModule,
-  ]
+    // NgbModal
+  ],
+  // providers: [
+  //   NgbModal
+  //     ],
 })
 export class SharedModule { }

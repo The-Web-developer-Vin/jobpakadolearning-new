@@ -1,10 +1,12 @@
-select:focus , input:focus {
+select:focus,
+input:focus {
   outline: none !important;
   border-color: inherit;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-select:focus-visible , input:focus-visible {
+select:focus-visible,
+input:focus-visible {
   outline: none !important;
   border-color: inherit;
   -webkit-box-shadow: none;
@@ -18,18 +20,18 @@ select:focus-visible , input:focus-visible {
 //     top: 0.75rem !important;
 //     right: 0.75rem !important;
 // }
-.ng-invalid.ng-touched{
+.ng-invalid.ng-touched {
   border-color: red;
 }
 
-.company_names{
-  img{
-      width: 100%;
-      height: 46px;
-      object-fit: contain;
+.company_names {
+  img {
+    width: 100%;
+    height: 46px;
+    object-fit: contain;
   }
 }
-.company_names{
+.company_names {
   &::before,
   &::after {
     content: "";
@@ -39,38 +41,47 @@ select:focus-visible , input:focus-visible {
   }
 }
 .disbled {
-opacity: 0.4;
-}
-.sign-in-button-2{
-:disabled{
-  cursor: not-allowed !important;
   opacity: 0.4;
 }
+.sign-in-button-2 {
+  :disabled {
+    cursor: not-allowed !important;
+    opacity: 0.4;
+  }
 }
 .flex-0 {
-flex: 0 0 auto!important;
+  flex: 0 0 auto !important;
 }
 .flex-auto {
-flex: 1 1 auto!important;
+  flex: 1 1 auto !important;
 }
-input[type='text']:read-only {
-background-color: #f0f4f7;
-border: none!important;
-transition-duration:inherit!important
+input[type="text"]:read-only {
+  background-color: #f0f4f7;
+  border: none !important;
+  transition-duration: inherit !important;
 }
-input:read-only:focus, input:read-only:focus-visible{
-border: none!important;
-transition-duration:inherit!important
-
+input:read-only:focus,
+input:read-only:focus-visible {
+  border: none !important;
+  transition-duration: inherit !important;
 }
-input:read-only ~ label{
-background: none;
-color: #000;
-opacity: 0.3;
+input:read-only ~ label {
+  background: none;
+  color: #000;
+  opacity: 0.3;
 }
-.is-invalid{
-border-color: rgb(255 0 0);
+.is-invalid {
+  border-color: rgb(255 0 0);
 }
-.is-invalid ~ label{
-color: rgb(255 0 0);
+.is-invalid ~ label {
+  color: rgb(255 0 0);
+}
+.z-99 {
+  z-index: 99999;
+}
+.transition_side {
+  transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.z-999{
+  z-index: 99999999;
 }

@@ -1,13 +1,36 @@
 <app-header></app-header>
 <div class="main">
   <div class="container mx-auto">
-    <div class="cart-blk pt-5 py-10">
+    <div class="cart-blk py-14">
       <div class="cart-heading text-center">
         <h1 class="text-3xl font-bold font-Lexend">Cart Items</h1>
       </div>
-      <div class="grid grid-cols-5 mt-10 2xl:mt-5 xl:mt-5 lg:mt-2 lgb:mt-2 md:mt-3 xs:mt-1 xsg:mt-1 2xl:px-10 xl:px-10 lg:px-5 lgb:px-10 md:px-5 sm:px-1 smg:px-0 xs:px-0 xsg:px-0 gap-5">
+
+    <div class="cart-length-blk">
+      <div *ngIf="!cartData?.length" class="text-center mt-10 border w-full py-10 2xl:m-0 xl:m-0 lg:m-0 lgb:m-0 md:m-5 col-span-3 2xl:col-span-3 xl:col-span-3 lg:col-span-3 lgb:col-span-3 md:col-span-5">
+        <div class="main-cart-empty-blk flex flex-col gap-2">
+         <div class="opps-heading-blk">
+           <h1 class="text-5xl font-bold font-Lexend text-white1 mb-4">Oops...!</h1>
+          </div>
+          <div class="cart-empty-blk">
+           <p class="mb-6 text-md text-gray-500">Your Cart is empty</p>
+          </div>
+         <div class="sopping-blk">
+           <button [routerLink]="['/']"
+           class="rounded-lg px-6 py-2.5 font-Lexend text-sm text-white bg-greenog group whitespace-nowrap"
+         >
+         Keep Shopping
+         </button>
+         </div>
+        </div>
+       </div>
+    </div>
+      <div  *ngIf="cartData?.length" class="grid grid-cols-5 mt-10 2xl:mt-5 xl:mt-5 lg:mt-2 lgb:mt-2 md:mt-3 xs:mt-1 xsg:mt-1 2xl:px-10 xl:px-10 lg:px-5 lgb:px-10 md:px-5 sm:px-1 smg:px-0 xs:px-0 xsg:px-0 gap-5">
+      
+      
+
         <div
-          class="2xl:m-0 xl:m-0 lg:m-0 lgb:m-0 md:m-5 col-span-3 2xl:col-span-3 xl:col-span-3 lg:col-span-3 lgb:col-span-3 md:col-span-5"
+         class="2xl:m-0 xl:m-0 lg:m-0 lgb:m-0 md:m-5 col-span-3 2xl:col-span-3 xl:col-span-3 lg:col-span-3 lgb:col-span-3 md:col-span-5"
         >
          <div *ngFor="let data of cartData; let i=index">
           <div class="cart-section-inner bg-white shadow-custom rounded-xl flex 2xl:flex xl:flex lg:flex lgb:flex md:flex sm:flex smg:flex xs:flex xsg:block pl-3 py-3 pr-5 gap-4 mb-5"

@@ -1,0 +1,319 @@
+
+<div class="fixed top-0 left-0 justify-center right-0 z-50 flex w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-full md:h-full bg-black bg-opacity-30 z-99">
+  <div
+  class="relative w-full max-w-800mx h-560h md:h-auto grid place-items-center"
+  >
+  <div
+  class="login-main-blk bg-white shadow h-full rounded-xl dark:bg-gray-700 relative z-50"
+  >
+  <div class="grid grid-cols-12 relative md:grid-cols-6 h-full">
+    <div
+      class="col-span-6 bg-light-blue rounded-e-none rounded-l-xl py-5 px-8 md:rounded-t-xl md:rounded-b-none hidden sm:block smg:hidden"
+    >
+      <div class="after-767-block">
+        <div
+          class="left-img-blk flex flex-col justify-between h-full"
+        >
+          <div class="image-sec">
+            <img
+              class="md:w-3/4"
+              src="../../../../assets/images/home-illustration.svg"
+              alt=""
+            />
+          </div>
+          <div class="bottom-blk">
+            <div class="left-heading-blk mb-5 text-left">
+              <h2 class="font-Lexend font-medium text-lg">
+                Over
+                <span class="text-greenog"> 8,00,000+</span>
+                learners trust for the their preparation
+              </h2>
+            </div>
+            <div class="learning-blk">
+              <div class="check-blk flex">
+                <span class="material-symbols-outlined text-lg">
+                  check_circle
+                </span>
+                <div class="learning-content-blk">
+                  <p
+                    class="font-Lexend font-light text-sm pl-2 text-start"
+                  >
+                    Learning from 2,000+India's top educators
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="learning-blk pt-3">
+              <div class="check-blk flex">
+                <span class="material-symbols-outlined text-lg">
+                  check_circle
+                </span>
+                <div class="learning-content-blk">
+                  <p
+                    class="font-Lexend font-light text-sm pl-2 text-start"
+                  >
+                    Access 3,00,000+ live classes,text
+                    series,courses and more for free
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="col-span-6 bg-light-blue rounded-e-none rounded-l-xl py-10 px-8 md:rounded-t-xl md:rounded-b-none block sm:hidden"
+    >
+      <div
+        class="left-blk text-left flex flex-col justify-between h-full"
+      >
+        <div class="left-img-blk">
+          <img
+            class="md:w-3/4"
+            src="../../../../assets/images/home-illustration.svg"
+            alt=""
+          />
+        </div>
+        <div class="right-content-images">
+          <div class="left-heading-blk mb-5 text-left">
+            <h2 class="font-Lexend font-medium text-lg">
+              Over
+              <span class="text-greenog"> 8,00,000+</span>
+              learners trust for the their preparation
+            </h2>
+          </div>
+          <div class="learning-blk">
+            <div class="check-blk flex">
+              <span class="material-symbols-outlined text-lg">
+                check_circle
+              </span>
+              <div class="learning-content-blk">
+                <p class="font-Lexend font-light text-sm pl-2">
+                  Learning from 2,000+India's top <br />
+                  educators
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="learning-blk pt-3">
+            <div class="check-blk flex">
+              <span class="material-symbols-outlined text-lg">
+                check_circle
+              </span>
+              <div class="learning-content-blk">
+                <p class="font-Lexend font-light text-sm pl-2">
+                  Access 3,00,000+ live classes,text <br />
+                  series,courses and more for free
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-6">
+      <div class="w-full h-full px-8 pt-10">
+        <div class="w-full h-full mx-auto pb-14">
+          <div class="instructor-blk">
+            <h2 class="font-Lexend font-semibold text-lg">Become a Jobpakado Instructor</h2>
+          </div>
+          <ng-container>
+            <form [formGroup]="admitForm" (ngSubmit)="onSubmit()"
+              class="mt-3 h-full">
+              <div class="flex flex-col h-full justify-between items-center">
+              <div class="form-blk">
+                <div class="my-2 mb-2">
+                  <div class="field">
+                    <div class="relative">
+                      <input
+                        type="text"
+                        oninput="this.value= this.value.replace(/[^a-zA-Z\s]/g, '')"
+                        id="fullName"
+                        class="text-secondary font-Lexend block py-3 px-4 w-full text-base bg-transparent rounded-lg border border-gray-light duration-500 focus:border-green appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        placeholder="Full Name"
+                        formControlName="name"
+                        [ngClass]="{'is-invalid': submitted && (a['name'].touched) && a['name'].errors?.['required']}"
+                      />
+                    </div>
+                    <div
+                      class="text-red text-sm text-capitalize"
+                      *ngIf="submitted &&  (a['name'].touched) && a['name'].errors?.['required']"
+                    >
+                      <p
+                        class="font-Lexend font-light text-xs italic text-red-700 text-start"
+                      >
+                        <sup>*</sup>Please Enter Full Name
+                      </p>
+                    </div>
+                  </div>
+                  <div class="field mt-3">
+                    <div class="relative">
+                      <input
+                        email
+                        type="email"
+                        id="email"
+                        class="text-secondary font-Lexend text-base block py-3 px-4 w-full bg-transparent rounded-lg border border-gray-light duration-500 focus:border-green appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        placeholder="Email ID"
+                        formControlName="email"
+                        [ngClass]="{'is-invalid': submitted && ( a['email'].touched) && a['email'].errors?.['required']}"
+                      />
+                    </div>
+                    <div
+                      class="text-red text-sm text-capitalize"
+                      *ngIf="submitted && (a['email'].touched) && a['email'].errors?.['required']"
+                    >
+                      <p
+                        class="font-Lexend font-light text-xs italic text-red-700 text-start"
+                      >
+                        <sup>*</sup>Please Enter Email
+                      </p>
+                    </div>
+                    <div
+                      class="text-red text-sm text-capitalize"
+                      *ngIf="submitted && a['email'].errors?.['email'] && a['email'].touched"
+                    >
+                      <p
+                        class="font-Lexend font-light text-xs italic text-red-700 text-start"
+                      >
+                        <sup>*</sup>Please Enter Valid Email
+                      </p>
+                    </div>
+                  </div>
+  
+                           <div class="field mt-3">
+                                  <div class="relative">
+                                    <input
+                                      type="text"
+                                      oninput="this.value= this.value.replace(/[^a-zA-Z\s]/g, '')"
+                                      id="city"
+                                      class="text-secondary font-Lexend block py-3 px-4 w-full text-base bg-transparent rounded-lg border border-gray-light duration-500 focus:border-green appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                      placeholder="City"
+                                      formControlName="city"
+                                      [ngClass]="{'is-invalid': submitted && (a['city'].touched) && a['city'].errors?.['required']}"
+                                      (keyup)="searchCites($event)"
+                                    />
+                                  </div>
+                                  <div
+                                    class="text-red text-sm text-capitalize"
+                                    *ngIf="submitted && (a['city'].touched) && (a['city'].errors?.['required'])"
+                                  >
+                                    <p
+                                      class="font-Lexend font-light text-xs italic text-red-700 text-start"
+                                    >
+                                      <sup>*</sup>Please Select City
+                                    </p>
+                                  </div>
+                                </div>
+
+  
+  
+                  <div class="field mt-3">
+                    <div class="relative">
+                      <input
+                        type="text"
+                        id="number"
+                        class="text-secondary font-Lexend text-base block py-3 px-4 w-full bg-transparent rounded-lg border border-gray-light duration-500 focus:border-green appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        placeholder="Phone Number"
+                        (keypress)="numberOnly($event)"
+                        minlength="10"
+                        maxlength="10"
+                        autofocus="autofocus"
+                        formControlName="mobile_number"
+                        [ngClass]="{'is-invalid': submitted && ( a['mobile_number'].touched) && a['mobile_number'].errors?.['required']}"
+                      />
+                    </div>
+                    <div
+                      class="text-red text-sm text-capitalize"
+                      *ngIf="submitted && (a['mobile_number'].touched) && a['mobile_number'].errors?.['required']"
+                    >
+                      <p
+                        class="font-Lexend font-light text-xs italic text-red-700 text-start"
+                      >
+                        <sup>*</sup>Please Enter Phone Number
+                      </p>
+                    </div>
+                    <div
+                      class="text-red text-sm text-capitalize"
+                      *ngIf="submitted && a['mobile_number'].errors?.['mobile_number'] && a['mobile_number'].touched"
+                    >
+                      <p
+                        class="font-Lexend font-light text-xs italic text-red-700 text-start"
+                      >
+                        <sup>*</sup>Please Enter Valid Phone Number
+                      </p>
+                    </div>
+                  </div>
+          
+  
+                  <div
+                    class="check flex mt-2 items-center gap-2 justify-between"
+                  >
+                    <p
+                      class="text-xs text-start text-secondary font-Lexend"
+                    >
+                      Get updates about your registered programs on
+                      Whatsapp
+                    </p>
+                  </div>
+                </div>
+  
+              </div>
+  
+              
+                <div class="bottom-section w-full">
+                  <div
+                    class="sign-in-button-2 flex items-center gap-5"
+                  >
+                    <div class="login-button-sec">
+                      <button
+                      type="sumbit"
+                      (click)="signUp()"
+                        class="bg-secondary w-full text-white rounded-lg text-base py-3 px-10 duration-500 hover:bg-green"
+      
+                      >
+                        Login
+                      </button>
+                    </div>
+                    <div class="continue-with-email">
+                      <button
+                        class="bg-transparent text-secondary font-Lexend border-none text-sm font-light flex gap-1 hover:text-greenog duration-300 items-center group"
+                      >
+                        Continue With Emal
+                        <i
+                          class="fa-solid fa-arrow-right group-hover:text-greenog group-hover:translate-x-3 duration-300"
+                        ></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="write-us-text-seciton mt-3">
+                    <p
+                      class="font-Lexend text-sm text-secondary text-start"
+                    >
+                      Having Trouble? write us on
+                      <span class="text-greenog cursor-pointer"
+                        ><a href="mailto:test@gmail.com">test@gmail.com</a></span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </ng-container>
+  
+    
+        </div>
+      </div>
+    </div>
+    <div class="close-blk absolute -top-3 -right-2">
+      <button
+      (click)="closeLoginModal()"
+     
+        class="fa-solid fa-xmark text-white bg-greenog rounded-full h-10 w-10 text-base hover:rotate-90 duration-500 flex items-center justify-center"
+      ></button>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
